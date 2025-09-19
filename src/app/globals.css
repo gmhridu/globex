@@ -1,26 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+    :root {
+        --primary: #f0be3b;
+        --secondary: #0c71c3;
+        --dark: #011529;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        font-family: "Inter", system-ui, sans-serif;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        color: inherit;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        letter-spacing: -0.02em;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        letter-spacing: -0.01em;
+    }
+
+    h3 {
+        font-size: clamp(1.25rem, 3vw, 1.875rem);
+    }
+
+    h4 {
+        font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    }
+
+    p {
+        margin-bottom: 1rem;
+        color: inherit;
+    }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider rounded-full border-2 border-transparent cursor-pointer transition-all duration-300 no-underline;
+    }
+
+    .btn-primary {
+        background-color: var(--primary);
+        color: #000;
+        border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--dark);
+        color: #fff;
+    }
+
+    .btn-dark {
+        background-color: var(--dark);
+        color: #fff;
+        border-color: var(--dark);
+    }
+
+    .btn-dark:hover {
+        background-color: var(--primary);
+        color: #000;
+    }
+
+    .form-input {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-lg text-sm transition-colors;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(240, 190, 59, 0.1);
+    }
+
+    .form-textarea {
+        @apply min-h-[120px] resize-y;
+    }
+
+    .form-select {
+        @apply pr-10;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 12px center;
+        background-repeat: no-repeat;
+        background-size: 16px 12px;
+    }
+
+    .card {
+        @apply bg-white rounded-3xl p-8 lg:p-10 shadow transition-all duration-300;
+    }
+
+    .card:hover {
+        @apply -translate-y-0.5 shadow-lg;
+    }
+
+    .section {
+        @apply py-20;
+    }
+
+    .section-sm {
+        @apply py-16;
+    }
+
+    .section-lg {
+        @apply py-24;
+    }
+
+    .blog-card {
+        @apply overflow-hidden bg-white shadow transition-transform duration-300;
+        border-radius: 30px 0 30px 0;
+    }
+
+    .blog-card:hover {
+        @apply -translate-y-1;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer utilities {
+    .text-primary {
+        color: var(--primary) !important;
+    }
+
+    .text-secondary {
+        color: var(--secondary) !important;
+    }
+
+    .text-dark {
+        color: var(--dark) !important;
+    }
+
+    .bg-primary {
+        background-color: var(--primary);
+    }
+
+    .bg-secondary {
+        background-color: var(--secondary);
+    }
+
+    .bg-dark {
+        background-color: var(--dark);
+    }
+
+    .bg-primary\/5 {
+        background-color: rgba(240, 190, 59, 0.05);
+    }
+
+    .bg-primary\/10 {
+        background-color: rgba(240, 190, 59, 0.1);
+    }
+
+    .bg-secondary\/5 {
+        background-color: rgba(12, 113, 195, 0.05);
+    }
+
+    .bg-dark-800 {
+        background-color: #1e293b;
+    }
+
+    .bg-dark-900 {
+        background-color: var(--dark);
+    }
+
+    .text-dark-900 {
+        color: var(--dark) !important;
+    }
+
+    .hover\:bg-primary:hover {
+        background-color: var(--primary);
+    }
+
+    .hover\:bg-primary-500:hover {
+        background-color: var(--primary);
+    }
+
+    .border-primary {
+        border-color: var(--primary);
+    }
+
+    .animate-bounce-gentle {
+        animation: bounceGentle 2s infinite;
+    }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes bounceGentle {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section {
+        @apply py-16;
+    }
+
+    .btn {
+        @apply px-6 py-2.5 text-sm;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        @apply py-12;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .card {
+        @apply p-5 rounded-2xl;
+    }
 }
