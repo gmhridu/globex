@@ -1,5 +1,6 @@
-import GlobexLogo from './components/icons/GlobexLogo';
+
 import { Linkedin } from 'lucide-react';
+import GlobexLogo from './GlobexLogo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -56,10 +57,10 @@ const Footer = () => {
             © {currentYear} • We Are Globex™
           </div>
           <div>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary transition-colors"
             >
               <Linkedin className="h-6 w-6" />

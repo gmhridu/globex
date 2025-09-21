@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/Navbar";
 import Home from "./pages/home/page";
 
 export const metadata: Metadata = {
@@ -23,11 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return (
-    <>
-      <Navbar />
-      <Home />
-      <Footer />
-    </>
-  );
+  return <Home />;
 }

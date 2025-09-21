@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://weareglobex.com",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://weareglobex.com"
   ),
   alternates: {
     canonical: "/",
@@ -92,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable}`} data-arp="">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -157,7 +159,10 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased bg-white text-gray-900`}>
         <div id="page-container" className="min-h-screen flex flex-col">
+          <Navbar />
           {children}
+
+          <Footer />
         </div>
       </body>
     </html>
