@@ -48,18 +48,19 @@ const StrategySteps = () => {
         >
           {/* Left side */}
           <div className="col-span-1 md:col-span-1">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">
               Extraordinary growth starts with a plan.
             </h2>
             <p className="text-lg mb-6">Your path to thrive in 4 steps:</p>
 
             <div className="relative mt-8">
               <Image
-                src="https://weareglobex.com/wp-content/uploads/2025/04/Asset-2.png"
+                src="/assests/home/mail.png"
                 width={500}
                 height={500}
                 alt="Blueprint illustration"
                 className="max-w-80 w-80 opacity-70"
+                priority={true}
               />
             </div>
           </div>
@@ -78,7 +79,7 @@ const StrategySteps = () => {
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="text-4xl md:text-5xl font-bold text-primary mb-3"
+                  className="text-4xl md:text-5xl font-bold mb-3"
                 >
                   {step.number}
                 </motion.div>

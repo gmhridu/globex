@@ -3,6 +3,7 @@
 
 @layer base {
   :root {
+    --font-family: var(--font-inter), Helvetica, Arial, Lucida, sans-serif;
     --primary: #f0be3b;
     --secondary: #0c1b2a;
     --accent: #f7f8fa;
@@ -23,7 +24,7 @@
   }
 
   body {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: var(--font-family);
     line-height: 1.6;
     font-weight: 400;
   }

@@ -1,14 +1,16 @@
-'use client'
+"use client";
 import { ChevronRight, Dot } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 const benefits = [
-  "Struggling to keep up with competitors who have more robust pipelines",
-  "Lost opportunities to grow in new markets",
-  "Resources squandered on unqualified leads",
-  "Stagnant or declining sales",
+  "Falling behind competitors already partnered with active global distributors",
+  "Missing critical windows to expand into high-potential markets",
+  "Wasting time on cold leads instead of warm introductions",
+  "Watching growth stall without the right partners on the ground",
 ];
 
 const ClientChallenges = () => {
@@ -24,37 +26,33 @@ const ClientChallenges = () => {
           {/* Left side - Content */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Rise above the typical challenges that define others.
+              Break Free from the <br />
+              Challenges That Hold Most <br />
+              Manufacturers Back
             </h2>
 
-            <ul className="space-y-4 mb-8">
+            <ul className="space-y-1 text-lg font-semibold mb-8">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0 mr-3">
-                    <Dot className="h-6 w-6 text-primary" />
-                  </div>
+                  <div className="flex-shrink-0 mr-3">•</div>
                   <span>{benefit}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 ">
-              <a
-                href="#contact"
-                className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4 
-               bg-primary text-black transition-all duration-300
-               hover:bg-secondary hover:text-white"
-              >
-                <span className="relative z-10">LETS TALK</span>
-
-                <span
-                  className="transform translate-x-[-10px] opacity-0 
-                 transition-all duration-300 ease-in-out 
-                 group-hover:translate-x-3 group-hover:opacity-100"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </span>
-              </a>
-            </div>
+            <Button
+              className="group inline-flex w-[220px] items-center justify-center text-lg
+        bg-primary text-black transition-all duration-300
+        hover:bg-white hover:text-black"
+            >
+              <Link href="/contact" className="inline-flex items-center">
+                LETS TALK
+                <ChevronRight
+                  className="h-5 w-5 transform translate-x-[-10px] opacity-0
+            transition-all duration-300 ease-in-out
+            group-hover:translate-x-3 group-hover:opacity-100"
+                />
+              </Link>
+            </Button>
           </div>
 
           {/* Right side - Image with Zoom-in Animation */}
@@ -66,11 +64,12 @@ const ClientChallenges = () => {
             className="rounded-lg overflow-hidden shadow-xl"
           >
             <Image
-              src="https://weareglobex.com/wp-content/uploads/2025/05/envato-labs-ai-680637bf-4a09-470e-b44b-ed4e781a6962.png"
+              src="/assests/home/warehouse-manager.jpg"
               width={500}
               height={500}
               alt="Manufacturing facility"
-              className="w-full h-full object-cover"
+              className="w-full h-[400px] object-cover rounded-3xl"
+              priority={true}
             />
           </motion.div>
         </div>

@@ -20,11 +20,11 @@ export default function Home() {
         <ValueProposition />
         <AgencySection />
         <StrategySteps />
-        <CallToAction />
+        {/* <CallToAction /> */}
         <PartnerCallout />
         <ClientChallenges />
         <SuccessStory />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Resources />
         <ContactForm />
       </main>

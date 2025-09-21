@@ -11,21 +11,21 @@ const AgencySection = () => {
 
   const services = [
     {
-      title: "Targeted Lead Generation",
+      title: "The Distributor Hub",
       description:
-        "Get quote-ready sales opportunities and focused support designed for manufacturing.",
+        "Expand into new markets by tapping into our network of vetted distributors worldwide.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Strategic Business Development",
+      title: "The Private Label Hub",
       description:
-        "Get quote-ready sales opportunities and focused support designed for manufacturing.",
+        "Connect with brands actively seeking private label partners — no cold outreach, just real opportunities.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Focused Sales Development",
+      title: "The Contract Mfg Hub",
       description:
-        "Get qualified meetings with decision-makers and nurture them into ready opportunities.",
+        "Get discovered by brands actively searching for trusted contract manufacturing partners. No cold calls—just qualified leads, ready to build.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
   ];
@@ -40,7 +40,7 @@ const AgencySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-[3.3rem] lg:leading-normal font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-[3.3rem] font-bold mb-8">
             We&apos;re A <span className="text-primary">Growth Agency</span> Built For Manufacturing.
           </h2>
 

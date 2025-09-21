@@ -1,49 +1,46 @@
 import { ChevronRight } from "lucide-react";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-secondary pt-24 min-h-[90vh] flex items-center">
+    <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center">
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage: "url('/assests/home/hero.jpg')",
           backgroundBlendMode: "overlay",
+          backgroundColor: "rgba(0, 0, 0, 0.66) !important",
         }}
-      >
-        <div className="absolute inset-0 bg-secondary opacity-70"></div>
-      </div>
+      ></div>
 
       {/* Content */}
       <div className="container relative z-10 py-16 md:py-24">
-        <div className="max-w-4xl">
+        <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Expand Your Manufacturing <br />
-            Reach. Boost your revenue. <br />
-            <span className="text-primary">Succeed.</span>
+            Build Your
+            <span className="text-primary ml-3">Distribution</span>. <br />
+            Accelerate Your <span className="text-primary">Revenue.</span>
           </h1>
-
-          <p className="mt-6 text-xl text-white max-w-2xl">
-            We help businesses expand, scale, and succeed in international markets with a results-driven strategy.
+          <p className="text-xl mb-6 text-white leading-relaxed">
+            We help businesses expand, scale, and succeed in international
+            markets with a results-driven strategy.
           </p>
-          <div className="mt-8 ">
-            <a
-              href="#contact"
-              className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4
-               bg-primary text-black transition-all duration-300
-               hover:bg-white hover:text-black"
-            >
-              <div className="relative z-10 whitespace-nowrap">GET IN TOUCH</div>
-
-              <span
-                className="transform translate-x-[-10px] opacity-0
-                 transition-all duration-300 ease-in-out
-                 group-hover:translate-x-3 group-hover:opacity-100"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </span>
-            </a>
-          </div>
+          <Button
+            className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
+        bg-primary text-black transition-all duration-300
+        hover:bg-white hover:text-black"
+          >
+            <Link href="/contact" className="inline-flex items-center">
+              GET IN TOUCH
+              <ChevronRight
+                className="h-5 w-5 transform translate-x-[-10px] opacity-0
+            transition-all duration-300 ease-in-out
+            group-hover:translate-x-3 group-hover:opacity-100"
+              />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

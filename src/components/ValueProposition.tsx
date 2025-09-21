@@ -1,8 +1,10 @@
-'use client'
+"use client";
 import { motion, easeOut } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -36,11 +38,12 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <Image
-              src="https://weareglobex.com/wp-content/uploads/2025/04/Service-Page-Images-17.png.webp"
+              src="/assests/home/struggling.jpg"
               alt="Manufacturing professional smiling"
-              width={600}
-              height={400}
-              className="w-full h-full object-cover object-center"
+              width={500}
+              height={300}
+              className="w-full h-[400px] object-cover object-center rounded-2xl"
+              priority={true}
             />
           </motion.div>
 
@@ -51,36 +54,42 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Struggling to win more ideal manufacturing clients?
+              Struggling to <span className="text-primary">Attract</span> the
+              Right <br />
+              <span className="text-primary">Distributors</span> for your{" "}
+              <span className="text-primary">Products</span>?
             </h2>
 
-            <p className="text-lg mb-6">
-              Stagnant sales, dependence on a small group of clients, and a lack
-              of prospects can make scaling your business challenging.
+            <p className="text-lg mb-6 font-semibold">
+              If your growth is tied to just a handful of clients or markets,
+              it’s only a matter of time before things stall. Without fresh,
+              qualified distributor interest, scaling becomes unpredictable —
+              and risky.
             </p>
 
-            <p className="text-lg mb-8">
-              At We Are Globex, we assist manufacturing suppliers in developing
-              and maintaining pipelines that foster steady growth.
+            <p className="text-lg mb-8 font-semibold">
+              At <span className="font-black">We Are Globex</span>, we help
+              manufacturers diversify their pipeline by connecting them directly
+              to pre-vetted distributors across Europe, North America, and
+              beyond — reducing dependency and unlocking steady, scalable
+              growth.
             </p>
 
             <div className="mt-8 ">
-              <a
-                href="#contact"
-                className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4 
-               bg-primary text-black transition-all duration-300
-               hover:bg-secondary hover:text-white"
+              <Button
+                className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
+        bg-primary text-black transition-all duration-300
+        hover:bg-white hover:text-black"
               >
-                <span className="relative z-10">LETS TALK</span>
-
-                <span
-                  className="transform translate-x-[-10px] opacity-0 
-                 transition-all duration-300 ease-in-out 
-                 group-hover:translate-x-3 group-hover:opacity-100"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </span>
-              </a>
+                <Link href="/contact" className="inline-flex items-center">
+                  LETS TALK
+                  <ChevronRight
+                    className="h-5 w-5 transform translate-x-[-10px] opacity-0
+            transition-all duration-300 ease-in-out
+            group-hover:translate-x-3 group-hover:opacity-100"
+                  />
+                </Link>
+              </Button>
             </div>
           </motion.div>
         </div>

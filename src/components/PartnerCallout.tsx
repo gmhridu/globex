@@ -1,17 +1,19 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Check, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 const PartnerCallout = () => {
   const benefits = [
-    "A steady stream of high-quality leads and opportunities",
-    "Gaining visibility with the most important prospects",
-    "Sustainable growth driven by proven methods",
-    "Building deeper connections with potential clients",
-    "Gaining a competitive advantage in your industry",
-    "More time dedicated to closing deals",
+    "A consistent flow of qualified distributor introductions",
+    "Exposure to key buyers and regional market influencers",
+    "Scalable, strategic growth with built-in local insights",
+    "Stronger, longer-lasting distributor relationships",
+    "A competitive edge through curated market access",
+    "More time focused on fulfilling orders, not chasing them",
   ];
 
   const [ref, inView] = useInView({
@@ -32,56 +34,55 @@ const PartnerCallout = () => {
             className="rounded-lg overflow-hidden shadow-xl"
           >
             <Image
-              src="https://weareglobex.com/wp-content/uploads/2025/04/57-768x512-1.png"
+              src="/assests/home/bearded-business-man.jpg"
               width={500}
               height={500}
               alt="Manufacturing workers"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-2xl"
+              priority={true}
             />
           </motion.div>
 
           {/* Right side - Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Establish yourself as the trusted partner for your ideal
-              manufacturing prospects.
+            <h2 className="text-3xl md:text-5xl font-bold mb-3">
+              Position <span className="text-primary">Your Brand</span> with the{" "}
+              <br />
+              Right <span className="text-primary">Distributors,</span> and Grow{" "}
+              <br />
+              with Confidence
             </h2>
 
-            <p className="text-lg mb-8">
-              Collaborating with We Are Globex is about more than just growth,
-              it&apos;s about establishing a strong foundation for lasting success.
-              This is the future your business is meant to have:
+            <p className="text-lg font-semibold mb-4">
+              Partnering with We Are Globex means more than generating leads,
+              it’s about building a strong, reliable presence in the markets
+              that matter most. We lay the foundation for long-term distribution
+              success by connecting you to partners who are ready to move.
             </p>
 
-            <ul className="space-y-4 mb-8">
+            <ul className="space-y-1 text-lg font-semibold mb-8">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0 mr-3">
-                    <Check className="h-6 w-6 text-primary" />
-                  </div>
+                  <div className="flex-shrink-0 mr-3">•</div>
                   <span>{benefit}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 ">
-              <a
-                href="#contact"
-                className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4 
-               bg-primary text-black transition-all duration-300
-               hover:bg-secondary hover:text-white"
-              >
-                <span className="relative z-10">LETS TALK</span>
-
-                <span
-                  className="transform translate-x-[-10px] opacity-0 
-                 transition-all duration-300 ease-in-out 
-                 group-hover:translate-x-3 group-hover:opacity-100"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </span>
-              </a>
-            </div>
+            <Button
+              className="group inline-flex w-[220px] items-center justify-center text-lg
+        bg-primary text-black transition-all duration-300
+        hover:bg-white hover:text-black"
+            >
+              <Link href="/contact" className="inline-flex items-center">
+                LETS TALK
+                <ChevronRight
+                  className="h-5 w-5 transform translate-x-[-10px] opacity-0
+            transition-all duration-300 ease-in-out
+            group-hover:translate-x-3 group-hover:opacity-100"
+                />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
