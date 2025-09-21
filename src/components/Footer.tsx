@@ -1,6 +1,7 @@
 
 import { Linkedin } from 'lucide-react';
 import GlobexLogo from './GlobexLogo';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,9 +23,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 uppercase">MAIN</h3>
             <ul className="space-y-3">
-              <li><a href="/" className="text-gray-400 hover:text-primary transition-colors">Home</a></li>
-              <li><a href="/about-us" className="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="/careers" className="text-gray-400 hover:text-primary transition-colors">Careers</a></li>
+              <li><Link href="/" className="text-gray-400 hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/about-us" className="text-gray-400 hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/careers" className="text-gray-400 hover:text-primary transition-colors">Careers</Link></li>
             </ul>
           </div>
 
@@ -32,9 +33,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 uppercase">SERVICES</h3>
             <ul className="space-y-3">
-              <li><a href="/manufacturing-services" className="text-gray-400 hover:text-primary transition-colors">Manufacturing Services</a></li>
-              <li><a href="/contract-manufacturing" className="text-gray-400 hover:text-primary transition-colors">Contract Manufacturing</a></li>
-              <li><a href="/software-solutions" className="text-gray-400 hover:text-primary transition-colors">Software Solutions</a></li>
+              <li><Link href="/manufacturing-services" className="text-gray-400 hover:text-primary transition-colors">Manufacturing Services</Link></li>
+              <li><Link href="/contract-manufacturing" className="text-gray-400 hover:text-primary transition-colors">Contract Manufacturing</Link></li>
+              <li><Link href="/software-solutions" className="text-gray-400 hover:text-primary transition-colors">Software Solutions</Link></li>
             </ul>
           </div>
 
@@ -42,11 +43,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 uppercase">COMPANY</h3>
             <ul className="space-y-3">
-              <li><a href="/contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="/plant-a-tree" className="text-gray-400 hover:text-primary transition-colors">Plant A Tree</a></li>
-              <li><a href="/blog" className="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="/gdpr-statement" className="text-gray-400 hover:text-primary transition-colors">GDPR Statement</a></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link href="/plant-a-tree" className="text-gray-400 hover:text-primary transition-colors">Plant A Tree</Link></li>
+              <li><Link href="/blog" className="text-gray-400 hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link href="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/gdpr-statement" className="text-gray-400 hover:text-primary transition-colors">GDPR Statement</Link></li>
             </ul>
           </div>
         </div>
@@ -57,14 +58,14 @@ const Footer = () => {
             © {currentYear} • We Are Globex™
           </div>
           <div>
-            <a
+            <Link
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary transition-colors"
             >
               <Linkedin className="h-6 w-6" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

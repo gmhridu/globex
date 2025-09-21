@@ -8,7 +8,7 @@ const SuccessStory = () => {
           {/* Left side */}
           <div className="col-span-1 md:col-span-1">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Let's build your next success story.
+              Let&aposs build your next success story.
             </h2>
             <p className="text-lg mb-6">
               Manufacturing businesses across industries trust We Are Globex to
@@ -23,15 +23,15 @@ const SuccessStory = () => {
             <div className="mt-8">
               <a
                 href="#contact"
-                className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4 
+                className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4
                bg-transparent text-white border transition-all duration-300
                hover:bg-white/20 hover:text-white"
               >
                 <span className="relative z-10">LETS TALK</span>
 
                 <span
-                  className="transform translate-x-[-10px] opacity-0 
-                 transition-all duration-300 ease-in-out 
+                  className="transform translate-x-[-10px] opacity-0
+                 transition-all duration-300 ease-in-out
                  group-hover:translate-x-3 group-hover:opacity-100"
                 >
                   <ChevronRight className="w-5 h-5" />
