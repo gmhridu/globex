@@ -9,9 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#f0be3b",
-        secondary: "#0c71c3",
-        dark: "#011529",
+        primary: "#F4B23A",
+        "primary-dark": "#DAA520",
+        secondary: "#0C1B2A",
+        accent: "#F7F8FA",
+        "text-gray": "#6C757D",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
@@ -29,6 +31,10 @@ const config: Config = {
             transform: "translateY(-10px)",
           },
         },
+      },
+      backgroundImage: {
+        "hero-pattern":
+          "url('https://images.pexels.com/photos/3052361/pexels-photo-3052361.jpeg?auto=compress&cs=tinysrgb&w=1600')",
       },
     },
   },

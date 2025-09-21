@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import GlobexLogo from "../GlobexLogo";
 
 interface NavigationItem {
   label: string;
@@ -107,7 +107,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[1300px] z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[1300px] z-50 transition-all duration-300 rounded-sm ${
         isScrolled
           ? "bg-white/95 backdrop-blur-sm shadow-lg py-2"
           : "bg-transparent py-4"
@@ -117,16 +117,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="block">
-              <Image
-                src="/images/logo.png"
-                alt="We Are Globex"
-                width={200}
-                height={51}
-                className="h-12 w-auto"
-                priority
-              />
-            </Link>
+            <GlobexLogo />
           </div>
 
           {/* Desktop Navigation */}

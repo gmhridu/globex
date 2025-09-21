@@ -1,15 +1,7 @@
 import { Metadata } from "next";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Hero";
-import PartnersSection from "@/components/sections/PartnersSection";
-import AboutSection from "@/components/sections/AboutSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import ProcessSection from "@/components/sections/ProcessSection";
-import BenefitsSection from "@/components/sections/BenefitsSection";
-import ChallengesSection from "@/components/sections/ChallengesSection";
-import CTASection from "@/components/sections/CTASection";
-import BlogSection from "@/components/sections/BlogSection";
+import Navbar from "@/components/Navbar";
+import Home from "./pages/home/page";
 
 export const metadata: Metadata = {
   title: "We Are Globex | A Growth Agency Built for Manufacturing",
@@ -33,18 +25,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <PartnersSection />
-        <AboutSection />
-        <ServicesSection />
-        <ProcessSection />
-        <BenefitsSection />
-        <ChallengesSection />
-        <CTASection />
-        <BlogSection />
-      </main>
+      <Navbar />
+      <Home />
       <Footer />
     </>
   );
