@@ -16,7 +16,10 @@ export default function Hero() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="container mx-auto px-4 text-center">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      <div className="container mx-auto px-4 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,11 +58,10 @@ export default function Hero() {
           >
             <Button
               href="/contact"
-              variant="primary"
               size="lg"
               icon={ArrowRight}
               iconPosition="right"
-              className="shadow-lg hover:shadow-xl"
+              className="shadow-lg hover:shadow-xl bg-primary-400 text-white"
             >
               Get in Touch
             </Button>

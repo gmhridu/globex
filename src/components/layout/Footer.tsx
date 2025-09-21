@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Linkedin } from "lucide-react";
+import GlobexLogo from "../GlobexLogo";
 
 const footerLinks = {
   main: [
@@ -26,175 +26,6 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-dark-900 text-white">
-      {/* CTA Section */}
-      <div className="bg-gray-100 py-20">
-        <div className="container mx-auto px-4">
-          <div
-            className="bg-white rounded-3xl p-16 bg-cover bg-center relative overflow-hidden"
-            style={{
-              backgroundImage: "url('/images/white-map-background.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-white/90"></div>
-            <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-4xl lg:text-6xl font-bold text-dark-900 leading-tight mb-4">
-                  Speak to an international
-                  <br />
-                  business advisor
-                </h2>
-                <p className="text-lg text-gray-600 mb-6">
-                  Get in touch to find out how we can help you achieve your
-                  international expansion goals.
-                </p>
-                <Link href="/contact" className="btn btn-primary inline-flex">
-                  Get Started Now!
-                </Link>
-              </div>
-
-              {/* Contact Form */}
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="Enter Your First Name"
-                        className="form-input"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Enter Your Last Name"
-                        className="form-input"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="company"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        placeholder="Company"
-                        className="form-input"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email Address"
-                        className="form-input"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Phone/Mobile
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      placeholder="Mobile Number"
-                      className="form-input"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="description"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Which of these describes you best?
-                    </label>
-                    <select
-                      id="description"
-                      name="description"
-                      className="form-input form-select"
-                    >
-                      <option value="">- Select -</option>
-                      <option value="new">
-                        The idea of going international is new to me and I
-                        haven&apos;t given it much thought until now
-                      </option>
-                      <option value="thinking">
-                        I&apos;ve thought of going international for some time
-                        but it seems hard and I don&apos;t know where to start
-                      </option>
-                      <option value="tried">
-                        I&apos;ve tried expanding my business overseas but with
-                        no or limited success
-                      </option>
-                      <option value="already">
-                        I&apos;m already in international markets and I want to
-                        go faster
-                      </option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Tell us more
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us more"
-                      rows={3}
-                      className="form-input form-textarea"
-                    ></textarea>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary w-full">
-                    Submit Form
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="py-12">
         <div className="container mx-auto px-4">
@@ -202,13 +33,7 @@ export default function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-3">
               <Link href="/" className="block mb-4">
-                <Image
-                  src="/images/logo-white.png"
-                  alt="We Are Globex"
-                  width={200}
-                  height={51}
-                  className="h-12 w-auto"
-                />
+                <GlobexLogo />
               </Link>
               <p className="text-primary-500 font-semibold text-lg mb-4">
                 A Growth Agency built for Manufacturing
