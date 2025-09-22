@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import GlobexLogo from "../GlobexLogo";
+import GlobexLogo from "../home/GlobexLogo";
 
 interface NavigationItem {
   label: string;
@@ -107,18 +107,16 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[1300px] z-50 transition-all duration-300 rounded-sm ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-lg py-2"
-          : "bg-transparent py-4"
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-secondary shadow-lg py-6" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <GlobexLogo />
-          </div>
+          <Link href="/" className="flex items-center">
+            <GlobexLogo className="h-12 w-auto" />
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -129,7 +127,7 @@ export default function Header() {
                     <button
                       className={`flex items-center space-x-1 font-semibold text-base transition-colors duration-200 ${
                         isScrolled
-                          ? "text-gray-900 hover:text-primary-500"
+                          ? "text-white hover:text-primary-500"
                           : "text-white hover:text-primary-400"
                       }`}
                       onMouseEnter={() => setActiveDropdown(item.label)}
@@ -169,7 +167,7 @@ export default function Header() {
                     href={item.href}
                     className={`font-semibold text-base transition-colors duration-200 ${
                       isScrolled
-                        ? "text-gray-900 hover:text-primary-500"
+                        ? "text-white hover:text-primary-500"
                         : "text-white hover:text-primary-400"
                     }`}
                   >

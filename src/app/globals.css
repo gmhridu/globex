@@ -5,7 +5,7 @@
   :root {
     --font-family: var(--font-inter), Helvetica, Arial, Lucida, sans-serif;
     --primary: #f0be3b;
-    --secondary: #0c1b2a;
+    --secondary: #031325;
     --accent: #f7f8fa;
     --text-gray: #6c757d;
     --dark: #011529;
@@ -67,7 +67,7 @@
 
 @layer components {
   .container {
-    @apply px-4 mx-auto max-w-7xl;
+    @apply px-4 mx-auto max-w-5xl;
   }
 
   .btn {

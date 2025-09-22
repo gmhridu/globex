@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Check, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import Link from "next/link";
 
 const PartnerCallout = () => {

@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import Link from "next/link";
 
 const SuccessStory = () => {
@@ -7,15 +7,10 @@ const SuccessStory = () => {
     <section className="bg-secondary text-white py-16 md:py-24">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-7xl">
-            The Right <span className="text-primary">Partners</span>. The Right{" "}
-            <span className="text-primary">Markets</span>. The Right{" "}
-            <span className="text-primary">Time</span>.
-            <br />
-            Schedule a call and let <span className="text-primary">
-              Globex
-            </span>{" "}
-            take your distribution to the next level.
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl ">
+            Your next growth <span className="text-primary">growth market</span>{" "}
+            is closer than you think.<br/>Let’s connect you with <span className="text-primary">trusted distributors</span>{" "}and start <br/>
+            building traction — fast.
           </h2>
 
           <Button

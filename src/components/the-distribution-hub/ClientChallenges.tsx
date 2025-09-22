@@ -3,14 +3,14 @@ import { ChevronRight, Dot } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import Link from "next/link";
 
 const benefits = [
-  "Falling behind competitors already partnered with active global distributors",
-  "Missing critical windows to expand into high-potential markets",
-  "Wasting time on cold leads instead of warm introductions",
-  "Watching growth stall without the right partners on the ground",
+  "Missing out on global opportunities because you’re not plugged into the right networks",
+  "Delays in market entry while your competitors move faster with local partners",
+  "Time wasted chasing cold leads instead of focusing on warm, qualified ones",
+  "Struggling to build traction without distributors who truly understand your product",
 ];
 
 const ClientChallenges = () => {
@@ -26,9 +26,9 @@ const ClientChallenges = () => {
           {/* Left side - Content */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Break Free from the <br />
-              Challenges That Hold Most <br />
-              Manufacturers Back
+              What’s at Risk Without the <br />
+              Right Distribution Partner <br />
+              Strategy?
             </h2>
 
             <ul className="space-y-1 text-lg font-semibold mb-8">
@@ -64,7 +64,7 @@ const ClientChallenges = () => {
             className="rounded-lg overflow-hidden shadow-xl"
           >
             <Image
-              src="/assests/home/warehouse-manager.jpg"
+              src="/assests/tailored-solutions/distributor-hub/envato-labs-ai.png"
               width={500}
               height={500}
               alt="Manufacturing facility"

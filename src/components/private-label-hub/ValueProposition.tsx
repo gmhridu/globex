@@ -3,7 +3,7 @@ import { motion, easeOut } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import Link from "next/link";
 
 const fadeUpVariants = {
@@ -38,9 +38,9 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <Image
-              src="/assests/home/struggling.jpg"
+              src="/assests/tailored-solutions/private-label-hub/cosmetic-glass-bottles.jpg"
               alt="Manufacturing professional smiling"
-              width={500}
+              width={300}
               height={300}
               className="w-full h-[400px] object-cover object-center rounded-2xl"
               priority={true}
@@ -54,27 +54,19 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Struggling to <span className="text-primary">Attract</span> the
-              Right <br />
-              <span className="text-primary">Distributors</span> for your{" "}
-              <span className="text-primary">Products</span>?
+              Struggling to Attract the Right Brands for Your Private Label
+              Services?
             </h2>
-
-            <p className="text-lg mb-6 font-semibold">
-              If your growth is tied to just a handful of clients or markets,
-              it’s only a matter of time before things stall. Without fresh,
-              qualified distributor interest, scaling becomes unpredictable —
-              and risky.
-            </p>
-
             <p className="text-lg mb-8 font-semibold">
-              At <span className="font-black">We Are Globex</span>, we help
-              manufacturers diversify their pipeline by connecting them directly
-              to pre-vetted distributors across Europe, North America, and
-              beyond — reducing dependency and unlocking steady, scalable
-              growth.
+              You’ve got the capacity and capability — but finding serious,
+              ready-to-buy brand partners is tough. Relying on word of mouth or
+              waiting for inbound leads just isn’t enough.
             </p>
-
+            <p className="text-lg mb-8 font-semibold">
+              We connect private label manufacturers with pre-vetted brands
+              actively looking to outsource production — so you can focus on
+              making, not chasing.
+            </p>
             <div className="mt-8 ">
               <Button
                 className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
