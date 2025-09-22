@@ -3,7 +3,7 @@ import { motion, easeOut } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import Link from "next/link";
 
 const fadeUpVariants = {

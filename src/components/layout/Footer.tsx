@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
-import GlobexLogo from "../GlobexLogo";
+import GlobexLogo from "../home/GlobexLogo";
 
 const footerLinks = {
   main: [

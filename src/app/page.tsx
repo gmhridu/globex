@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Home from "./pages/home/page";
+import Home from "./home/page";
 
 export const metadata: Metadata = {
   title: "We Are Globex | A Growth Agency Built for Manufacturing",
