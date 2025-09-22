@@ -20,18 +20,17 @@ const HeroSection = () => {
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
-            Where
-            <span className="text-primary ml-3">Private Label</span>{" "}
-            Manufacturers
-            <br /> Meet the{" "}
-            <span className="text-primary">Right Brands</span>.
+            We Bring Clients to
+            <br />
+            <span className="text-primary ml-3">
+            Contract Manufacturers
+            </span>{" "}
           </h1>
           <p className="text-xl mb-6 mt-2 text-white leading-relaxed">
-            We facilitate{" "}
-            <span className="text-primary">strategic introductions</span>{" "}
-            between manufacturers <br />
-            and brands looking to outsource production —{" "}
-            <span className="text-primary ml-3">the right fit, every time</span>
+            Partner with We Are Globex to connect directly with OEMs and brands
+            looking for reliable manufacturing partners. We open doors to
+            high-value clients, helping you fill your production pipeline and
+            secure long-term contracts.
           </p>
           <Button
             className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
