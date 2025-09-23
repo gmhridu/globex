@@ -222,6 +222,11 @@
     background-blend-mode: overlay;
   }
 
+  .hero-background2 {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    background-blend-mode: overlay;
+  }
+
   .border-primary {
     border-color: var(--primary);
   }

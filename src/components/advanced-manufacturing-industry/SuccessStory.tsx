@@ -8,9 +8,8 @@ const SuccessStory = () => {
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl ">
-            <span className="text-primary">Don’t Let Your Growth Stall.</span>
-            Speak with a Globex <br />
-            Growth Expert and create a future built for thriving.
+            <span className="text-primary">Let’s accelerate your growth.</span> <br />
+            Speak with a Globex Growth Expert
           </h2>
 
           <Button

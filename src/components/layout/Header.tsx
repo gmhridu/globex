@@ -49,7 +49,7 @@ const navigation: NavigationItem[] = [
       },
       {
         label: "Advanced Manufacturing Industry 4.0",
-        href: "/advanced-manufacturing-industry-4-0",
+        href: "/advanced-manufacturing-industry",
       },
       {
         label: "Automation Solutions",

@@ -7,15 +7,13 @@ import ValueProposition from "@/components/general-manufacturing/ValuePropositio
 
 export default function GeneralManuFacturingPage() {
   return (
-    <>
-      <main>
-        <HeroSection />
-        <ValueProposition />
-        <GrowthChallenges />
-        <TrustedPartner />
-        <SuccessStory />
-        <ContactForm />
-      </main>
-    </>
+    <main>
+      <HeroSection />
+      <ValueProposition />
+      <GrowthChallenges />
+      <TrustedPartner />
+      <SuccessStory />
+      <ContactForm />
+    </main>
   );
 }
