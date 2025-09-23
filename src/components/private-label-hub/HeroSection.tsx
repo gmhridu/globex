@@ -7,12 +7,11 @@ const HeroSection = () => {
     <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center">
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center z-0"
+        className="absolute inset-0 bg-cover bg-center z-0 hero-background"
         style={{
           backgroundImage:
-            "url('/assests/tailored-solutions/contract-manufacturers-hub/hero.jpg')",
+            "url('/assests/tailored-solutions/private-label-hub/hero.jpg')",
           backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(0, 0, 0, 0.66) !important",
         }}
       ></div>
 
@@ -23,8 +22,7 @@ const HeroSection = () => {
             Where
             <span className="text-primary ml-3">Private Label</span>{" "}
             Manufacturers
-            <br /> Meet the{" "}
-            <span className="text-primary">Right Brands</span>.
+            <br /> Meet the <span className="text-primary">Right Brands</span>.
           </h1>
           <p className="text-xl mb-6 mt-2 text-white leading-relaxed">
             We facilitate{" "}

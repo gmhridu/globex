@@ -216,6 +216,12 @@
     background-color: var(--primary);
   }
 
+  /* Hero background with immediate color application */
+  .hero-background {
+    background-color: rgba(0, 0, 0, 0.76) !important;
+    background-blend-mode: overlay;
+  }
+
   .border-primary {
     border-color: var(--primary);
   }

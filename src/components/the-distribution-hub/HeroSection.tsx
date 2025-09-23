@@ -7,11 +7,10 @@ const HeroSection = () => {
     <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center">
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center z-0"
+        className="absolute inset-0 bg-cover bg-center z-0 hero-background"
         style={{
           backgroundImage: "url('/assests/tailored-solutions/distributor-hub/hero.jpg')",
           backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(0, 0, 0, 0.66) !important",
         }}
       ></div>
 
