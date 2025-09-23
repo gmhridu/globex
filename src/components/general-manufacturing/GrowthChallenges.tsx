@@ -29,10 +29,10 @@ const GrowthChallenges = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
-          From CNC machining to injection molding, we help contract
-          manufacturers and job shops win high-value opportunities, expand into
-          new markets, and foster lasting client relationships. At We Are
-          Globex, we drive consistent growth—without increasing your overhead.
+          We assist manufacturers in securing international opportunities,
+          entering new markets, and fostering long-term distributor
+          relationships. Let Globex drive your business toward sustainable
+          growth while keeping your overhead low.
         </motion.p>
 
         {/* Expandable Sections */}
@@ -48,7 +48,7 @@ const GrowthChallenges = () => {
                   expandedSection === "main" ? "text-primary" : "text-white"
                 }`}
               >
-                Your pipeline is inconsistent and unpredictable
+                Overcoming Challenges in Expanding International Dealer Networks
               </span>
               <motion.span
                 className="text-[#f5b332] text-2xl"
@@ -82,12 +82,15 @@ const GrowthChallenges = () => {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      Contract manufacturers frequently face challenges with
-                      unreliable referrals and outdated sales methods. At We Are
-                      Globex, our dedicated team uses data-driven targeting to
-                      deliver a steady stream of high-quality leads. We craft
-                      campaigns that resonate with your ideal buyers, helping
-                      you build strong, long-term partnerships.
+                      Manufacturers frequently face challenges when expanding
+                      their dealer networks in international markets, from
+                      inconsistent referrals to outdated sales strategies. At
+                      Globex, we understand these struggles and provide a
+                      dedicated team that uses data-driven insights to
+                      continuously generate high-quality leads. We create
+                      tailored campaigns that directly engage your target
+                      audience, helping you build strong, long-lasting
+                      partnerships in new markets.
                     </motion.p>
                   </motion.div>
                 </motion.div>
@@ -108,8 +111,7 @@ const GrowthChallenges = () => {
                     : "text-white"
                 }`}
               >
-                Having trouble cutting through the noise in a competitive
-                market?
+                Securing Reliable and Trusted Distribution Partners
               </span>
               <motion.span
                 className="text-[#f5b332] text-2xl"
@@ -147,12 +149,12 @@ const GrowthChallenges = () => {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      In a market full of manufacturers competing for attention,
-                      it’s essential to stand out. At We Are Globex, we position
-                      your business as an industry leader by creating
-                      personalized outreach that highlights your unique
-                      strengths, whether it’s exceptional precision, fast
-                      turnaround times, or specialized expertise.
+                      Finding trustworthy distribution partners is crucial for
+                      international expansion. We leverage our extensive network
+                      and rigorous vetting process to connect you with reliable
+                      partners who share your commitment to quality and customer
+                      satisfaction. Our proven methodology ensures long-term
+                      success in new markets.
                     </motion.p>
                   </motion.div>
                 </motion.div>
@@ -171,7 +173,7 @@ const GrowthChallenges = () => {
                   expandedSection === "regional" ? "text-primary" : "text-white"
                 }`}
               >
-                Your reach is restricted to familiar or regional markets.
+                Aligning Product Offerings with Regional Demand
               </span>
               <motion.span
                 className="text-[#f5b332] text-2xl"
@@ -207,12 +209,12 @@ const GrowthChallenges = () => {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      Expand beyond geographic and industry limitations. Our
-                      data-driven strategy enables you to enter new markets,
-                      whether through regional growth or tapping into new
-                      sectors. We pinpoint the right prospects, qualify them,
-                      and ensure your sales team focuses on leads that are ready
-                      to take the next step.
+                      Understanding regional preferences and adapting your
+                      product offerings accordingly is key to market success. We
+                      conduct comprehensive market research to identify local
+                      trends, consumer behaviors, and competitive landscapes,
+                      enabling you to tailor your products and marketing
+                      strategies for maximum impact in each region.
                     </motion.p>
                   </motion.div>
                 </motion.div>

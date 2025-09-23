@@ -156,11 +156,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased bg-white text-gray-900`}>
+      <body
+        className={`${inter.className} antialiased bg-white text-gray-900`}
+        cz-shortcut-listen="true"
+      >
         <div id="page-container" className="min-h-screen flex flex-col">
           <Header />
           {children}
-
           <Footer />
         </div>
       </body>
