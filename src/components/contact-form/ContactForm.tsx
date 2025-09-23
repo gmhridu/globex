@@ -15,7 +15,7 @@ const ContactForm = () => {
         className="container"
         style={{
           backgroundImage:
-            "url('https://weareglobex.com/wp-content/uploads/2025/03/white-map-background.jpg')",
+            "url('/assests/contact-form/white-map-background.jpg')",
           backgroundBlendMode: "overlay",
           opacity: 0.9,
           backgroundSize: "cover",
@@ -40,15 +40,15 @@ const ContactForm = () => {
             <div className="mt-8 ">
               <a
                 href="#contact"
-                className="btn btn-primary group inline-flex items-center justify-center  text-lg px-8 py-4 
+                className="btn btn-primary group inline-flex items-center justify-center  text-lg px-8 py-4
                bg-primary text-black transition-all duration-300
                hover:bg-secondary hover:text-white"
               >
                 <span className="relative z-10">GET STARTED NOW!</span>
 
                 <span
-                  className="transform translate-x-[-10px] opacity-0 
-                 transition-all duration-300 ease-in-out 
+                  className="transform translate-x-[-10px] opacity-0
+                 transition-all duration-300 ease-in-out
                  group-hover:translate-x-3 group-hover:opacity-100"
                 >
                   <ChevronRight className="w-5 h-5" />

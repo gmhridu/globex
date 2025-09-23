@@ -1,4 +1,4 @@
-import ContactForm from "@/components/contract-manufacturing/ContactForm";
+import ContactForm from "@/components/contact-form/ContactForm";
 import GrowthChallenges from "@/components/contract-manufacturing/GrowthChallenges";
 import HeroSection from "@/components/contract-manufacturing/HeroSection";
 import SuccessStory from "@/components/contract-manufacturing/SuccessStory";

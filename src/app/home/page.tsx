@@ -7,7 +7,7 @@ import PartnerCallout from "@/components/home/PartnerCallout";
 import ClientChallenges from "@/components/home/ClientChallenges";
 import SuccessStory from "@/components/home/SuccessStory";
 import Resources from "@/components/home/Resources";
-import ContactForm from "@/components/home/ContactForm";
+import ContactForm from "@/components/contact-form/ContactForm";
 
 export default function Home() {
   return (
