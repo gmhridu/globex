@@ -9,7 +9,7 @@ const Partner = () => {
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Partnering for a Brighter Future: Supporting Shooting Star
-            Children's Hospices
+            Children&apos;s Hospices
           </h1>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
         </div>
@@ -21,7 +21,7 @@ const Partner = () => {
             <span className="font-semibold text-gray-900">We Are Globex</span>{" "}
             is honored to partner with{" "}
             <span className="font-semibold text-gray-900">
-              Shooting Star Children's Hospices
+              Shooting Star Children&apos;s Hospices
             </span>
             , a charity dedicated to providing exceptional care to babies,
             children, and young people with life-limiting conditions, and their
@@ -31,7 +31,7 @@ const Partner = () => {
           {/* Second Paragraph */}
           <p className="text-lg text-center leading-relaxed">
             <span className="font-semibold text-gray-900">
-              Shooting Star Children's Hospices
+              Shooting Star Children&apos;s Hospices
             </span>{" "}
             is committed to making every moment count, offering support through
             all stages of life – whether those moments are measured in days,
@@ -56,7 +56,7 @@ const Partner = () => {
             <span className="font-semibold text-blue-600">
               200 bereaved families
             </span>
-            , Shooting Star Children's Hospices relies on the generosity of
+            , Shooting Star Children&apos;s Hospices relies on the generosity of
             supporters to continue offering these vital services, which cost{" "}
             <span className="font-semibold text-blue-600">
               £10 million annually
@@ -70,7 +70,7 @@ const Partner = () => {
             <span className="font-semibold text-gray-900">We Are Globex</span>,
             we are deeply moved by the life-changing work of{" "}
             <span className="font-semibold text-gray-900">
-              Shooting Star Children's Hospices
+              Shooting Star Children&apos;s Hospices
             </span>{" "}
             and are proud to contribute to their mission. By joining forces with
             this incredible charity, we hope to help ensure they can continue to
@@ -90,15 +90,15 @@ const Partner = () => {
               >
                 www.shootingstar.org.uk
               </a>{" "}
-              and make a difference in a child's life!
+              and make a difference in a child&apos;s life!
             </p>
           </div>
 
           {/* Charity Registration */}
           <div className="text-center pt-4 border-t border-gray-200">
             <p className="text-sm text-gray-600 font-medium">
-              Shooting Star Children's Hospices are a Registered Charity No:
-              1042495*
+              Shooting Star Children&apos;s Hospices are a Registered Charity
+              No: 1042495*
             </p>
           </div>
         </div>

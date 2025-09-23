@@ -234,13 +234,13 @@ const ContactForm = () => {
                           <option value="">Select an option...</option>
                           <option value="new-idea">
                             The idea of going international is new to me and I
-                            haven't given it much thought
+                            haven&apos;t given it much thought
                           </option>
                           <option value="actively-looking">
-                            I'm actively looking to expand internationally
+                            I&apos;m actively looking to expand internationally
                           </option>
                           <option value="already-international">
-                            We're already international but looking to grow
+                            We&apos;re already international but looking to grow
                             further
                           </option>
                         </Select>

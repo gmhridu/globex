@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-   experimental: {
+  experimental: {
     // Remove turbopack if enabled
     // turbopack: true,
   },
-  swcMinify: true,
   /* config options here */
   images: {
     remotePatterns: [

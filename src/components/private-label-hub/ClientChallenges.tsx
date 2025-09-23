@@ -1,5 +1,5 @@
 "use client";
-import { ChevronRight, Dot } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
