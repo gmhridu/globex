@@ -35,7 +35,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: var(--font-family);
     font-weight: 700;
     line-height: 1.2;
     color: inherit;
