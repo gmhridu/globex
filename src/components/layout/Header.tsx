@@ -186,15 +186,11 @@ export default function Header() {
           >
             {isMobileMenuOpen ? (
               <X
-                className={`w-6 h-6 ${
-                  isScrolled ? "text-gray-900" : "text-white"
-                }`}
+                className={`w-6 h-6 text-white`}
               />
             ) : (
               <Menu
-                className={`w-6 h-6 ${
-                  isScrolled ? "text-gray-900" : "text-white"
-                }`}
+                className={`w-6 h-6 text-white`}
               />
             )}
           </button>

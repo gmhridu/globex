@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const ImpactSection = () => {
@@ -9,40 +8,6 @@ const ImpactSection = () => {
     triggerOnce: true,
     threshold: 0.4,
   });
-
-  const teamPhotos = [
-    // Array to hold photo placeholders (replace with actual image imports if available)
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 7 },
-    { id: 8 },
-    { id: 9 },
-    { id: 10 },
-    { id: 11 },
-    { id: 12 },
-    { id: 13 },
-    { id: 14 },
-    { id: 15 },
-    { id: 16 },
-    { id: 17 },
-    { id: 18 },
-    { id: 19 },
-    { id: 20 },
-    { id: 21 },
-    { id: 22 },
-    { id: 23 },
-    { id: 24 },
-    { id: 25 },
-    { id: 26 },
-    { id: 27 },
-    { id: 28 },
-    { id: 29 },
-    { id: 30 },
-  ];
 
   return (
     <section className="py-16 md:py-24 bg-gray-100">
@@ -58,16 +23,16 @@ const ImpactSection = () => {
             Ready To Make an Impact?
           </h2>
           <p className="text-lg md:text-xl text-gray-600 mb-10">
-            Join us in shaping the future! Whether you're looking to advance
+            Join us in shaping the future! Whether you&apos;re looking to advance
             your career or bring fresh ideas to the table, we provide the
             platform and support to make it happen. Be part of a team where your
-            contributions truly matter, and together, let's create lasting
+            contributions truly matter, and together, let&apos;s create lasting
             impact.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 ">
-          <motion.div className="col-span-1 flex flex-col gap-8">
+          <motion.div className="col-span-1 flex flex-wrap  gap-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
