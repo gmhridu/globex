@@ -22,10 +22,10 @@ const OpenPosition = () => {
             Open Positions
           </h2>
           <p className="text-lg md:text-xl text-gray-600 mb-10">
-            Join us in shaping the future! Whether you're looking to advance
+            Join us in shaping the future! Whether you&apos;re looking to advance
             your career or bring fresh ideas to the table, we provide the
             platform and support to make it happen. Be part of a team where your
-            contributions truly matter, and together, let's create lasting
+            contributions truly matter, and together, let&apos;s create lasting
             impact.
           </p>
         </motion.div>

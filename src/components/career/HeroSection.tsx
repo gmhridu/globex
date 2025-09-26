@@ -1,7 +1,3 @@
-import { ChevronRight } from "lucide-react";
-import Button from "../ui/Button";
-import Link from "next/link";
-
 const HeroSection = () => {
   return (
     <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center">
