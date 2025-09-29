@@ -31,7 +31,10 @@ const AgencySection = () => {
   ];
 
   return (
-    <section className="bg-gray-300/20 py-16 md:py-24">
+    <section
+      className="bg-gradient-to-br from-gray-300/20 via-gray-200/10 to-gray-300/20 py-20 md:py-28 relative overflow-hidden"
+      style={{ perspective: '1400px' }}
+    >
       <div className="container">
         <motion.div
           ref={ref}
@@ -52,19 +55,24 @@ const AgencySection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="border-2 border-black rounded-lg p-8 hover:shadow-lg transition-shadow duration-300"
+              className="border-2 border-black rounded-xl p-6 md:p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 bg-white"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="mb-6 text-gray-600">{service.description}</p>
-              <div className="w-12 h-12 rounded-full border-4 border-primary flex items-center justify-center">
-                <span>{service.icon}</span>
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
+              <p className="mb-6 text-gray-600 leading-relaxed">{service.description}</p>
+              <div className="w-12 h-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary/10">
+                <motion.span
+                  whileHover={{ rotate: 45, transition: { duration: 0.2 } }}
+                >
+                  {service.icon}
+                </motion.span>
               </div>
             </motion.div>
           ))}
