@@ -1,8 +1,8 @@
-'use client'
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
+"use client";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 interface Partner {
   name: string;
@@ -21,12 +21,12 @@ interface PaginationDotsProps {
 }
 
 const PARTNERS: Partner[] = [
-  { name: 'Slack', logo: 'https://weareglobex.com/wp-content/uploads/2025/02/eyJ3IjoyMDQ4LCJoIjoyMDQ4LCJzY29wZSI6ImFwcCJ9-1280x458.webp' },
-  { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-  { name: 'Anthropic', logo: 'https://weareglobex.com/wp-content/uploads/2025/03/Anthropic_Logo_1.png' },
-  { name: 'MSI', logo: 'https://weareglobex.com/wp-content/uploads/2025/03/msi-logo_b.png' },
-  { name: 'HubSpot', logo: 'https://weareglobex.com/wp-content/uploads/2025/03/5842a629a6515b1e0ad75afa.png' },
-  { name: 'Toast', logo: 'https://weareglobex.com/wp-content/uploads/2024/10/Toast-color-logo.svg' },
+  { name: "Slack", logo: "/assests/home/slack.webp" },
+  { name: "Samsung", logo: "/assests/home/samsung.png" },
+  { name: "Anthropic", logo: "/assests/home/anthropic.png" },
+  { name: "MSI", logo: "/assests/home/msi.png" },
+  { name: "HubSpot", logo: "/assests/home/hubspot.png" },
+  { name: "Toast", logo: "/assests/home/toast.svg" },
 ];
 
 const useCarousel = (items: Partner[], interval: number = 3000) => {
@@ -53,7 +53,10 @@ const useCarousel = (items: Partner[], interval: number = 3000) => {
   return { currentIndex, setCurrentIndex, visibleItems };
 };
 
-const PartnerLogoItem: React.FC<PartnerLogoItemProps> = ({ partner, index }) => (
+const PartnerLogoItem: React.FC<PartnerLogoItemProps> = ({
+  partner,
+  index,
+}) => (
   <motion.div
     key={`${partner.name}-${index}`}
     className="w-[140px] md:w-[180px] p-2 md:p-4 flex justify-center items-center"
@@ -73,7 +76,11 @@ const PartnerLogoItem: React.FC<PartnerLogoItemProps> = ({ partner, index }) => 
   </motion.div>
 );
 
-const PaginationDots: React.FC<PaginationDotsProps> = ({ total, currentIndex, onDotClick }) => (
+const PaginationDots: React.FC<PaginationDotsProps> = ({
+  total,
+  currentIndex,
+  onDotClick,
+}) => (
   <div className="flex justify-center mt-8">
     <div className="flex space-x-2" role="tablist">
       {Array.from({ length: total }).map((_, i) => (
@@ -81,7 +88,7 @@ const PaginationDots: React.FC<PaginationDotsProps> = ({ total, currentIndex, on
           key={i}
           onClick={() => onDotClick(i)}
           className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-            i === currentIndex ? 'bg-primary' : 'bg-gray-300'
+            i === currentIndex ? "bg-primary" : "bg-gray-300"
           }`}
           role="tab"
           aria-selected={i === currentIndex}
@@ -102,7 +109,10 @@ const PartnerLogos: React.FC = () => {
   const { currentIndex, setCurrentIndex, visibleItems } = useCarousel(PARTNERS);
 
   return (
-    <section className="bg-slate-300/20 py-10" aria-label="Partner logos carousel">
+    <section
+      className="bg-slate-300/20 py-10"
+      aria-label="Partner logos carousel"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -121,12 +131,16 @@ const PartnerLogos: React.FC = () => {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.6, ease: 'easeInOut' }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 role="tabpanel"
                 aria-label={`Partner logos slide ${currentIndex + 1}`}
               >
                 {visibleItems.map((partner, index) => (
-                  <PartnerLogoItem key={`${partner.name}-${index}`} partner={partner} index={index} />
+                  <PartnerLogoItem
+                    key={`${partner.name}-${index}`}
+                    partner={partner}
+                    index={index}
+                  />
                 ))}
               </motion.div>
             </AnimatePresence>
