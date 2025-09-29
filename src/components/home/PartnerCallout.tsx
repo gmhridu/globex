@@ -200,7 +200,7 @@ const PartnerCallout = () => {
                 }}
               >
                 Partnering with We Are Globex means more than generating leads,
-                it's about building a strong, reliable presence in the markets
+                it&apos;s about building a strong, reliable presence in the markets
                 that matter most. We lay the foundation for long-term distribution
                 success by connecting you to partners who are ready to move.
               </motion.p>

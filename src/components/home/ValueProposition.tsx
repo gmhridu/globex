@@ -231,7 +231,7 @@ const ValueProposition = () => {
                   }}
                 >
                   If your growth is tied to just a handful of clients or markets,
-                  it's only a matter of time before things stall. Without fresh,
+                  it&apos;s only a matter of time before things stall. Without fresh,
                   qualified distributor interest, scaling becomes unpredictable —
                   and risky.
                 </motion.p>
