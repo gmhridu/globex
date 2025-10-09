@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { AnimatedText } from "../animated-text/AnimatedText";
 
 const HeroSection = () => {
   return (
@@ -19,8 +20,12 @@ const HeroSection = () => {
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Build Your
-            <span className="text-primary ml-3">Distribution</span>. <br />
-            Accelerate Your <span className="text-primary">Revenue.</span>
+            <AnimatedText
+              text="Distribution"
+              className="text-primary ml-3"
+            />. <br />
+            Accelerate Your{" "}
+            <AnimatedText text="Revenue." className="text-primary" />
           </h1>
           <p className="text-xl mb-6 text-white leading-relaxed">
             We help businesses expand, scale, and succeed in international
