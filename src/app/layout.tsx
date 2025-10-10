@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { Provider } from "@/providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -160,11 +162,14 @@ export default function RootLayout({
         className={`${inter.className} antialiased bg-white text-gray-900`}
         cz-shortcut-listen="true"
       >
-        <div id="page-container" className="min-h-screen flex flex-col">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <Provider>
+          <Toaster />
+          <div id="page-container" className="min-h-screen flex flex-col">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </Provider>
       </body>
     </html>
   );
