@@ -2,7 +2,6 @@
 import { motion, easeOut } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Button from "../ui/Button";
-import Link from "next/link";
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 30 },

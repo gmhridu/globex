@@ -1,69 +1,65 @@
 import { baseProcedure, protectedProcedure, createTRPCRouter } from "../init";
-import { admin, contactSubmission } from "@/db/schema";
+import { contactSubmission } from "@/db/schema";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { eq, or, desc, sql } from "drizzle-orm";
+import { eq, desc, and, sql } from "drizzle-orm";
 
-export const createAdminSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.email("Invalid email address"),
-  phone: z.string().optional(),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-  role: z.enum(["admin", "super-admin"]).default("admin"),
+export const createContactSubmissionSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  company: z.string().min(1, "Company is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(1, "Phone number is required"),
+  description: z.string().min(1, "Description is required"),
+  message: z.string().min(1, "Message is required"),
 });
 
-export const signinAdminSchema = z.object({
-  identifier: z.string().min(1, "Email or phone is required"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
+export const updateContactSubmissionSchema = z.object({
+  id: z.string().min(1, "ID is required"),
+  status: z.enum(["new", "in_progress", "completed", "archived"]).optional(),
+  isRead: z.boolean().optional(),
 });
 
-export const adminRouter = createTRPCRouter({
-  createAdmin: baseProcedure
-    .input(createAdminSchema)
+export const contactRouter = createTRPCRouter({
+  // Public procedure for submitting contact forms
+  submitContact: baseProcedure
+    .input(createContactSubmissionSchema)
     .mutation(async ({ ctx, input }) => {
       try {
-        // Check if admin with this email already exists
-        const existingAdmin = await ctx.db
-          .select()
-          .from(admin)
-          .where(eq(admin.email, input.email))
-          .limit(1);
-        // const existingAdmin = await db.select().from(admin).where(eq(admin.email, input.email)).limit(1);
-
-        if (existingAdmin) {
-          throw new TRPCError({
-            code: "CONFLICT",
-            message: "Admin with this email already exists",
-          });
-        }
-
-        // Create the admin
-        const newAdmin = await ctx.db
-          .insert(admin)
+        const newSubmission = await ctx.db
+          .insert(contactSubmission)
           .values({
             id: crypto.randomUUID(),
-            name: input.name,
+            firstName: input.firstName,
+            lastName: input.lastName,
+            company: input.company,
             email: input.email,
             phone: input.phone,
-            role: input.role,
-            isActive: true,
-            createdAt: new Date(),
+            description: input.description,
+            message: input.message,
+            status: "new",
+            isRead: false,
+            submittedAt: new Date(),
             updatedAt: new Date(),
           })
           .returning({
-            id: admin.id,
-            name: admin.name,
-            email: admin.email,
-            phone: admin.phone,
-            role: admin.role,
-            isActive: admin.isActive,
-            createdAt: admin.createdAt,
-            updatedAt: admin.updatedAt,
+            id: contactSubmission.id,
+            firstName: contactSubmission.firstName,
+            lastName: contactSubmission.lastName,
+            company: contactSubmission.company,
+            email: contactSubmission.email,
+            phone: contactSubmission.phone,
+            description: contactSubmission.description,
+            message: contactSubmission.message,
+            status: contactSubmission.status,
+            isRead: contactSubmission.isRead,
+            submittedAt: contactSubmission.submittedAt,
+            updatedAt: contactSubmission.updatedAt,
           });
 
         return {
           success: true,
-          admin: newAdmin[0],
+          submission: newSubmission[0],
         };
       } catch (error) {
         if (error instanceof TRPCError) {
@@ -72,81 +68,12 @@ export const adminRouter = createTRPCRouter({
 
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to create admin",
+          message: "Failed to submit contact form",
         });
       }
     }),
 
-  signinAdmin: baseProcedure
-    .input(signinAdminSchema)
-    .mutation(async ({ ctx, input }) => {
-      try {
-        // Find admin by email or phone
-        const adminUser = await ctx.db
-          .select()
-          .from(admin)
-          .where(
-            or(
-              eq(admin.email, input.identifier),
-              eq(admin.phone, input.identifier)
-            )
-          )
-          .limit(1);
-
-        if (!adminUser || adminUser.length === 0) {
-          throw new TRPCError({
-            code: "UNAUTHORIZED",
-            message: "Invalid email or password",
-          });
-        }
-
-        const foundAdmin = adminUser[0];
-
-        // Check if admin is active
-        if (!foundAdmin.isActive) {
-          throw new TRPCError({
-            code: "UNAUTHORIZED",
-            message: "Account is deactivated",
-          });
-        }
-
-        // Update login timestamp
-        await ctx.db
-          .update(admin)
-          .set({
-            loginAt: new Date(),
-            updatedAt: new Date(),
-          })
-          .where(eq(admin.id, foundAdmin.id));
-
-        // Return admin data (excluding password)
-        return {
-          success: true,
-          admin: {
-            id: foundAdmin.id,
-            name: foundAdmin.name,
-            email: foundAdmin.email,
-            phone: foundAdmin.phone,
-            role: foundAdmin.role,
-            isActive: foundAdmin.isActive,
-            loginAt: new Date(),
-            createdAt: foundAdmin.createdAt,
-            updatedAt: new Date(),
-          },
-        };
-      } catch (error) {
-        if (error instanceof TRPCError) {
-          throw error;
-        }
-
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to get admin data",
-        });
-      }
-    }),
-
-  // Contact submission management procedures
+  // Protected procedures for admin dashboard
   getAllSubmissions: protectedProcedure
     .input(
       z.object({
@@ -229,11 +156,7 @@ export const adminRouter = createTRPCRouter({
     }),
 
   updateSubmission: protectedProcedure
-    .input(z.object({
-      id: z.string().min(1, "ID is required"),
-      status: z.enum(["new", "in_progress", "completed", "archived"]).optional(),
-      isRead: z.boolean().optional(),
-    }))
+    .input(updateContactSubmissionSchema)
     .mutation(async ({ ctx, input }) => {
       try {
         const updateData: any = {
@@ -327,7 +250,7 @@ export const adminRouter = createTRPCRouter({
   getUnreadCount: protectedProcedure.query(async ({ ctx }) => {
     try {
       const unreadCount = await ctx.db
-        .select({ count: sql<number>`count(*)` })
+        .select({ count: contactSubmission.id })
         .from(contactSubmission)
         .where(eq(contactSubmission.isRead, false));
 
@@ -338,36 +261,6 @@ export const adminRouter = createTRPCRouter({
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Failed to fetch unread count",
-      });
-    }
-  }),
-
-  getStatusCounts: protectedProcedure.query(async ({ ctx }) => {
-    try {
-      const statusCounts = await ctx.db
-        .select({
-          status: contactSubmission.status,
-          count: sql<number>`count(*)`,
-        })
-        .from(contactSubmission)
-        .groupBy(contactSubmission.status);
-
-      const counts = {
-        new: 0,
-        in_progress: 0,
-        completed: 0,
-        archived: 0,
-      };
-
-      statusCounts.forEach(({ status, count }) => {
-        counts[status as keyof typeof counts] = count;
-      });
-
-      return counts;
-    } catch (error) {
-      throw new TRPCError({
-        code: "INTERNAL_SERVER_ERROR",
-        message: "Failed to fetch status counts",
       });
     }
   }),

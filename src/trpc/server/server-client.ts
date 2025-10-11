@@ -1,7 +1,7 @@
 import { createTRPCContext } from "./init";
 import { appRouter } from "./routers/_app";
 
-export function serverClient() {
-  const ctx = createTRPCContext();
+export async function serverClient() {
+  const ctx = await createTRPCContext();
   return appRouter.createCaller(ctx);
 }

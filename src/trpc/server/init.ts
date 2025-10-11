@@ -12,7 +12,7 @@ export const createTRPCContext = cache(async () => {
 
 type Context = {
   db: typeof db;
-  session: any;
+  session: Awaited<ReturnType<typeof getSession>>;
 };
 
 const t = initTRPC.context<Context>().create({

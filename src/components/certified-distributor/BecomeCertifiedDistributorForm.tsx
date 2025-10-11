@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Button from "../ui/Button";
-import { useState } from "react";
 import ContactForm2 from "../contact-form/ContactForm2";
 
 const fadeInVariants = {
@@ -20,29 +18,19 @@ const BecomeCertifiedDistributorForm = () => {
     threshold: 0.2,
   });
 
-  // Form state (optional for real submission)
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prev) => ({ ...prev, [name]: value }));
+  // };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real app, you'd send this data to your backend
-    console.log("Form submitted:", formData);
-    alert("Thank you! Our team will contact you shortly.");
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // In a real app, you'd send this data to your backend
+  //   console.log("Form submitted:", formData);
+  //   alert("Thank you! Our team will contact you shortly.");
+  // };
 
   return (
     <section className="bg-[#0F172A] py-16" ref={ref}>

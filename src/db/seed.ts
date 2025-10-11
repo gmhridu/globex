@@ -86,7 +86,15 @@ async function seedDatabase() {
     }
 
     // Hash passwords and prepare admin data
-    const adminsToInsert: any[] = [];
+    const adminsToInsert: Array<{
+      name: string;
+      email: string;
+      phone: string;
+      role: "admin" | "super-admin";
+      isActive: boolean;
+      createdAt: Date;
+      updatedAt: Date;
+    }> = [];
     const hashedPasswords: string[] = [];
 
     for (const adminData of seedAdmins) {
@@ -105,9 +113,14 @@ async function seedDatabase() {
     }
 
     // Insert admins into database
+    const adminsWithIds = adminsToInsert.map(admin => ({
+      ...admin,
+      id: crypto.randomUUID(),
+    }));
+
     const insertedAdmins = await db
       .insert(schema.admin)
-      .values(adminsToInsert)
+      .values(adminsWithIds)
       .returning({
         id: schema.admin.id,
         name: schema.admin.name,

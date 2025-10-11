@@ -14,10 +14,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { useTRPC } from "@/trpc/client";
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -49,6 +58,9 @@ const ContactForm = () => {
     threshold: 0.4,
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const trpc = useTRPC();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -62,9 +74,17 @@ const ContactForm = () => {
     },
   });
 
+  const submitContact = trpc.contact.submitContact.mutationOptions({
+    onError: (error) => {
+      console.error("Failed to submit contact form:", error);
+    },
+  });
+
+  const submitMutation = useMutation(submitContact)
+
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // Handle form submission here
+    submitMutation.mutate(values)
   }
 
   return (

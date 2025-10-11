@@ -5,6 +5,5 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return <main>{children}</main>;
 }
