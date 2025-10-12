@@ -1,11 +1,13 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Link from "next/link";
-import { AnimatedText } from "../animated-text/AnimatedText";
+import { Typewriter } from "react-typewriting-effect";
+import "react-typewriting-effect/dist/index.css";
 
 const PartnerCallout = () => {
   const benefits = [
@@ -17,16 +19,19 @@ const PartnerCallout = () => {
     "More time focused on fulfilling orders, not chasing them",
   ];
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.4,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
+  const [startAnimation, setStartAnimation] = useState(false);
+  const [showDistributors, setShowDistributors] = useState(false);
+
+  useEffect(() => {
+    if (inView && !startAnimation) setStartAnimation(true);
+  }, [inView, startAnimation]);
 
   return (
     <section className="bg-white py-16">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* Left side - Image with Zoom In Animation */}
+          {/* Left side - Image */}
           <motion.div
             ref={ref}
             initial={{ scale: 0.8, opacity: 0 }}
@@ -40,21 +45,41 @@ const PartnerCallout = () => {
               height={500}
               alt="Manufacturing workers"
               className="w-full h-full object-cover rounded-2xl"
-              priority={true}
+              priority
             />
           </motion.div>
 
           {/* Right side - Content */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-3">
-               Position{" "}
-               <AnimatedText text="Your Brand" className="text-primary" /> with
-               the <br />
-               Right{" "}
-               <AnimatedText text="Distributors," className="text-primary" delay={0.7} /> and
-               Grow <br />
-               with Confidence
-             </h2>
+              Position{" "}
+              {startAnimation ? (
+                <Typewriter
+                  string="Your Brand"
+                  className="text-primary inline"
+                  cursor="_"
+                  cursorClassName="text-primary"
+                  stopBlinkinOnComplete
+                  onComplete={() => setShowDistributors(true)}
+                />
+              ) : (
+                <span className="text-primary inline">Your Brand</span>
+              )}{" "}
+              with the <br />
+              {showDistributors ? (
+                <Typewriter
+                onComplete={() => {}}
+                  string="Distributors,"
+                  className="text-primary inline"
+                  cursor="_"
+                  cursorClassName="text-primary"
+                  stopBlinkinOnComplete
+                />
+              ) : (
+                <span className="text-primary inline">Distributors,</span>
+              )}{" "}
+              and Grow <br /> with Confidence
+            </h2>
 
             <p className="text-lg font-semibold mb-4">
               Partnering with We Are Globex means more than generating leads,
@@ -72,18 +97,10 @@ const PartnerCallout = () => {
               ))}
             </ul>
 
-            <Button
-              className="group inline-flex w-[220px] items-center justify-center text-lg
-        bg-primary text-black transition-all duration-300
-        hover:bg-white hover:text-black"
-            >
+            <Button className="group inline-flex w-[220px] items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
               <Link href="/contact" className="inline-flex items-center">
                 LETS TALK
-                <ChevronRight
-                  className="h-5 w-5 transform translate-x-[-10px] opacity-0
-            transition-all duration-300 ease-in-out
-            group-hover:translate-x-3 group-hover:opacity-100"
-                />
+                <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
               </Link>
             </Button>
           </div>

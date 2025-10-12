@@ -1,41 +1,90 @@
+"use client";
+import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
-import { AnimatedText } from "../animated-text/AnimatedText";
+import { Typewriter } from "react-typewriting-effect";
+import "react-typewriting-effect/dist/index.css";
 
 const SuccessStory = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
+
+  // Control which word's animation should start
+  const [startAnimation, setStartAnimation] = useState(false);
+  const [showMarkets, setShowMarkets] = useState(false);
+  const [showTime, setShowTime] = useState(false);
+  const [showGlobex, setShowGlobex] = useState(false);
+
+  useEffect(() => {
+    if (inView && !startAnimation) setStartAnimation(true);
+  }, [inView, startAnimation]);
+
   return (
-    <section className="bg-secondary text-white py-16 md:py-24">
+    <section ref={ref} className="bg-secondary text-white py-16 md:py-24">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-7xl">
-            The Right <AnimatedText text="Partners" className="text-primary" />.
             The Right{" "}
-            <AnimatedText text="Markets" className="text-primary" delay={0.6} />
+            {startAnimation ? (
+              <Typewriter
+                string="Partners"
+                className="text-primary inline"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+                onComplete={() => setShowMarkets(true)}
+              />
+            ) : (
+              <span className="text-primary inline">Partners</span>
+            )}
             . The Right{" "}
-            <AnimatedText text="Time" className="text-primary" delay={1.2} />.
-            <br />
+            {showMarkets ? (
+              <Typewriter
+                string="Markets"
+                className="text-primary inline"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+                onComplete={() => setShowTime(true)}
+              />
+            ) : (
+              <span className="text-primary inline">Markets</span>
+            )}
+            . The Right{" "}
+            {showTime ? (
+              <Typewriter
+                string="Time"
+                className="text-primary inline"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+                onComplete={() => setShowGlobex(true)}
+              />
+            ) : (
+              <span className="text-primary inline">Time</span>
+            )}
+            . <br />
             Schedule a call and let{" "}
-            <AnimatedText
-              text="Globex"
-              delay={1.3}
-              className="text-primary"
-            ></AnimatedText>{" "}
+            {showGlobex ? (
+              <Typewriter
+              onComplete={() => {}}
+                string="Globex"
+                className="text-primary inline"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+              />
+            ) : (
+              <span className="text-primary inline">Globex</span>
+            )}{" "}
             take your distribution to the next level.
           </h2>
 
-          <Button
-            className="group inline-flex w-[220px] items-center justify-center text-lg
-        bg-primary text-black transition-all duration-300
-        hover:bg-white hover:text-black"
-          >
+          <Button className="group inline-flex w-[220px] items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
             <Link href="/contact" className="inline-flex items-center">
               LETS TALK
-              <ChevronRight
-                className="h-5 w-5 transform translate-x-[-10px] opacity-0
-            transition-all duration-300 ease-in-out
-            group-hover:translate-x-3 group-hover:opacity-100"
-              />
+              <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
             </Link>
           </Button>
         </div>

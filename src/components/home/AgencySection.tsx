@@ -1,14 +1,25 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight } from "lucide-react";
-import { AnimatedText } from "../animated-text/AnimatedText";
+import { Typewriter } from "react-typewriting-effect";
+import "react-typewriting-effect/dist/index.css";
 
 const AgencySection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.4,
   });
+
+  const [startAnimation, setStartAnimation] = useState(false);
+
+  // Trigger typewriter only when section is in view
+  useEffect(() => {
+    if (inView && !startAnimation) {
+      setStartAnimation(true);
+    }
+  }, [inView, startAnimation]);
 
   const services = [
     {
@@ -43,8 +54,20 @@ const AgencySection = () => {
         >
           <h2 className="text-3xl md:text-4xl lg:text-[3.3rem] font-bold mb-8">
             We&apos;re A{" "}
-            <AnimatedText text="Growth Agency" className="text-primary" /> Built
-            For Manufacturing.
+            {startAnimation ? (
+              <Typewriter
+              onComplete={() => {}}
+                string="Growth Agency"
+                className="text-primary"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+                delay={200}
+              />
+            ) : (
+              <span className="text-primary">Growth Agency</span>
+            )}{" "}
+            Built For Manufacturing.
           </h2>
 
           <p className="text-lg font-semibold text-right text-balance">

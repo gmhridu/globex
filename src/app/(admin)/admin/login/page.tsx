@@ -2,6 +2,8 @@ import AdminLoginForm from "@/components/admin/login/AdminLoginForm";
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
+export const dynamic = 'force-dynamic';
+
 const AdminLoginPage = async () => {
   const session = await getSession();
 
