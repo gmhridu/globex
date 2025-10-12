@@ -26,7 +26,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useTRPC } from "@/trpc/client";
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -60,6 +60,7 @@ const ContactForm = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const trpc = useTRPC();
+  const queryClient = useQueryClient();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -74,9 +75,20 @@ const ContactForm = () => {
     },
   });
 
+
   const submissionContact = trpc.contact.submitContact.mutationOptions({
     onSuccess: () => {
       setIsSubmitted(true);
+      // Invalidate admin dashboard queries to update in real-time
+      queryClient.invalidateQueries({ queryKey: ['admin', 'getAllSubmissions'] });
+      queryClient.invalidateQueries({ queryKey: ['admin', 'getStatusCounts'] });
+      queryClient.invalidateQueries({ queryKey: ['admin', 'getUnreadCount'] });
+      // Broadcast to other tabs
+      if (typeof window !== 'undefined') {
+        const bc = new BroadcastChannel('contact-submissions');
+        bc.postMessage({ type: 'new-submission' });
+        bc.close();
+      }
       form.reset();
     },
     onError: (error) => {
@@ -86,8 +98,6 @@ const ContactForm = () => {
   const submitContact = useMutation(submissionContact);
 
   const isLoading = submitContact.isPending;
-
-  // const { mutate: submitContact, isLoading, error } = trpc.contact.submitContact.useMutation();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     submitContact.mutate(values);

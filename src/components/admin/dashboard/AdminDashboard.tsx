@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MessageSquare,
   Eye,
@@ -15,31 +15,18 @@ import {
   Phone,
   Building,
   Calendar,
-  MoreVertical,
   Filter,
   Download,
   ChevronDown,
   X,
 } from "lucide-react";
 import { useTRPC } from "@/trpc/client";
-import Button from "@/components/ui/Button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useMutation, useQuery } from "@tanstack/react-query";
+
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface ContactSubmission {
   id: string;
@@ -66,6 +53,7 @@ const AdminDashboard = () => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   const trpc = useTRPC();
+  const queryClient = useQueryClient();
 
   const getContactFormQuery = trpc.admin.getAllSubmissions.queryOptions(
     {
@@ -73,27 +61,32 @@ const AdminDashboard = () => {
       offset: 0,
       status: statusFilter === "all" ? undefined : statusFilter,
     },
-    {
-      refetchInterval: 30000,
-      refetchIntervalInBackground: true,
-    }
   );
 
   const { data, isLoading, error, refetch } = useQuery(getContactFormQuery);
 
-  const getStatusCountsQuery = trpc.admin.getStatusCounts.queryOptions(undefined, {
-    refetchInterval: 30000,
-    refetchIntervalInBackground: true,
-  });
+  const getStatusCountsQuery = trpc.admin.getStatusCounts.queryOptions(undefined);
   const { data: statusData } = useQuery(getStatusCountsQuery);
 
   const statusCounts = statusData || { new: 0, in_progress: 0, completed: 0, archived: 0 };
 
-  const getUnreadCount = trpc.admin.getUnreadCount.queryOptions(undefined, {
-    refetchInterval: 15000,
-    refetchIntervalInBackground: true,
-  });
+  const getUnreadCount = trpc.admin.getUnreadCount.queryOptions(undefined);
   const { data: unreadData } = useQuery(getUnreadCount);
+
+  // Listen for cross-tab updates
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const bc = new BroadcastChannel('contact-submissions');
+      bc.onmessage = (event) => {
+        if (event.data.type === 'new-submission') {
+          queryClient.invalidateQueries({ queryKey: ['admin', 'getAllSubmissions'] });
+          queryClient.invalidateQueries({ queryKey: ['admin', 'getStatusCounts'] });
+          queryClient.invalidateQueries({ queryKey: ['admin', 'getUnreadCount'] });
+        }
+      };
+      return () => bc.close();
+    }
+  }, [queryClient]);
 
   const updateSubmission = trpc.admin.updateSubmission.mutationOptions({
     onSuccess: () => {
