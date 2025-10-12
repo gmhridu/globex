@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface AnimatedTextProps {
   text: string;
@@ -13,6 +14,11 @@ export const AnimatedText = ({
   delay = 0,
   className,
 }: AnimatedTextProps) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const letters = text.split("");
 
   const container: Variants = {
@@ -50,10 +56,11 @@ export const AnimatedText = ({
 
   return (
     <motion.span
+      ref={ref}
       className={className}
       variants={container}
       initial="hidden"
-      animate="visible"
+      animate={inView ? "visible" : "hidden"}
     >
       {letters.map((letter, index) => (
         <motion.span key={index} variants={child}>

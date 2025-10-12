@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight } from "lucide-react";
+import { AnimatedText } from "../animated-text/AnimatedText";
 
 const AgencySection = () => {
   const [ref, inView] = useInView({
@@ -41,14 +42,18 @@ const AgencySection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-[3.3rem] font-bold mb-8">
-            We&apos;re A <span className="text-primary">Growth Agency</span> Built For Manufacturing.
+            We&apos;re A{" "}
+            <AnimatedText text="Growth Agency" className="text-primary" /> Built
+            For Manufacturing.
           </h2>
 
           <p className="text-lg font-semibold text-right text-balance">
-            With extensive experience helping manufacturing suppliers navigate growth challenges, we specialize
-            in crafting strategies tailored to your industry. By combining our in-depth sector knowledge with
-            proven approaches, we enable your business to connect with the right prospects, expand into new
-            markets, and build a strong, sustainable sales pipeline.
+            With extensive experience helping manufacturing suppliers navigate
+            growth challenges, we specialize in crafting strategies tailored to
+            your industry. By combining our in-depth sector knowledge with
+            proven approaches, we enable your business to connect with the right
+            prospects, expand into new markets, and build a strong, sustainable
+            sales pipeline.
           </p>
         </motion.div>
 

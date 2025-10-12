@@ -19,14 +19,14 @@ const HeroSection = () => {
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Build Your
-            <AnimatedText
-              text="Distribution"
-              className="text-primary ml-3"
-            />. <br />
-            Accelerate Your{" "}
-            <AnimatedText text="Revenue." className="text-primary" />
-          </h1>
+           Build Your
+           <AnimatedText
+             text="Distribution"
+             className="text-primary ml-3"
+           />. <br />
+           Accelerate Your{" "}
+           <AnimatedText text="Revenue." className="text-primary" delay={0.8} />
+         </h1>
           <p className="text-xl mb-6 text-white leading-relaxed">
             We help businesses expand, scale, and succeed in international
             markets with a results-driven strategy.

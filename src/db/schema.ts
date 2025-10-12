@@ -1,7 +1,7 @@
 import { boolean, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
-const roleEnum = pgEnum("role", ["admin", "super-admin"]);
+export const roleEnum = pgEnum("role", ["admin", "super-admin"]);
 
 export const admin = pgTable("admin", {
   id: text("id").primaryKey(),

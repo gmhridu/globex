@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { AnimatedText } from "../animated-text/AnimatedText";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -54,11 +55,12 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Struggling to <span className="text-primary">Attract</span> the
-              Right <br />
-              <span className="text-primary">Distributors</span> for your{" "}
-              <span className="text-primary">Products</span>?
-            </h2>
+               Struggling to{" "}
+               <AnimatedText text="Attract" className="text-primary" /> the Right{" "}
+               <br />
+               <AnimatedText text="Distributors" className="text-primary" delay={0.6} /> for
+               your <AnimatedText text="Products" className="text-primary" delay={1.2} />
+             </h2>
 
             <p className="text-lg mb-6 font-semibold">
               If your growth is tied to just a handful of clients or markets,

@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { AnimatedText } from "../animated-text/AnimatedText";
 
 const SuccessStory = () => {
   return (
@@ -8,13 +9,18 @@ const SuccessStory = () => {
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-7xl">
-            The Right <span className="text-primary">Partners</span>. The Right{" "}
-            <span className="text-primary">Markets</span>. The Right{" "}
-            <span className="text-primary">Time</span>.
+            The Right <AnimatedText text="Partners" className="text-primary" />.
+            The Right{" "}
+            <AnimatedText text="Markets" className="text-primary" delay={0.6} />
+            . The Right{" "}
+            <AnimatedText text="Time" className="text-primary" delay={1.2} />.
             <br />
-            Schedule a call and let <span className="text-primary">
-              Globex
-            </span>{" "}
+            Schedule a call and let{" "}
+            <AnimatedText
+              text="Globex"
+              delay={1.3}
+              className="text-primary"
+            ></AnimatedText>{" "}
             take your distribution to the next level.
           </h2>
 

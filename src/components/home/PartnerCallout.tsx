@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { AnimatedText } from "../animated-text/AnimatedText";
 
 const PartnerCallout = () => {
   const benefits = [
@@ -46,12 +47,14 @@ const PartnerCallout = () => {
           {/* Right side - Content */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-3">
-              Position <span className="text-primary">Your Brand</span> with the{" "}
-              <br />
-              Right <span className="text-primary">Distributors,</span> and Grow{" "}
-              <br />
-              with Confidence
-            </h2>
+               Position{" "}
+               <AnimatedText text="Your Brand" className="text-primary" /> with
+               the <br />
+               Right{" "}
+               <AnimatedText text="Distributors," className="text-primary" delay={0.7} /> and
+               Grow <br />
+               with Confidence
+             </h2>
 
             <p className="text-lg font-semibold mb-4">
               Partnering with We Are Globex means more than generating leads,

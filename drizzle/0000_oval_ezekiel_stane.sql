@@ -1,3 +1,6 @@
+-- Create enum type for role
+CREATE TYPE "role" AS ENUM('admin', 'super-admin');
+
 CREATE TABLE "account" (
 	"id" text PRIMARY KEY NOT NULL,
 	"account_id" text NOT NULL,
@@ -28,6 +31,21 @@ CREATE TABLE "admin" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	CONSTRAINT "admin_email_unique" UNIQUE("email")
+);
+--> statement-breakpoint
+CREATE TABLE "contact_submission" (
+	"id" text PRIMARY KEY NOT NULL,
+	"first_name" text NOT NULL,
+	"last_name" text NOT NULL,
+	"company" text NOT NULL,
+	"email" text NOT NULL,
+	"phone" text NOT NULL,
+	"description" text NOT NULL,
+	"message" text NOT NULL,
+	"status" text DEFAULT 'new' NOT NULL,
+	"is_read" boolean DEFAULT false NOT NULL,
+	"submitted_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "session" (

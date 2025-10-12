@@ -73,7 +73,7 @@ const StrategySteps = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative"
+                className="relative border border-primary p-6 rounded-md shadow-lg transition-shadow duration-300"
               >
                 <motion.div
                   initial={{ opacity: 0 }}

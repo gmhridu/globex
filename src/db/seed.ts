@@ -1,12 +1,13 @@
-import { drizzle } from "drizzle-orm/node-postgres";
 import bcrypt from "bcrypt";
 import * as schema from "./schema";
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import { config } from "dotenv";
 
-// Load environment variables
-import dotenv from "dotenv";
-dotenv.config();
-
-const db = drizzle(process.env.DATABASE_URL!, { schema });
+// Load environment variables and create database connection for seeding
+config({ path: ".env" });
+const sql = neon(process.env.DATABASE_URL!);
+const seedDb = drizzle({ client: sql, schema });
 
 const seedAdmins = [
   {
@@ -40,13 +41,13 @@ async function seedDatabase() {
     console.log("🌱 Starting admin seed process...");
 
     // Check if admins already exist
-    const existingAdmins = await db.select().from(schema.admin);
+    const existingAdmins = await seedDb.select().from(schema.admin);
 
     if (existingAdmins.length > 0) {
       console.log("⚠️  Admin data already exists.");
 
       // Check if account records exist for existing admins
-      const existingAccounts = await db.select().from(schema.account);
+      const existingAccounts = await seedDb.select().from(schema.account);
 
       if (existingAccounts.length === 0) {
         console.log("🔗 Creating missing account records for BetterAuth...");
@@ -74,7 +75,7 @@ async function seedDatabase() {
           })
         );
 
-        await db.insert(schema.account).values(accountRecords);
+        await seedDb.insert(schema.account).values(accountRecords);
         console.log(
           `✅ Created ${accountRecords.length} account records for BetterAuth`
         );
@@ -118,7 +119,7 @@ async function seedDatabase() {
       id: crypto.randomUUID(),
     }));
 
-    const insertedAdmins = await db
+    const insertedAdmins = await seedDb
       .insert(schema.admin)
       .values(adminsWithIds)
       .returning({
@@ -163,7 +164,7 @@ async function seedDatabase() {
     }));
 
     if (accountRecords.length > 0) {
-      await db.insert(schema.account).values(accountRecords);
+      await seedDb.insert(schema.account).values(accountRecords);
       console.log(
         `✅ Created ${accountRecords.length} account records for BetterAuth`
       );
