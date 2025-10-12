@@ -2,13 +2,13 @@ import { baseProcedure, protectedProcedure, createTRPCRouter } from "../init";
 import { contactSubmission } from "@/db/schema";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { eq, desc, and, sql } from "drizzle-orm";
+import { eq, desc, sql } from "drizzle-orm";
 
 export const createContactSubmissionSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   company: z.string().min(1, "Company is required"),
-  email: z.string().email("Invalid email address"),
+  email: z.email("Invalid email address"),
   phone: z.string().min(1, "Phone number is required"),
   description: z.string().min(1, "Description is required"),
   message: z.string().min(1, "Message is required"),
@@ -108,7 +108,7 @@ export const contactRouter = createTRPCRouter({
           totalCount: totalCount[0]?.count || 0,
           hasMore: (input.offset + input.limit) < (totalCount[0]?.count || 0),
         };
-      } catch (error) {
+      } catch {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
           message: "Failed to fetch contact submissions",
@@ -159,7 +159,11 @@ export const contactRouter = createTRPCRouter({
     .input(updateContactSubmissionSchema)
     .mutation(async ({ ctx, input }) => {
       try {
-        const updateData: any = {
+        const updateData: {
+          updatedAt: Date;
+          status?: "new" | "in_progress" | "completed" | "archived";
+          isRead?: boolean;
+        } = {
           updatedAt: new Date(),
         };
 
@@ -257,7 +261,7 @@ export const contactRouter = createTRPCRouter({
       return {
         count: unreadCount[0]?.count || 0,
       };
-    } catch (error) {
+    } catch {
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Failed to fetch unread count",

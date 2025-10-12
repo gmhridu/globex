@@ -18,7 +18,6 @@ import {
   Filter,
   Download,
   ChevronDown,
-  X,
 } from "lucide-react";
 import { useTRPC } from "@/trpc/client";
 import {
@@ -591,10 +590,10 @@ const AdminDashboard = () => {
                       <div className="relative flex-1">
                         <select
                           value={selectedSubmission.status}
-                          onChange={(e) =>
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                             handleStatusUpdate(
                               selectedSubmission.id,
-                              e.target.value as any
+                              e.target.value as "new" | "in_progress" | "completed" | "archived"
                             )
                           }
                           className="w-full appearance-none pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all cursor-pointer"

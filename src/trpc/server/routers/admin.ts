@@ -181,7 +181,7 @@ export const adminRouter = createTRPCRouter({
           totalCount: totalCount[0]?.count || 0,
           hasMore: (input.offset + input.limit) < (totalCount[0]?.count || 0),
         };
-      } catch (error) {
+      } catch {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
           message: "Failed to fetch contact submissions",
@@ -236,7 +236,11 @@ export const adminRouter = createTRPCRouter({
     }))
     .mutation(async ({ ctx, input }) => {
       try {
-        const updateData: any = {
+        const updateData: {
+          updatedAt: Date;
+          status?: "new" | "in_progress" | "completed" | "archived";
+          isRead?: boolean;
+        } = {
           updatedAt: new Date(),
         };
 
@@ -334,7 +338,7 @@ export const adminRouter = createTRPCRouter({
       return {
         count: unreadCount[0]?.count || 0,
       };
-    } catch (error) {
+    } catch {
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Failed to fetch unread count",
@@ -364,7 +368,7 @@ export const adminRouter = createTRPCRouter({
       });
 
       return counts;
-    } catch (error) {
+    } catch {
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Failed to fetch status counts",

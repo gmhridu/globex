@@ -75,18 +75,19 @@ const ContactForm = () => {
     },
   });
 
-
   const submissionContact = trpc.contact.submitContact.mutationOptions({
     onSuccess: () => {
       setIsSubmitted(true);
       // Invalidate admin dashboard queries to update in real-time
-      queryClient.invalidateQueries({ queryKey: ['admin', 'getAllSubmissions'] });
-      queryClient.invalidateQueries({ queryKey: ['admin', 'getStatusCounts'] });
-      queryClient.invalidateQueries({ queryKey: ['admin', 'getUnreadCount'] });
+      queryClient.invalidateQueries({
+        queryKey: ["admin", "getAllSubmissions"],
+      });
+      queryClient.invalidateQueries({ queryKey: ["admin", "getStatusCounts"] });
+      queryClient.invalidateQueries({ queryKey: ["admin", "getUnreadCount"] });
       // Broadcast to other tabs
-      if (typeof window !== 'undefined') {
-        const bc = new BroadcastChannel('contact-submissions');
-        bc.postMessage({ type: 'new-submission' });
+      if (typeof window !== "undefined") {
+        const bc = new BroadcastChannel("contact-submissions");
+        bc.postMessage({ type: "new-submission" });
         bc.close();
       }
       form.reset();
@@ -175,8 +176,8 @@ const ContactForm = () => {
                     Thank you!
                   </h3>
                   <p className="text-gray-600">
-                    Your message has been submitted successfully. We'll get back
-                    to you soon.
+                    Your message has been submitted successfully. We&apos;ll get
+                    back to you soon.
                   </p>
                   <Button
                     onClick={() => setIsSubmitted(false)}
