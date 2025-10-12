@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { AnimatedText } from "../animated-text/AnimatedText";
 
 const HeroSection = () => {
   return (
@@ -9,7 +10,8 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center z-0 hero-background"
         style={{
-          backgroundImage: "url('/assests/tailored-solutions/distributor-hub/hero.jpg')",
+          backgroundImage:
+            "url('/assests/tailored-solutions/distributor-hub/hero.jpg')",
           backgroundBlendMode: "overlay",
         }}
       ></div>
@@ -19,12 +21,17 @@ const HeroSection = () => {
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
             Powering
-            <span className="text-primary ml-3">Global Distribution</span> for Manufacturers
+            <AnimatedText
+              text={"Global Distribution"}
+              className="text-primary ml-3"
+            />{" "}
+            for Manufacturers
           </h1>
           <p className="text-xl mb-6 mt-2 text-white leading-relaxed">
-            Welcome to the <span className="text-primary ml-3">Distributor Hub</span> — your gateway to connecting with
-            qualified distributors across Europe, <br /> North America, the Middle
-            East, and beyond.
+            Welcome to the{" "}
+            <span className="text-primary ml-3">Distributor Hub</span> — your
+            gateway to connecting with qualified distributors across Europe,{" "}
+            <br /> North America, the Middle East, and beyond.
           </p>
           <Button
             className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
