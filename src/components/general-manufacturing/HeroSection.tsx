@@ -1,6 +1,10 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { Typewriter } from "react-typewriting-effect";
+import "react-typewriting-effect/dist/index.css";
 
 const HeroSection = () => {
   return (
@@ -19,7 +23,13 @@ const HeroSection = () => {
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
             Unlock Growth in Manufacturing <br />
-            <span className="text-primary">With Vetted Distributors</span>
+            <Typewriter
+              string="With Vetted Distributors"
+              cursor="_"
+              cursorClassName="text-primary"
+              stopBlinkinOnComplete={true}
+              className="text-primary"
+            />
           </h1>
           <p className="text-xl mb-6 mt-2 text-white leading-relaxed">
             We connect manufacturers with pre-vetted distributors, helping them
