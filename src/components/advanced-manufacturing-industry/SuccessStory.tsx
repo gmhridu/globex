@@ -20,7 +20,7 @@ const SuccessStory = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl">
             {inView ? (
               <Typewriter
-                string="Let's accelerate your growth."
+                string="Let&apos;s accelerate your growth."
                 cursor="_"
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete={true}
@@ -28,7 +28,7 @@ const SuccessStory = () => {
               />
             ) : (
               <span className="text-primary inline">
-                Let's accelerate your growth.
+                Let&apos;s accelerate your growth.
               </span>
             )}
             <br />
