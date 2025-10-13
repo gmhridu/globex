@@ -86,7 +86,7 @@ const ProductsCards = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
               style={{
                 background:
                   "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(240,248,255,0.8) 100%)",
@@ -100,15 +100,6 @@ const ProductsCards = () => {
                 `,
               }}
             >
-              {/* Glossy border overlay */}
-              <div
-                className="absolute inset-0 rounded-3xl pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(145deg, rgba(100, 200, 255, 0.3) 0%, rgba(0, 100, 200, 0.1) 50%, rgba(200, 220, 255, 0.2) 100%)",
-                  mixBlendMode: "overlay",
-                }}
-              />
 
               {/* Image container */}
               <div className="relative h-64 overflow-hidden">
@@ -119,32 +110,14 @@ const ProductsCards = () => {
                   height={300}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-
-                {/* Glossy overlay on image */}
-                <div
-                  className="absolute inset-0 opacity-20"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(100,150,255,0.2) 100%)",
-                  }}
-                />
               </div>
 
               {/* Content */}
-              <div className="relative p-6 bg-white/90 backdrop-blur-sm">
-                <h3 className="text-xl font-bold text-gray-800 text-center">
+              <div className="relative p-6 bg-secondary backdrop-blur-sm">
+                <h3 className="text-xl font-bold text-primary text-center">
                   {product.title}
                 </h3>
               </div>
-
-              {/* Additional glossy highlight */}
-              <div
-                className="absolute top-0 left-0 w-full h-1"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(100, 200, 255, 0.6) 0%, rgba(200, 220, 255, 0.4) 50%, rgba(100, 200, 255, 0.6) 100%)",
-                }}
-              />
             </div>
           ))}
         </div>

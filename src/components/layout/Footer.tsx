@@ -24,6 +24,7 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const getYear = () => new Date().getFullYear();
   return (
     <footer className="bg-dark-900 text-white">
       {/* Main Footer */}
@@ -111,7 +112,8 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 <span className="text-gray-500">•</span> We Are Globex ™️
+              © {getYear()} <span className="text-gray-500">•</span> We Are
+              Globex ™️
             </div>
 
             <div className="flex items-center space-x-4">
