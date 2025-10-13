@@ -1,14 +1,36 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { Typewriter } from "react-typewriting-effect";
+import { useInView } from "react-intersection-observer";
+import "react-typewriting-effect/dist/index.css";
 
 const SuccessStory = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
   return (
-    <section className="bg-secondary text-white py-16 md:py-24">
+    <section ref={ref} className="bg-secondary text-white py-16 md:py-24">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl ">
-            <span className="text-primary">Let’s Accelerate Your Growth.</span>{" "}
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl">
+            {inView ? (
+              <Typewriter
+                string="Let’s Accelerate Your Growth."
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete={true}
+                className="text-primary"
+              />
+            ) : (
+              <span className="text-primary inline">
+                Let’s Accelerate Your Growth.
+              </span>
+            )}
             <br />
             Speak with a Globex Growth Expert
           </h2>

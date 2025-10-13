@@ -1,6 +1,10 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { Typewriter } from "react-typewriting-effect";
+import "react-typewriting-effect/dist/index.css";
 
 const HeroSection = () => {
   return (
@@ -20,7 +24,13 @@ const HeroSection = () => {
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
             Empowering automation <br />
-            <span className="text-primary">Innovators to drive growth</span>
+            <Typewriter
+              string="Innovators to drive growth"
+              cursor="_"
+              cursorClassName="text-primary"
+              stopBlinkinOnComplete={true}
+              className="text-primary"
+            />
           </h1>
           <p className="text-xl mb-8 mt-2 text-white leading-relaxed">
             From robotic automation to custom machine building, We Are Globex

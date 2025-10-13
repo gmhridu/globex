@@ -1,6 +1,8 @@
 "use client";
 import { motion, easeOut } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Typewriter } from "react-typewriting-effect";
+import "react-typewriting-effect/dist/index.css";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -26,9 +28,19 @@ const TrustedPartner = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
             A trusted partner for{" "}
-            <span className="text-[#F5A623]">
-              Automation Solution Providers.
-            </span>
+            {inView ? (
+              <Typewriter
+                string="Automation Solution Providers."
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete={true}
+                className="text-primary"
+              />
+            ) : (
+              <span className="text-primary inline">
+                Automation Solution Providers.
+              </span>
+            )}
           </h2>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl text-center mx-auto">
             We understand the automation industry’s unique challenges and

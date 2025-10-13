@@ -1,6 +1,8 @@
 "use client";
 import { motion, easeOut } from "framer-motion";
+import { Typewriter } from "react-typewriting-effect";
 import { useInView } from "react-intersection-observer";
+import "react-typewriting-effect/dist/index.css";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -12,7 +14,7 @@ const industries = [
   "Flooring Contracting",
   "Lighting Contracting",
   "Roofing Contracting",
-  " Electrical Contracting",
+  "Electrical Contracting",
   "HVAC Contracting",
   "Waterproofing Services",
   "Energy & Sustainability Services",
@@ -35,9 +37,19 @@ const TrustedPartner = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
             A trusted partner for{" "}
-            <span className="text-[#F5A623]">
-              Facility & Industrial Service Providers
-            </span>
+            {inView ? (
+              <Typewriter
+                string="Facility & Industrial Service Providers"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete={true}
+                className="text-primary"
+              />
+            ) : (
+              <span className="text-primary inline">
+                Facility & Industrial Service Providers
+              </span>
+            )}
           </h2>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl text-center mx-auto">
             We understand the unique challenges of facility and industrial
