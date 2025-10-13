@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+.marscode
+
+deviceInfo.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
