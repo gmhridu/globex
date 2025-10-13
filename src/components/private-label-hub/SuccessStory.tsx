@@ -126,7 +126,7 @@ const SuccessStory = () => {
               hover:bg-white hover:text-black"
           >
             <Link href="/contact" className="inline-flex items-center">
-              LET'S TALK
+              LET&apos;S TALK
               <ChevronRight
                 className="h-5 w-5 transform translate-x-[-10px] opacity-0
                   transition-all duration-300 ease-in-out
