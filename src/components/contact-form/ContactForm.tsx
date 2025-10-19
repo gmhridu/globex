@@ -125,15 +125,15 @@ const ContactForm = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-6">
+            <h2 className="text-4xl font-bold mb-6">
               Speak to an international business advisor
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-md text-gray-600 mb-8">
               Get in touch to find out how we can help you achieve your
               international expansion goals.
             </p>
             <Button
-              className="group inline-flex w-[240px] items-center justify-center gap-2
+              className="group inline-flex w-[240px]items-center justify-center gap-2
              bg-primary text-black text-lg font-medium
              transition-all duration-300 hover:bg-white hover:text-black"
             >

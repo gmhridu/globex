@@ -24,7 +24,7 @@ const SuccessStory = () => {
     <section ref={ref} className="bg-secondary text-white py-16 md:py-24">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-7xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 max-w-7xl leading-tight">
             The Right{" "}
             {startAnimation ? (
               <Typewriter
@@ -81,7 +81,7 @@ const SuccessStory = () => {
             take your distribution to the next level.
           </h2>
 
-          <Button className="group inline-flex w-[220px] items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+          <Button className="group inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
             <Link href="/contact" className="inline-flex items-center">
               LETS TALK
               <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />

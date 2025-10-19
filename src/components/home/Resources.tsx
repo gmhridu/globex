@@ -73,10 +73,10 @@ const Resources = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-md uppercase tracking-wider text-gray-500 mb-2">
+          <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
             RESOURCES
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold">Featured Resources</h3>
+          <h3 className="text-4xl md:text-4xl font-bold">Featured Resources</h3>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -103,12 +103,12 @@ const Resources = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h4 className="text-xl font-bold mb-3">{resource.title}</h4>
+                <h4 className="text-lg font-bold mb-3">{resource.title}</h4>
                 <p className="text-gray-600 mb-4">{resource.excerpt}</p>
                 <div className="mt-8 ">
                   <a
                     href="#contact"
-                    className="btn btn-primary group inline-flex items-center justify-center w-[220px] text-lg px-8 py-4 
+                    className="btn btn-primary group inline-flex items-center justify-center w-[180px] whitespace-nowrap text-lg px-8 py-2 
                bg-primary text-black transition-all duration-300
                hover:bg-secondary hover:text-white"
                   >

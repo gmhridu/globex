@@ -49,9 +49,9 @@ const ValueProposition = () => {
             <Image
               src="/assests/home/struggling.jpg"
               alt="Manufacturing professional smiling"
-              width={500}
+              width={400}
               height={300}
-              className="w-full h-[400px] object-cover object-center rounded-2xl"
+              className="w-[650px] h-[400px] object-cover object-center rounded-2xl"
               priority
             />
           </motion.div>
@@ -62,7 +62,7 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
               Struggling to{" "}
               {startAnimation ? (
                 <Typewriter
@@ -106,14 +106,14 @@ const ValueProposition = () => {
               )}
             </h2>
 
-            <p className="text-lg mb-6 font-semibold">
+            <p className="text-md mb-6 font-semibold">
               If your growth is tied to just a handful of clients or markets,
               it’s only a matter of time before things stall. Without fresh,
               qualified distributor interest, scaling becomes unpredictable —
               and risky.
             </p>
 
-            <p className="text-lg mb-8 font-semibold">
+            <p className="text-md mb-8 font-semibold">
               At <span className="font-black">We Are Globex</span>, we help
               manufacturers diversify their pipeline by connecting them directly
               to pre-vetted distributors across Europe, North America, and
@@ -122,7 +122,7 @@ const ValueProposition = () => {
             </p>
 
             <div className="mt-8">
-              <Button className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+              <Button className="group mt-8 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
                 <Link href="/contact" className="inline-flex items-center">
                   LETS TALK
                   <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
