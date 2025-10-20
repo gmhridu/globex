@@ -15,13 +15,6 @@ const Resources = () => {
   const [showAll, setShowAll] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleToggle = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setShowAll(!showAll);
-      setLoading(false);
-    }, 600);
-  };
 
   const resources = [
     {

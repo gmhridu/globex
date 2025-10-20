@@ -103,12 +103,14 @@ const blogs = [
 ];
 
 interface BlogDetailsPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
-  const { id } = params;
-  const blog = blogs.find((b) => b.id === Number(id));
+export default async function BlogDetailsPage({
+  params,
+}: BlogDetailsPageProps) {
+  const awaitedParams = await params;
+  const blog = blogs.find((b) => b.id === Number(awaitedParams.id));
 
   if (!blog) return notFound();
 
