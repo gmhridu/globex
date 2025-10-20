@@ -19,7 +19,7 @@ const ContactForm2 = () => {
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
-  
+
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -56,25 +56,25 @@ const ContactForm2 = () => {
     e.preventDefault();
     setFormSubmitting(true);
     setFormError(null);
-    
+
     // Validate required fields
     if (!formData.email || !formData.message) {
       setFormError('Please fill in all required fields');
       setFormSubmitting(false);
       return;
     }
-    
+
     try {
       // In a real application, you would send this data to your backend
       // For demonstration, we'll simulate a successful submission
       console.log('Form submitted with data:', formData);
-      
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Show success message
       setFormSuccess(true);
-      
+
       // Reset form after successful submission
       setFormData({
         firstName: '',
@@ -94,14 +94,14 @@ const ContactForm2 = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg w-full lg:w-3xl">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-full">
       {formSuccess ? (
         <div className="text-center py-8">
           <div className="text-green-500 text-5xl mb-4">✓</div>
           <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
           <p className="text-gray-600 mb-6">Your message has been sent successfully. We&apos;ll get back to you shortly.</p>
-          <button 
-            onClick={() => setFormSuccess(false)} 
+          <button
+            onClick={() => setFormSuccess(false)}
             className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors"
           >
             Send Another Message
@@ -117,44 +117,44 @@ const ContactForm2 = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <div className="w-full sm:w-1/2">
               <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                placeholder="First Name" 
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                placeholder="First Name"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="w-full sm:w-1/2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                placeholder="Last Name" 
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                placeholder="Last Name"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <div className="w-full sm:w-1/2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Email <span className="text-red-500">*</span></label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Email Address" 
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                required 
+                placeholder="Email Address"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
             <div className="w-full sm:w-1/2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Phone/Mobile</label>
               <div className="flex">
-                <select 
+                <select
                   name="dialCode"
                   value={formData.dialCode}
                   onChange={handleInputChange}
@@ -171,41 +171,41 @@ const ContactForm2 = () => {
                     ))
                   )}
                 </select>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  placeholder="Mobile Number" 
-                  className="w-2/3 p-3 border border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  placeholder="Mobile Number"
+                  className="w-2/3 p-3 border border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="subject"
               value={formData.subject}
               onChange={handleInputChange}
-              placeholder="Subject" 
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              placeholder="Subject"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Your Message <span className="text-red-500">*</span></label>
-            <textarea 
+            <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              placeholder="Your Message" 
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              required 
+              placeholder="Your Message"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
               rows={4}
             ></textarea>
           </div>
-          <button 
+          <button
             type="submit"
             disabled={formSubmitting}
             className={`w-full ${formSubmitting ? 'bg-gray-500' : 'bg-gray-800 hover:bg-gray-700'} text-white p-3 rounded-lg transition-colors flex justify-center items-center`}

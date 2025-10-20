@@ -74,6 +74,10 @@ const navigation: NavigationItem[] = [
     href: "/career",
   },
   {
+    label: "Blogs",
+    href: "/blogs"
+  },
+  {
     label: "Contact",
     href: "/contact",
   },

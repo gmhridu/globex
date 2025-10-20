@@ -1,6 +1,6 @@
 import BenefitsSection from "@/components/career/BenefitsSection";
 import HeroSection from "@/components/career/HeroSection";
-import ImpactSection from "@/components/career/ImpactSection copy";
+import ImpactSection from "@/components/career/ImpactSection";
 import OpenPosition from "@/components/career/OpenPosition";
 import ContactForm from "@/components/contact-form/ContactForm";
 

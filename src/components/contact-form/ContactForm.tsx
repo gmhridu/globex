@@ -153,7 +153,7 @@ const ContactForm = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl border border-blue-200/50 p-8 relative overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl border border-blue-200/50 p-8 relative overflow-hidden w-full md:w-[600px]"
             style={{
               background:
                 "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%)",
