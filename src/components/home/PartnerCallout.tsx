@@ -28,7 +28,7 @@ const PartnerCallout = () => {
   }, [inView, startAnimation]);
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left side - Image */}
@@ -65,7 +65,7 @@ const PartnerCallout = () => {
               ) : (
                 <span className="text-primary inline">Your Brand</span>
               )}{" "}
-              with the <br />
+              with the {" "}
               {showDistributors ? (
                 <Typewriter
                 onComplete={() => {}}
@@ -78,7 +78,7 @@ const PartnerCallout = () => {
               ) : (
                 <span className="text-primary inline">Distributors,</span>
               )}{" "}
-              and Grow <br /> with Confidence
+              and Grow  with Confidence
             </h2>
 
             <p className="text-md font-semibold mb-4">

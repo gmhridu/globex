@@ -21,7 +21,7 @@ const SuccessStory = () => {
   }, [inView, startAnimation]);
 
   return (
-    <section ref={ref} className="bg-secondary text-white py-16 md:py-24">
+    <section ref={ref} className="bg-secondary text-white py-12">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 max-w-7xl leading-tight">

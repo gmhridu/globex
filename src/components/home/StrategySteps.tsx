@@ -37,7 +37,7 @@ const StrategySteps = () => {
   ];
 
   return (
-    <section className="bg-secondary text-white py-16 md:py-24">
+    <section className="bg-secondary text-white py-12">
       <div className="container">
         <motion.div
           ref={ref}

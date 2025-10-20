@@ -43,7 +43,7 @@ const AgencySection = () => {
   ];
 
   return (
-    <section className="bg-gray-300/20 py-16 md:py-24">
+    <section className="bg-gray-300/20 py-12">
       <div className="container">
         {/* Header */}
         <motion.div
@@ -87,9 +87,9 @@ const AgencySection = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.2, delay: index * 0.2 }}
               whileHover={{
-                scale: 1.05,
+                scale: 1,
                 boxShadow: "0px 10px 30px rgba(0,0,0,0.12)",
               }}
               className="relative border-2 border-black hover:border-[var(--hover-color)] rounded-2xl p-8 bg-white/70 backdrop-blur-sm transition-all duration-300 hover:bg-white cursor-pointer"

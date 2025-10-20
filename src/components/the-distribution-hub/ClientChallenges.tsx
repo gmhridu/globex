@@ -20,18 +20,17 @@ const ClientChallenges = () => {
   });
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left side - Content */}
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              What’s at Risk Without the <br />
-              Right Distribution Partner <br />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              What’s at Risk Without the Right Distribution Partner{" "}
               Strategy?
             </h2>
 
-            <ul className="space-y-1 text-lg font-semibold mb-8">
+            <ul className="space-y-1 text-md font-semibold mb-8">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
                   <div className="flex-shrink-0 mr-3">•</div>
@@ -40,7 +39,7 @@ const ClientChallenges = () => {
               ))}
             </ul>
             <Button
-              className="group inline-flex w-[220px] items-center justify-center text-lg
+              className="group inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
             >
@@ -61,14 +60,14 @@ const ClientChallenges = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={inView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="rounded-lg overflow-hidden shadow-xl"
+            className=""
           >
             <Image
               src="/assests/tailored-solutions/distributor-hub/envato-labs-ai.png"
               width={500}
               height={500}
               alt="Manufacturing facility"
-              className="w-full h-[400px] object-cover rounded-3xl"
+              className="w-[630px] h-[312px] object-cover rounded-3xl"
               priority={true}
             />
           </motion.div>

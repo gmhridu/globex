@@ -40,10 +40,10 @@ const PartnerLogos: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Our Partners</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Partners</h2>
 
           {/* Marquee Container */}
-          <div className="w-full py-4">
+          <div className="w-full py-2">
             <Marquee
               speed={60}
               gradient={true}

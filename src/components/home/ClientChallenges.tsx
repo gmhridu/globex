@@ -20,14 +20,14 @@ const ClientChallenges = () => {
   });
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left side - Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Break Free from the <br />
-              Challenges That Hold Most <br />
+              Break Free from the
+              Challenges That <br /> Hold Most
               Manufacturers Back
             </h2>
 
@@ -67,7 +67,7 @@ const ClientChallenges = () => {
               width={500}
               height={500}
               alt="Manufacturing facility"
-              className="w-[650px] h-[400px] object-cover rounded-3xl"
+              className="w-[650px] h-[320px] object-cover rounded-3xl"
               priority={true}
             />
           </motion.div>

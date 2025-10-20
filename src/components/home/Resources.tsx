@@ -64,7 +64,7 @@ const Resources = () => {
   const visibleResources = showAll ? resources : resources.slice(0, 3);
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-12">
       <div className="container">
         <motion.div
           ref={ref}
@@ -108,15 +108,15 @@ const Resources = () => {
                 <div className="mt-8 ">
                   <a
                     href="#contact"
-                    className="btn btn-primary group inline-flex items-center justify-center w-[180px] whitespace-nowrap text-lg px-8 py-2 
+                    className="btn btn-primary group inline-flex items-center justify-center w-[180px] whitespace-nowrap text-lg px-8 py-2
                bg-primary text-black transition-all duration-300
                hover:bg-secondary hover:text-white"
                   >
                     <span className="relative z-10">Read More</span>
 
                     <span
-                      className="transform translate-x-[-10px] opacity-0 
-                 transition-all duration-300 ease-in-out 
+                      className="transform translate-x-[-10px] opacity-0
+                 transition-all duration-300 ease-in-out
                  group-hover:translate-x-3 group-hover:opacity-100"
                     >
                       <ChevronRight className="w-5 h-5" />
@@ -129,7 +129,7 @@ const Resources = () => {
         </div>
 
         {/* Loader or Button */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-5">
           {loading ? (
             <div className="flex space-x-2">
               <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>

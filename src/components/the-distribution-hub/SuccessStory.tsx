@@ -25,10 +25,10 @@ const SuccessStory = () => {
   }, [inView, startAnimation]);
 
   return (
-    <section className="bg-secondary text-white py-16 md:py-24" ref={ref}>
+    <section className="bg-secondary text-white py-12" ref={ref}>
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-6xl leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-7xl leading-tight">
             Your next{" "}
             {!startAnimation ? (
               <span className="text-primary inline">growth market</span>
@@ -58,8 +58,8 @@ const SuccessStory = () => {
                 delay={100}
               />
             )}{" "}
-            and start
             <br />
+            and start
             building traction — fast.
           </h2>
 

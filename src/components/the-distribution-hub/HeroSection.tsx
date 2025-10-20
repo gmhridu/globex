@@ -38,7 +38,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
             Powering
             {startAnimation ? (
               <Typewriter
@@ -57,7 +57,7 @@ const HeroSection = () => {
             for Manufacturers
           </h1>
 
-          <p className="text-xl mb-6 mt-2 text-white leading-relaxed">
+          <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
             Welcome to the{" "}
             <span className="text-primary ml-3">Distributor Hub</span> — your
             gateway to connecting with qualified distributors across Europe,{" "}
@@ -65,8 +65,8 @@ const HeroSection = () => {
           </p>
 
           <Button
-            className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
-        bg-primary text-black transition-all duration-300
+            className="group mt-8 inline-flex w-[200px] items-center justify-center text-lg
+        bg-primary whitespace-nowrap text-black transition-all duration-300
         hover:bg-white hover:text-black"
           >
             <Link href="/contact" className="inline-flex items-center">
