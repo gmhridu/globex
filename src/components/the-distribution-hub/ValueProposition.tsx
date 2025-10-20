@@ -27,7 +27,7 @@ const ValueProposition = () => {
   });
 
   return (
-    <section className="bg-white py-16" ref={ref}>
+    <section className="bg-white py-12" ref={ref}>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Charts and Image */}
@@ -42,7 +42,7 @@ const ValueProposition = () => {
               alt="Manufacturing professional smiling"
               width={400}
               height={300}
-              className="w-[556px] h-[271px] object-cover object-center rounded-2xl"
+              className="w-[650px] h-[271px] object-cover object-center rounded-2xl"
               priority={true}
             />
           </motion.div>
@@ -64,7 +64,7 @@ const ValueProposition = () => {
               existing footprint, our team will guide you every step of the way.
             </p>
 
-            <div className="mt-8 ">
+            <div className="mt-8">
               <Button
                 className="group mt-8 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black"
               >

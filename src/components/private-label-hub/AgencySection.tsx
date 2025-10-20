@@ -33,16 +33,16 @@ const AgencySection = () => {
   ];
 
   return (
-    <section className="bg-gray-300/20 py-16 md:py-24">
+    <section className="bg-gray-300/20 py-12">
       <div className="container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-8xl mx-auto mb-16"
+          className="text-center max-w-5xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-[3.3rem] font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight">
             We Connect{" "}
             {inView ? (
               <Typewriter
@@ -67,7 +67,7 @@ const AgencySection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               whileHover={{
-                scale: 1.05,
+                scale: 1,
                 boxShadow: "0px 12px 35px rgba(0,0,0,0.1)",
               }}
               className="relative border-2 border-black hover:shadow-lg hover:border-secondary rounded-2xl p-8 bg-white/70 backdrop-blur-sm transition-all duration-300 hover:bg-white cursor-pointer group"

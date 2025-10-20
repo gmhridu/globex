@@ -37,7 +37,7 @@ const PartnerCallout = () => {
               width={500}
               height={500}
               alt="Manufacturing workers"
-              className="w-[620px] h-[400px] object-cover rounded-2xl"
+              className="w-[620px] h-[355px] object-cover rounded-2xl"
               priority={true}
             />
           </motion.div>
@@ -53,7 +53,7 @@ const PartnerCallout = () => {
               network of distributors — no cold outreach, no guesswork.
             </p>
 
-            <ul className="space-y-1 text-lg font-semibold mb-8">
+            <ul className="space-y-1 text-md font-semibold mb-8">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
                   <div className="flex-shrink-0 mr-3">•</div>

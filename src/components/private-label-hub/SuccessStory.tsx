@@ -18,15 +18,14 @@ const SuccessStory = () => {
   const [showFit, setShowFit] = useState(false);
   const [showTime, setShowTime] = useState(false);
   const [showPrivateLabel, setShowPrivateLabel] = useState(false);
-  const [showManufacturing, setShowManufacturing] = useState(false);
   const [showBuyers, setShowBuyers] = useState(false);
   const [showScale, setShowScale] = useState(false);
 
   return (
-    <section ref={ref} className="bg-secondary text-white py-16 md:py-24">
+    <section ref={ref} className="bg-secondary text-white py-12">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-7xl leading-tight">
             The Right{" "}
             {inView ? (
               <Typewriter
@@ -65,25 +64,13 @@ const SuccessStory = () => {
               />
             ) : (
               <span className="text-primary inline">Time.</span>
-            )}
+            )} {" "}
+            Schedule a call
             <br />
-            Schedule a call and let Globex connect your{" "}
+            and let Globex connect your{" "}
             {showPrivateLabel ? (
               <Typewriter
-                string="private label"
-                cursor="_"
-                cursorClassName="text-primary"
-                stopBlinkinOnComplete={true}
-                className="text-primary inline"
-                onComplete={() => setShowManufacturing(true)}
-              />
-            ) : (
-              <span className="text-primary inline">private label</span>
-            )}{" "}
-            <br />
-            {showManufacturing ? (
-              <Typewriter
-                string="manufacturing"
+                string="private label manufacturing"
                 cursor="_"
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete={true}
@@ -91,8 +78,9 @@ const SuccessStory = () => {
                 onComplete={() => setShowBuyers(true)}
               />
             ) : (
-              <span className="text-primary inline">manufacturing</span>
+              <span className="text-primary inline">private label manufacturing</span>
             )}{" "}
+            <br />
             business with{" "}
             {showBuyers ? (
               <Typewriter
@@ -106,7 +94,7 @@ const SuccessStory = () => {
             ) : (
               <span className="text-primary inline">serious buyers</span>
             )}{" "}
-            ready to <br />{" "}
+            ready to {" "}
             {showScale ? (
               <Typewriter
                 string="scale."
