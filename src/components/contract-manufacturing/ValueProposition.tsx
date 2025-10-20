@@ -27,7 +27,7 @@ const ValueProposition = () => {
   });
 
   return (
-    <section className="bg-white py-16 mt-18" ref={ref}>
+    <section className="bg-white py-12" ref={ref}>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Charts and Image */}
@@ -42,7 +42,7 @@ const ValueProposition = () => {
               alt="Manufacturing professional smiling"
               width={300}
               height={300}
-              className="w-full h-[400px] object-cover object-center rounded-2xl"
+              className="w-[650px] h-[330px] object-cover object-center rounded-2xl"
               priority={true}
             />
           </motion.div>
@@ -53,22 +53,22 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
               Growth strategies tailored for contract manufacturers
             </h2>
-            <p className="text-lg mb-8 font-semibold">
+            <p className="text-md mb-4 font-semibold">
               At We Are Globex, we offer customized solutions contract
               manufacturers, helping you attract the right clients, expand your
               pipeline, and simplify your sales process.
             </p>
-            <p className="text-lg mb-8 font-semibold">
+            <p className="text-md mb-4 font-semibold">
               With our expertise in lead generation & sales solutions, we become
               a dedicated partner, working alongside you to drive measurable
               results.
             </p>
-            <div className="mt-8 ">
+            <div className="mt-4">
               <Button
-                className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
+                className="group mt-8 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
               >

@@ -64,7 +64,7 @@ const SuccessStory = () => {
           </h2>
 
           <Button
-            className="group inline-flex w-[220px] items-center justify-center text-lg
+            className="group inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
               bg-primary text-black transition-all duration-300
               hover:bg-white hover:text-black mt-6"
           >

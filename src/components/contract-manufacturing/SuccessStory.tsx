@@ -15,10 +15,10 @@ const SuccessStory = () => {
   });
 
   return (
-    <section ref={ref} className="bg-secondary text-white py-16 md:py-24">
+    <section ref={ref} className="bg-secondary text-white py-12">
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-8xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-7xl leading-tight">
             {inView ? (
               <Typewriter
                 string="Ready to Fill Your Production Pipeline?"
@@ -32,12 +32,12 @@ const SuccessStory = () => {
                 Ready to Fill Your Production Pipeline?
               </span>
             )}{" "}
-            Connect with Globex and secure high-value clients who <br />
+            Connect with Globex and <br /> secure high-value clients who
             need your capabilities.
           </h2>
 
           <Button
-            className="group inline-flex w-[220px] items-center justify-center text-lg
+            className="group inline-flex w-[180px] whitespace-nowrap  items-center justify-center text-lg
               bg-primary text-black transition-all duration-300
               hover:bg-white hover:text-black"
           >

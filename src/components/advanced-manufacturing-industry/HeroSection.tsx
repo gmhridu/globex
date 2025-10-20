@@ -22,7 +22,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
             Collaborate with Manufacturers <br />
             <Typewriter
               string="Shaping Tomorrow’s Industry"
@@ -32,18 +32,18 @@ const HeroSection = () => {
               className="text-primary"
             />
           </h1>
-          <p className="text-xl mb-8 mt-2 text-white leading-relaxed">
+          <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
             From IoT to manufacturing software, We Are Globex supports advanced
             manufacturing and Industry 4.0 solution providers in growing their
             pipeline and securing high-value opportunities. We implement
             strategies that highlight your innovations, improve lead quality,
             and drive sustainable business growth.
           </p>
-          <p className="text-xl mb-3 mt-6 text-white leading-relaxed">
+          <p className="text-lg mb-3 text-white leading-relaxed">
             Advanced Manufacturing & Industry 4.0
           </p>
           <Button
-            className="group mt-3 inline-flex w-[220px] items-center justify-center text-lg
+            className="group mt-3 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
           >

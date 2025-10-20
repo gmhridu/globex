@@ -10,11 +10,11 @@ const GrowthChallenges = () => {
   };
 
   return (
-    <section className="bg-[#04182b] container rounded-3xl py-16 px-8 mx-auto my-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-[#04182b] container rounded-3xl py-12 px-8 mx-auto my-4">
+      <div className="max-w-5xl mx-auto">
         {/* Main Heading */}
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-[#f5b332] mb-6 text-center"
+          className="text-3xl md:text-[45px] font-bold text-[#f5b332] mb-6 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}

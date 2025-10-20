@@ -21,7 +21,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
             Unlock Growth in Manufacturing <br />
             <Typewriter
               string="With Vetted Distributors"
@@ -31,7 +31,7 @@ const HeroSection = () => {
               className="text-primary"
             />
           </h1>
-          <p className="text-xl mb-6 mt-2 text-white leading-relaxed">
+          <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
             We connect manufacturers with pre-vetted distributors, helping them
             scale operations and enter new markets. From consumer goods to
             industrial equipment, we match you with trusted partners that align
@@ -39,7 +39,7 @@ const HeroSection = () => {
             for long-term growth.
           </p>
           <Button
-            className="group mt-8 inline-flex w-[220px] items-center justify-center text-lg
+            className="group mt-6 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
           >

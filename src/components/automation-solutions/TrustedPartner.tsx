@@ -18,7 +18,7 @@ const TrustedPartner = () => {
   });
 
   return (
-    <section className="bg-gray-100 py-20 px-6 mt-18" ref={ref}>
+    <section className="bg-gray-100 py-12 mt-12" ref={ref}>
       <div className="container">
         <motion.div
           variants={fadeUpVariants}

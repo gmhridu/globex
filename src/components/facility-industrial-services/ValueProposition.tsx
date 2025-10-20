@@ -27,7 +27,7 @@ const ValueProposition = () => {
   });
 
   return (
-    <section className="bg-white py-16 mt-18" ref={ref}>
+    <section className="bg-white py-12" ref={ref}>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Charts and Image */}
@@ -42,7 +42,7 @@ const ValueProposition = () => {
               alt="Empowring"
               width={300}
               height={300}
-              className="w-full h-[340px] object-cover object-center rounded-2xl"
+              className="w-[650px] h-[300px] object-cover object-center rounded-2xl"
               priority={true}
             />
           </motion.div>
@@ -53,12 +53,12 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Helping connect facility <br />
-              service providers with the <br />
-              right clients.
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              Helping connect facility service
+              <br />
+              providers with the right clients.
             </h2>
-            <p className="text-lg mb-6 font-semibold">
+            <p className="text-md mb-4 font-semibold">
               Manufacturing facilities rely on trusted service providers to
               optimize and sustain their operations. We Are Globex collaborates
               with businesses like yours to develop customized strategies in

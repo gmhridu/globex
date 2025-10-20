@@ -22,7 +22,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
             Expand your reach and grow <br />
             <Typewriter
               string="Your Facility Management Company."
@@ -32,7 +32,7 @@ const HeroSection = () => {
               className="text-primary"
             />
           </h1>
-          <p className="text-xl mb-8 mt-2 text-white leading-relaxed">
+          <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
             From energy efficiency to facility contracting, We Are Globex helps
             service providers connect with manufacturers who value your
             expertise. We deliver tailored strategies that enhance your
@@ -40,7 +40,7 @@ const HeroSection = () => {
             opportunities.
           </p>
           <Button
-            className="group mt-3 inline-flex w-[220px] items-center justify-center text-lg
+            className="group mt-3 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
           >
