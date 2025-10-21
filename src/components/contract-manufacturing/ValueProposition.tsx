@@ -54,17 +54,17 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Growth strategies tailored for contract manufacturers
+              Growth Strategies Tailored for Contract Manufacturers
             </h2>
             <p className="text-md mb-4 font-semibold">
-              At We Are Globex, we offer customized solutions contract
-              manufacturers, helping you attract the right clients, expand your
+              At We Are Globex, we design custom growth solutions for contract
+              manufacturers — helping you attract the right clients, expand your
               pipeline, and simplify your sales process.
             </p>
             <p className="text-md mb-4 font-semibold">
-              With our expertise in lead generation & sales solutions, we become
-              a dedicated partner, working alongside you to drive measurable
-              results.
+              With deep expertise in lead generation and sales development, we
+              act as your dedicated growth partner, working alongside your team
+              to deliver measurable, lasting results.
             </p>
             <div className="mt-4">
               <Button

@@ -39,13 +39,13 @@ const HeroSection = () => {
               stopBlinkinOnComplete={true}
               onComplete={() => setShowRevenue(true)}
             />
-            . <br />
+            <br />
             Accelerate Your{" "}
             {!showRevenue ? (
-              <span className="text-primary inline">Revenue.</span>
+              <span className="text-primary inline">Revenue</span>
             ) : (
               <Typewriter
-                string="Revenue."
+                string="Revenue"
                 className="text-primary inline"
                 cursor="_"
                 cursorClassName="text-primary"

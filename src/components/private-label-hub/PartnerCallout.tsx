@@ -8,10 +8,10 @@ import Link from "next/link";
 
 const PartnerCallout = () => {
   const benefits = [
-    "Connect with brands actively looking for private label partners",
-    "Build a steady flow of qualified opportunities aligned with your MOQs and categories",
-    "Gain visibility in the markets where your products are in demand",
-    "Spend more time onboarding clients — and less time chasing cold leads"
+    "Connect with brands actively searching for private label partners",
+    "Build a steady pipeline of qualified opportunities aligned with your MOQs and categories",
+    "Gain visibility in key markets where your products are in demand",
+    "Spend more time onboarding clients — and less time chasing cold leads",
   ];
 
   const [ref, inView] = useInView({
@@ -36,7 +36,7 @@ const PartnerCallout = () => {
               width={300}
               height={300}
               alt="Manufacturing workers"
-              className=" w-[620px] h-[400px] object-center rounded-lg"
+              className=" w-[620px] h-[350px] object-center rounded-lg"
               priority={true}
             />
           </motion.div>
@@ -44,16 +44,16 @@ const PartnerCallout = () => {
           {/* Right side - Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-              What You Can Expect from the Private Label Hub
+              What to Expect from the Private Label Hub
             </h2>
 
             <p className="text-md font-semibold mb-2">
               When you work with Globex, we don’t just send leads — we deliver
-              real, qualified brand opportunities that match your manufacturing
-              strengths.
+              qualified brand opportunities that align with your production
+              strengths and capacity.
             </p>
             <p className="text-md font-semibold mb-3">
-              With our private label matchmaking, you’ll:
+              Through our Private Label Hub, you’ll:
             </p>
             <ul className="space-y-1 text-md font-semibold mb-8">
               {benefits.map((benefit, index) => (

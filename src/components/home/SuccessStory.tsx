@@ -41,7 +41,7 @@ const SuccessStory = () => {
             . The Right{" "}
             {showMarkets ? (
               <Typewriter
-                string="Markets"
+                string="Strategy"
                 className="text-primary inline"
                 cursor="_"
                 cursorClassName="text-primary"
@@ -49,12 +49,12 @@ const SuccessStory = () => {
                 onComplete={() => setShowTime(true)}
               />
             ) : (
-              <span className="text-primary inline">Markets</span>
+              <span className="text-primary inline">Strategy</span>
             )}
             . The Right{" "}
             {showTime ? (
               <Typewriter
-                string="Time"
+                string="Markets"
                 className="text-primary inline"
                 cursor="_"
                 cursorClassName="text-primary"
@@ -62,13 +62,13 @@ const SuccessStory = () => {
                 onComplete={() => setShowGlobex(true)}
               />
             ) : (
-              <span className="text-primary inline">Time</span>
+              <span className="text-primary inline">Markets</span>
             )}
             . <br />
-            Schedule a call and let{" "}
+            Accelerate your global growth with We Are{" "}
             {showGlobex ? (
               <Typewriter
-              onComplete={() => {}}
+                onComplete={() => {}}
                 string="Globex"
                 className="text-primary inline"
                 cursor="_"
@@ -77,8 +77,9 @@ const SuccessStory = () => {
               />
             ) : (
               <span className="text-primary inline">Globex</span>
-            )}{" "}
-            take your distribution to the next level.
+            )},{" "}
+            <br />
+            where strategy meets execution.
           </h2>
 
           <Button className="group inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">

@@ -20,27 +20,27 @@ const AgencySection = () => {
 
   const services = [
     {
-      title: "Distributor Introductions",
+      title: "Market Mapping",
       description:
-        "Get matched with vetted distributors already in our global network — no cold outreach needed.",
+        "Understand where your products will perform best across Europe and the Middle East with data-driven analysis and local insight.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Warm Connections",
+      title: "Distributor Vetting",
       description:
-        "Connect directly with decision-makers and start meaningful conversations for you.",
+        "Gain access to our trusted network of pre-qualified distributors — selected for experience, infrastructure, and market reach.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Distributor-Facing Content",
+      title: "Brand Positioning",
       description:
-        "Present your brand with the right messaging, tailored for distributor interest and engagement.",
+        "We help fine-tune your messaging and materials to appeal directly to local distributors and buyers.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Meeting Coordination",
+      title: "Deal Acceleration",
       description:
-        "Secure qualified meetings that bring prospects one step closer to closing.",
+        "From introductions and calls to signed agreements, our team facilitates every step until partnerships are active and moving.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
   ];
@@ -57,11 +57,10 @@ const AgencySection = () => {
           className="text-center max-w-5xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight">
-            Stop Guessing. Start Connecting.
-            The{" "}
+            Stop Guessing. Start Growing. The{" "}
             {startAnimation ? (
               <Typewriter
-                string="Distributor Hub"
+                string="Globex Distributor Hub"
                 className="text-primary inline"
                 cursor="_"
                 cursorClassName="text-primary"
@@ -69,10 +68,12 @@ const AgencySection = () => {
                 delay={200}
               />
             ) : (
-              <span className="text-primary inline">Distributor Hub</span>
+              <span className="text-primary inline">
+                Globex Distributor Hub
+              </span>
             )}{" "}
-            delivers real distributor relationships,
-            backed by strategy, not luck.
+            builds real, lasting distributor relationships, powered by insight,
+            experience, and strategy, not luck.
           </h2>
         </motion.div>
 

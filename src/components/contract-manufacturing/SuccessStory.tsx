@@ -21,7 +21,7 @@ const SuccessStory = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-7xl leading-tight">
             {inView ? (
               <Typewriter
-                string="Ready to Fill Your Production Pipeline?"
+                string="Got Capacity? We’ll Help You Fill It."
                 cursor="_"
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete={true}
@@ -29,11 +29,12 @@ const SuccessStory = () => {
               />
             ) : (
               <span className="text-primary inline">
-                Ready to Fill Your Production Pipeline?
+                Got Capacity? We’ll Help You Fill It.
               </span>
             )}{" "}
-            Connect with Globex and <br /> secure high-value clients who
-            need your capabilities.
+            Globex connects <br />
+            contract manufacturers with qualified clients <br />
+            ready to outsource production.
           </h2>
 
           <Button

@@ -42,7 +42,7 @@ const ValueProposition = () => {
               alt="Manufacturing professional smiling"
               width={400}
               height={300}
-              className="w-[650px] h-[271px] object-cover object-center rounded-2xl"
+              className="w-[650px] h-[350px] object-cover object-center rounded-2xl"
               priority={true}
             />
           </motion.div>
@@ -53,21 +53,27 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Struggling to Build a Distributor Network?
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+              Expanding Into New Markets Without
+              <br />
+              the Right Network Can Stall Growth
             </h2>
-            <p className="text-md mb-6 font-semibold">
-              At <span className="font-bold">Globex</span>,we
-              specialize in helping manufacturers expand their reach by securing
-              the right distribution partners in key global markets. Whether
-              you’re launching into a new region or looking to strengthen your
-              existing footprint, our team will guide you every step of the way.
+            <p className="text-md mb-3 font-semibold">
+              We Are <span className="font-bold">Globex</span>,we help
+              manufacturers accelerate expansion by building robust distributor
+              ecosystems across Europe and the Middle East. Through our curated
+              network, structured onboarding, and performance-based strategies,
+              we transform distribution from a challenge into a competitive
+              advantage.
+            </p>
+            <p className="text-md mb-4 font-semibold">
+              Our experts guide you from market selection to active sales,
+              ensuring every partner is aligned with your brand’s goals and
+              capable of driving long-term results.
             </p>
 
-            <div className="mt-8">
-              <Button
-                className="group mt-8 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black"
-              >
+            <div className="">
+              <Button className="group  inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
                 <Link href="/contact" className="inline-flex items-center">
                   LETS TALK
                   <ChevronRight

@@ -23,7 +23,7 @@ const HeroSection = () => {
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
-            We Bring Clients to
+            Powering Growth for
             <br />
             <Typewriter
               string="Contract Manufacturers"
@@ -34,15 +34,14 @@ const HeroSection = () => {
             />{" "}
           </h1>
           <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
-            Partner with We Are Globex to connect directly with OEMs and brands
-            looking for reliable manufacturing partners.
+            Globex connects manufacturers with OEMs and brands seeking trusted
+            production partners
             <br />
-             We open doors to
-            high-value clients, helping you fill your production pipeline and
-            secure long-term contracts.
+             — delivering qualified opportunities that turn
+            capacity into recurring business.
           </p>
           <Button
-            className="group mt-8 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
+            className="group mt-3 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
           >

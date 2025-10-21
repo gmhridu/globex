@@ -58,18 +58,18 @@ const ValueProposition = () => {
               Services?
             </h2>
             <p className="text-md mb-4 font-semibold">
-              You’ve got the capacity and capability — but finding serious,
-              ready-to-buy brand partners is tough. Relying on word of mouth or
-              waiting for inbound leads just isn’t enough.
+              You’ve got the capacity and capability, but finding serious,
+              ready-to-buy brand partners isn’t easy. Relying on word of mouth
+              or waiting for inbound leads just isn’t enough.
             </p>
             <p className="text-md mb-4 font-semibold">
               We connect private label manufacturers with pre-vetted brands
-              actively looking to outsource production — so you can focus on
-              making, not chasing.
+              actively seeking production partners, so you can focus on making,
+              not chasing.
             </p>
             <div className="mt-4">
               <Button
-                className="group mt-8 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
+                className="group mt-5 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
               >

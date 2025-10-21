@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react";
 const HeroSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
   const [startAnimation, setStartAnimation] = useState(false);
+  const [showMiddleEast, setShowMiddleEast] = useState(false);
 
   useEffect(() => {
     if (inView) {
@@ -39,29 +40,45 @@ const HeroSection = () => {
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
-            Powering
+            Powering Distribution Across
             {startAnimation ? (
               <Typewriter
-                onComplete={() => {}}
-                string="Global Distribution"
+                onComplete={() => {
+                  setShowMiddleEast(true);
+                }}
+                string="Europe"
                 className="text-primary ml-3 inline"
                 cursor="_"
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete
               />
             ) : (
-              <span className="text-primary ml-3 inline">
-                Global Distribution
-              </span>
+              <span className="text-primary ml-3 inline">Europe</span>
             )}{" "}
-            for Manufacturers
+            <br />
+            & the
+            {showMiddleEast ? (
+              <Typewriter
+                onComplete={() => {}}
+                string="Middle East"
+                className="text-primary ml-3 inline"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+                delay={80}
+              />
+            ) : (
+              <span className="text-primary ml-3 inline">Middle East</span>
+            )}
           </h1>
 
           <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
             Welcome to the{" "}
-            <span className="text-primary ml-3">Distributor Hub</span> — your
-            gateway to connecting with qualified distributors across Europe,{" "}
-            <br /> North America, the Middle East, and beyond.
+            <span className="text-primary">Distributor Hub,</span> your gateway
+            to connecting with qualified distributors, importers, and key market
+            partners
+            <br />
+            across Europe and the Middle East
           </p>
 
           <Button

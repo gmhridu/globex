@@ -53,15 +53,16 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
-            We facilitate{" "}
-            <span className="text-primary">strategic introductions</span>{" "}
-            between manufacturers <br />
-            and brands looking to outsource production —{" "}
-            <span className="text-primary ml-3">the right fit, every time</span>
+            We connect <span className="text-primary">private label</span>{" "}
+            manufacturers with
+            brands ready to scale —{" "}
+            <span className="text-primary">
+            creating the perfect match, every time.
+            </span>
           </p>
 
           <Button
-            className="group mt-8 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
+            className="group mt-2 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg
               bg-primary text-black transition-all duration-300
               hover:bg-white hover:text-black"
           >

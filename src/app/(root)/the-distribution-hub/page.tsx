@@ -16,7 +16,7 @@ export default function Home() {
         <AgencySection />
         <StrategySteps />
         <PartnerCallout />
-        <ClientChallenges />
+        {/* <ClientChallenges /> */}
         <SuccessStory />
         <ContactForm />
       </main>

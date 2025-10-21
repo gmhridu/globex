@@ -64,10 +64,10 @@ const SuccessStory = () => {
               />
             ) : (
               <span className="text-primary inline">Time.</span>
-            )} {" "}
-            Schedule a call
-            <br />
-            and let Globex connect your{" "}
+            )}{" "}
+            Let
+
+            <br /> Globex connect your{" "}
             {showPrivateLabel ? (
               <Typewriter
                 string="private label manufacturing"
@@ -75,26 +75,15 @@ const SuccessStory = () => {
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete={true}
                 className="text-primary inline"
-                onComplete={() => setShowBuyers(true)}
-              />
-            ) : (
-              <span className="text-primary inline">private label manufacturing</span>
-            )}{" "}
-            <br />
-            business with{" "}
-            {showBuyers ? (
-              <Typewriter
-                string="serious buyers"
-                cursor="_"
-                cursorClassName="text-primary"
-                stopBlinkinOnComplete={true}
-                className="text-primary inline"
                 onComplete={() => setShowScale(true)}
               />
             ) : (
-              <span className="text-primary inline">serious buyers</span>
+              <span className="text-primary inline">
+                private label manufacturing
+              </span>
             )}{" "}
-            ready to {" "}
+            <br />
+            business with brands ready to{" "}
             {showScale ? (
               <Typewriter
                 string="scale."

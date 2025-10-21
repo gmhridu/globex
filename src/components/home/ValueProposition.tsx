@@ -95,14 +95,14 @@ const ValueProposition = () => {
               {showProducts ? (
                 <Typewriter
                 onComplete={() => {}}
-                  string="Products"
+                  string="Products?"
                   className="text-primary inline"
                   cursor="_"
                   cursorClassName="text-primary"
                   stopBlinkinOnComplete
                 />
               ) : (
-                <span className="text-primary inline">Products</span>
+                <span className="text-primary inline">Products?</span>
               )}
             </h2>
 

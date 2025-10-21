@@ -15,7 +15,8 @@ const SuccessStory = () => {
   });
 
   const [startAnimation, setStartAnimation] = useState(false);
-  const [showDistributors, setShowDistributors] = useState(false);
+  const [showPatners, setShowPartners] = useState(false);
+  const [showMarkets, setShowMarkets] = useState(false);
 
   useEffect(() => {
     if (inView && !startAnimation) {
@@ -29,38 +30,51 @@ const SuccessStory = () => {
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-7xl leading-tight">
-            Your next{" "}
             {!startAnimation ? (
-              <span className="text-primary inline">growth market</span>
+              <span className="text-primary inline">
+                Find your next distributor.
+              </span>
             ) : (
               <Typewriter
-                string="growth market"
+                string="Find your next distributor."
                 cursor="_"
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete
                 className="text-primary inline"
-                onComplete={() => setShowDistributors(true)}
+                onComplete={() => setShowPartners(true)}
               />
             )}{" "}
-            is closer than you think.
+            We’ll connect you
             <br />
-            Let’s connect you with{" "}
-            {!showDistributors ? (
-              <span className="text-primary inline">trusted distributors</span>
+            to the{" "}
+            {!showPatners ? (
+              <span className="text-primary inline">right partners</span>
             ) : (
               <Typewriter
-                onComplete={() => {}}
-                string="trusted distributors"
+                onComplete={() => {
+                  setShowMarkets(true);
+                }}
+                string="right partners"
                 cursor="_"
                 cursorClassName="text-primary"
                 stopBlinkinOnComplete
                 className="text-primary inline"
                 delay={100}
               />
-            )}{" "}
-            <br />
-            and start
-            building traction — fast.
+            )}
+            , {" "}
+            {!showMarkets ? (
+              <span className="text-primary inline">right markets</span>
+            ) : (
+              <Typewriter
+                string="right markets"
+                cursor="_"
+                cursorClassName="text-primary"
+                stopBlinkinOnComplete
+                className="text-primary inline"
+                delay={100}
+              />
+            )}.
           </h2>
 
           <Button

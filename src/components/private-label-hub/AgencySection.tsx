@@ -13,21 +13,21 @@ const AgencySection = () => {
 
   const services = [
     {
-      title: "Warm Introductions",
+      title: "Market-Matched Introductions",
       description:
-        "Get matched with brands actively searching for private label partners. We tap into our global network and deliver opportunities that match your capabilities, MOQs, and category.",
+        "Get connected with brands actively sourcing private-label partners across your category. Every introduction is matched to your capabilities, MOQs, and production strengths, ensuring relevance from the start.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Verified Buyer Engagement",
+      title: "Qualified & Ready Buyers",
       description:
-        "We qualify every lead before it ever reaches you. No time wasted. Every brand we introduce has budget, intent, and a genuine interest in outsourcing.",
+        "We pre-qualify every brand to ensure serious intent, confirmed budgets, and a clear outsourcing plan — so you spend time only with partners who are ready to move forward.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Appointment Setting",
+      title: "Sales-Ready Meetings",
       description:
-        "We schedule and facilitate qualified brand meetings. You show up to sell. We handle the rest, including briefing, positioning, and follow-ups if needed.",
+        "We handle the coordination and prepare both sides for success — from briefing and positioning to follow-ups. You focus on the conversation; we handle everything else.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
   ];
@@ -43,7 +43,7 @@ const AgencySection = () => {
           className="text-center max-w-5xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight">
-            We Connect{" "}
+            Connecting{" "}
             {inView ? (
               <Typewriter
                 string="Private Label Manufacturers"
@@ -53,9 +53,11 @@ const AgencySection = () => {
                 className="text-primary"
               />
             ) : (
-              <span className="text-primary inline-block">Private Label Manufacturers</span>
+              <span className="text-primary inline-block">
+                Private Label Manufacturers
+              </span>
             )}{" "}
-            with the Brands That Are Ready to Buy.
+            with Ready-to-Buy Brands.
           </h2>
         </motion.div>
 

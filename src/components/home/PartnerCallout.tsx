@@ -65,10 +65,10 @@ const PartnerCallout = () => {
               ) : (
                 <span className="text-primary inline">Your Brand</span>
               )}{" "}
-              with the {" "}
+              with the Right {" "}
               {showDistributors ? (
                 <Typewriter
-                onComplete={() => {}}
+                  onComplete={() => {}}
                   string="Distributors,"
                   className="text-primary inline"
                   cursor="_"
@@ -78,14 +78,14 @@ const PartnerCallout = () => {
               ) : (
                 <span className="text-primary inline">Distributors,</span>
               )}{" "}
-              and Grow  with Confidence
+              and Grow with Confidence
             </h2>
 
             <p className="text-md font-semibold mb-4">
-              Partnering with We Are Globex means more than generating leads,
+              Partnering with We Are Globex means more than generating leads —
               it’s about building a strong, reliable presence in the markets
               that matter most. We lay the foundation for long-term distribution
-              success by connecting you to partners who are ready to move.
+              success by connecting you with partners who are ready to move.
             </p>
 
             <ul className="space-y-1 text-md font-semibold mb-8">
