@@ -11,15 +11,22 @@ const HeroSection = () => {
   const [showRevenue, setShowRevenue] = useState(false);
 
   return (
-    <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center">
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0 hero-background"
-        style={{
-          backgroundImage: "url('/assests/home/hero.jpg')",
-          backgroundBlendMode: "overlay",
-        }}
-      ></div>
+    <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center overflow-hidden">
+      {/* --- Background Video Layer --- */}
+      <video
+        className="absolute inset-0 w-full h-full  object-cover z-0"
+        src="/videos/homepage/heroVideo.mov"
+        autoPlay
+        loop
+        muted
+        preload="none"
+        playsInline
+      />
 
+      {/* --- Overlay Layer --- */}
+      <div className="absolute inset-0  hero-background z-0"></div>
+
+      {/* --- Content Layer --- */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
@@ -34,14 +41,10 @@ const HeroSection = () => {
             />
             . <br />
             Accelerate Your{" "}
-            {/* Keep an always-present placeholder to avoid layout shifts */}
             {!showRevenue ? (
-              // static text visible before animation starts
               <span className="text-primary inline">Revenue.</span>
             ) : (
-              // replace placeholder with animated typewriter
               <Typewriter
-                onComplete={() => { }}
                 string="Revenue."
                 className="text-primary inline"
                 cursor="_"
@@ -52,7 +55,7 @@ const HeroSection = () => {
             )}
           </h1>
 
-          <p className="text-lg mt-4 mb-6 text-white leading-relaxed">
+          <p className="text-lg mt-4 mb-6 text-white leading-relaxed max-w-2xl">
             We help businesses expand, scale, and succeed in international
             markets with a results-driven strategy.
           </p>
@@ -60,9 +63,7 @@ const HeroSection = () => {
           <Button className="group mt-2 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
             <Link href="/contact" className="inline-flex items-center">
               GET IN TOUCH
-              <ChevronRight
-                className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100"
-              />
+              <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
             </Link>
           </Button>
         </div>
