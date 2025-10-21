@@ -33,10 +33,10 @@ const BecomeCertifiedDistributorForm = () => {
   // };
 
   return (
-    <section className="bg-[#0F172A] py-16" ref={ref}>
+    <section className="bg-[#0F172A] py-6" ref={ref}>
       <div className="container">
         <motion.div
-          className="max-w-4xl mx-auto rounded-2xl p-8 md:p-10 shadow-lg"
+          className="max-w-3xl mx-auto rounded-2xl p-2 md:p-10 shadow-lg"
           variants={fadeInVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}

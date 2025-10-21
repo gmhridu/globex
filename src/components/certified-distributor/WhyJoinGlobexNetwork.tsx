@@ -24,7 +24,7 @@ const WhyJoinGlobexNetwork = () => {
   });
 
   return (
-    <section className="bg-white py-16 mt-32" ref={ref}>
+    <section className="bg-white py-12 mt-8" ref={ref}>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Image */}
@@ -45,7 +45,7 @@ const WhyJoinGlobexNetwork = () => {
                 className="object-cover"
               />
             </div>
-            
+
             {/* Main Image Container with Mask */}
             <div className="relative z-10 overflow-hidden">
               <Image

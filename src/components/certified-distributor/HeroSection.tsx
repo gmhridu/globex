@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center text-center">
+    <section className="relative min-h-[70vh] flex items-center justify-center text-center">
       {/* Background Image with Dark Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
@@ -20,11 +20,11 @@ const HeroSection = () => {
         <p className="uppercase tracking-[4px] text-sm text-gray-200 mb-4">
           Service
         </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+        <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">
           Join Our Global Distributor <br />
           <span className="text-white">Network</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-200 mt-6 leading-relaxed">
+        <p className="text-base md:text-md text-gray-200 mt-6 leading-relaxed">
           At Globex, we actively invite distributors to join our platform and
           tell us what products they’re looking for in their markets. Whether
           you’re expanding your catalog or searching for unique, high-demand

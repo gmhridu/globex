@@ -92,10 +92,10 @@ const GrowWithUsSection = () => {
   });
 
   return (
-    <section className="py-16 bg-blue-50" ref={ref}>
+    <section className="py-12 bg-blue-50" ref={ref}>
       <div className="container">
         <motion.div
-          className="bg-[#0F172A] rounded-2xl p-8 md:p-12 relative overflow-hidden"
+          className="bg-[#0F172A] rounded-2xl p-6 relative overflow-hidden"
           variants={fadeInVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -124,11 +124,11 @@ const GrowWithUsSection = () => {
 
           {/* Center Content */}
           <div className="text-center z-20 relative">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Grow<br />with Us?
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+              Ready to Grow with Us?
             </h2>
             <Button
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-8 py-3 rounded-full transition-all duration-300"
+              className="bg-yellow-500 hover:bg-yellow-400 w-[225px] whitespace-nowrap text-black font-semibold px-5 py-3 rounded-full transition-all duration-300"
             >
               <Link href="/contact">BOOK A CONSULTATION</Link>
             </Button>
