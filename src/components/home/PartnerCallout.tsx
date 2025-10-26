@@ -39,13 +39,13 @@ const PartnerCallout = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className=""
           >
-            <Image
+            <img
               src="/assests/home/bearded-business-man.jpg"
               width={500}
               height={500}
               alt="Manufacturing workers"
               className="w-[650px] h-full object-cover rounded-2xl"
-              priority
+
             />
           </motion.div>
 

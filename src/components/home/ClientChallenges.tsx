@@ -26,9 +26,8 @@ const ClientChallenges = () => {
           {/* Left side - Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Break Free from the
-              Challenges That <br /> Hold Most
-              Manufacturers Back
+              Break Free from the Challenges That <br /> Hold Most Manufacturers
+              Back
             </h2>
 
             <ul className="space-y-1 text-md font-semibold mb-8">
@@ -62,13 +61,12 @@ const ClientChallenges = () => {
             animate={inView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <Image
+            <img
               src="/assests/home/warehouse-manager.jpg"
               width={500}
               height={500}
               alt="Manufacturing facility"
               className="w-[650px] h-[320px] object-cover rounded-3xl"
-              priority={true}
             />
           </motion.div>
         </div>

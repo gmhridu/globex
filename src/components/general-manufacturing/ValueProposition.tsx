@@ -37,13 +37,12 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <Image
+            <img
               src="/assests/industries/manufacturing/engineer-finishing-bronze.jpeg"
               alt="Engineer Finishing Bronze"
               width={300}
               height={300}
               className="w-[650px] h-[330px] object-cover object-center rounded-2xl"
-              priority={true}
             />
           </motion.div>
 
