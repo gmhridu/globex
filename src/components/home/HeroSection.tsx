@@ -21,7 +21,7 @@ function RotatingWords() {
 
   return (
     <Typewriter
-      key={index} // This forces remount when index changes
+      key={index}
       string={words[index]}
       className="text-primary inline"
       cursor="|"
@@ -33,16 +33,6 @@ function RotatingWords() {
 }
 
 const HeroSection = () => {
-  const [showRevenue, setShowRevenue] = useState(false);
-
-  // Trigger revenue animation on mount
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowRevenue(true);
-    }, 100); // Small delay to ensure smooth rendering
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center overflow-hidden">
       {/* --- Background Video Layer --- */}
@@ -62,23 +52,17 @@ const HeroSection = () => {
       {/* --- Content Layer --- */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
-          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
-            Build Your <RotatingWords />
+          <h1 className="text-[3.5rem] font-bold text-white leading-tight">
+            Building Global Growth,
             <br />
-            Accelerate Your{" "}
-            {showRevenue && (
-              <Typewriter
-                string="Revenue"
-                className="text-primary inline"
-                cursor="_"
-                cursorClassName="text-primary"
-                stopBlinkinOnComplete={true}
-                delay={80}
-              />
-            )}
+           Take one partner at a time out.
           </h1>
 
-          <p className="text-lg mt-4 mb-6 text-white leading-relaxed max-w-2xl">
+          <p className="text-[3.5rem] font-bold text-white leading-tight">
+            Connecting Brands to <RotatingWords />
+          </p>
+
+          <p className="text-lg mt-6 mb-6 text-white leading-relaxed max-w-2xl">
             We help businesses expand, scale, and succeed in international
             markets with a results-driven strategy.
           </p>
