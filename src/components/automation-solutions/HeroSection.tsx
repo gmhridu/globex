@@ -40,10 +40,11 @@ const HeroSection = () => {
             strategies you need to expand your pipeline and close more deals.
           </p>
           <Button
-          size="md"
-            className="group mt-3 inline-flex whitespace-nowrap items-center justify-center text-lg
-        bg-primary text-black transition-all duration-300
-        hover:bg-white hover:text-black"
+            size="md"
+            className="group inline-flex w-full sm:w-auto whitespace-normal sm:whitespace-nowrap items-center justify-center
+                text-sm sm:text-base md:text-lg px-4 sm:px-6 py-3 sm:py-2
+                bg-primary text-black transition-all duration-300
+                hover:bg-white hover:text-black"
           >
             <Link href="/contact" className="inline-flex items-center">
               Identify Ideal Manufacturing Partners

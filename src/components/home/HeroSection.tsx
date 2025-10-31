@@ -34,7 +34,7 @@ function RotatingWords() {
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center overflow-hidden">
+    <section className="relative bg-secondary pt-16 sm:pt-20 md:pt-24 min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] flex items-center overflow-hidden">
       {/* --- Background Video Layer --- */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
@@ -50,22 +50,22 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-background z-0"></div>
 
       {/* --- Content Layer --- */}
-      <div className="container relative z-10 py-16 md:py-24">
+      <div className="container relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1300px]">
-          <h1 className="text-[3.5rem] font-bold text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[3.5rem] font-bold text-white leading-tight">
             Building Global Growth,
           </h1>
 
-          <p className="text-[3.5rem] font-bold text-white leading-tight">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[3.5rem] font-bold text-white leading-tight mt-2 sm:mt-3 md:mt-4">
             Connecting Brands to <RotatingWords />
           </p>
 
-          <p className="text-lg mt-6 mb-6 text-white leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base md:text-lg mt-4 sm:mt-5 md:mt-6 mb-4 sm:mb-5 md:mb-6 text-white leading-relaxed max-w-full sm:max-w-xl md:max-w-2xl">
             We help businesses expand, scale, and succeed in international
             markets with a results-driven strategy.
           </p>
 
-          <Button className="group mt-2 inline-flex w-[200px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+          <Button className="group mt-2 inline-flex w-full sm:w-[200px] whitespace-nowrap items-center justify-center text-base sm:text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
             <Link href="/contact" className="inline-flex items-center">
               GET IN TOUCH
               <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
