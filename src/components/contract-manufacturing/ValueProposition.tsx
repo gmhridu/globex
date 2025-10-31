@@ -38,7 +38,7 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <Image
-              src="/assests/tailored-solutions/contract-manufacturers-hub/pet_food_factory.jpg"
+              src="/assests/tailored-solutions/contract-manufacturers-hub/pet_food_factory.jpeg"
               alt="Manufacturing professional smiling"
               width={300}
               height={300}
@@ -68,7 +68,7 @@ const ValueProposition = () => {
             </p>
             <div className="mt-4">
               <Button
-              size="sm"
+                size="sm"
                 className="group mt-8 inline-flex whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"

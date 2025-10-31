@@ -32,7 +32,7 @@ const PartnerCallout = () => {
             className=""
           >
             <Image
-              src="/assests/tailored-solutions/private-label-hub/portrait-of-confident-female-worker.jpg"
+              src="/assests/tailored-solutions/private-label-hub/portrait-of-confident-female-worker.jpeg"
               width={300}
               height={300}
               alt="Manufacturing workers"

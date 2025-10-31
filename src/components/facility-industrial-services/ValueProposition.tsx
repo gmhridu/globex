@@ -38,7 +38,7 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <img
-              src="/assests/industries/facility-industrial/facility-service.jpg"
+              src="/assests/industries/facility-industrial/facility-service.jpeg"
               alt="Empowring"
               width={300}
               height={300}

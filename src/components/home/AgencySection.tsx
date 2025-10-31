@@ -35,7 +35,7 @@ const AgencySection = () => {
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
     },
     {
-      title: "The Contract Mfg Hub",
+      title: "The Contract MFG Hub",
       description:
         "Get discovered by brands actively searching for trusted contract manufacturing partners. No cold calls—just qualified leads, ready to build.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
