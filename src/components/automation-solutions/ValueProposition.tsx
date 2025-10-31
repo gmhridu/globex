@@ -54,9 +54,8 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Accelerate your growth with
-              tailored strategies for
-              automation providers
+              Accelerate your growth with tailored strategies for automation
+              providers
             </h2>
             <p className="text-md mb-4 font-semibold">
               Automation is revolutionizing manufacturing, and your business is
@@ -69,12 +68,13 @@ const ValueProposition = () => {
             </p>
             <div className="mt-2">
               <Button
-                className="group mt-4 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
+                size="sm"
+                className="group mt-4 inline-flex whitespace-nowrap items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
               >
                 <Link href="/contact" className="inline-flex items-center">
-                  LETS TALK
+                  Book a Partnership Strategy Call
                   <ChevronRight
                     className="h-5 w-5 transform translate-x-[-10px] opacity-0
             transition-all duration-300 ease-in-out

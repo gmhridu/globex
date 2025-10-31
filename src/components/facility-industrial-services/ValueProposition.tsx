@@ -66,12 +66,13 @@ const ValueProposition = () => {
             </p>
             <div className="mt-2">
               <Button
-                className="group mt-4 inline-flex w-[220px] items-center justify-center text-lg
+              size="sm"
+                className="group mt-4 inline-flex items-center justify-center text-lg
         bg-primary text-black transition-all duration-300
         hover:bg-white hover:text-black"
               >
                 <Link href="/contact" className="inline-flex items-center">
-                  LETS TALK
+                  Explore Partnership Opportunities
                   <ChevronRight
                     className="h-5 w-5 transform translate-x-[-10px] opacity-0
             transition-all duration-300 ease-in-out
