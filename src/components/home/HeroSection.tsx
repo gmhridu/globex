@@ -54,8 +54,6 @@ const HeroSection = () => {
         <div className="max-w-[1300px]">
           <h1 className="text-[3.5rem] font-bold text-white leading-tight">
             Building Global Growth,
-            <br />
-           Take one partner at a time out.
           </h1>
 
           <p className="text-[3.5rem] font-bold text-white leading-tight">
