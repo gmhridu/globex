@@ -89,9 +89,9 @@ const Complaint = () => {
         </p>
 
         <p className="text-lg font-bold mb-16 leading-tight text-gray-900">
-          <div className="space-y-2">
+          <span className="space-y-2">
             • <strong>By email:</strong> info@weareglobex.com
-          </div>
+          </span>
         </p>
       </div>
     </section>

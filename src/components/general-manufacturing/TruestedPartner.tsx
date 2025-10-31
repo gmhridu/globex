@@ -10,18 +10,14 @@ const fadeUpVariants = {
 };
 
 const industries = [
-  "Construction",
+  "Pets",
   "Outdoor Recreation",
-  "Pet Food",
-  "Agricultural Equipment",
-  "Cosmetics",
-  "Pet Healthcare",
-  "Electronic Manufacturing",
-  "Automotive Manufacturing",
-  "Education Technology",
-  "Consumer Goods",
-  "Medical Device Manufacturing",
-  "3D Printing",
+  "Agricultural Equipment & Machinery",
+  "Construction & Industrial Products",
+  "Defence & Security Equipment",
+  "Consumer Goods & Lifestyle Brands",
+  "Cannabis & CBD",
+  "Food & Hospitality",
 ];
 
 const TrustedPartner = () => {
