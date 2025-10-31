@@ -62,7 +62,7 @@ const SuccessStory = () => {
                 delay={100}
               />
             )}
-            , {" "}
+            ,{" "}
             {!showMarkets ? (
               <span className="text-primary inline">right markets</span>
             ) : (
@@ -74,16 +74,18 @@ const SuccessStory = () => {
                 className="text-primary inline"
                 delay={100}
               />
-            )}.
+            )}
+            .
           </h2>
 
           <Button
-            className="group inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg
+          size="sm"
+            className="group inline-flex whitespace-nowrap items-center justify-center text-lg
               bg-primary text-black transition-all duration-300
               hover:bg-white hover:text-black mt-6"
           >
             <Link href="/contact" className="inline-flex items-center">
-              LET&apos;S TALK
+              Start Building My Network
               <ChevronRight
                 className="h-5 w-5 transform translate-x-[-10px] opacity-0
                   transition-all duration-300 ease-in-out
