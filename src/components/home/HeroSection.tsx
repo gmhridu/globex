@@ -7,14 +7,47 @@ import Link from "next/link";
 import { Typewriter } from "react-typewriting-effect";
 import "react-typewriting-effect/dist/index.css";
 
+const words = ["Distributors", "Retailers", "OEMs", "Dealers"];
+
+function RotatingWords() {
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Typewriter
+      key={index} // This forces remount when index changes
+      string={words[index]}
+      className="text-primary inline"
+      cursor="|"
+      cursorClassName="text-primary animate-pulse"
+      stopBlinkinOnComplete={false}
+      delay={80}
+    />
+  );
+}
+
 const HeroSection = () => {
   const [showRevenue, setShowRevenue] = useState(false);
+
+  // Trigger revenue animation on mount
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowRevenue(true);
+    }, 100); // Small delay to ensure smooth rendering
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative bg-secondary pt-24 min-h-[80vh] flex items-center overflow-hidden">
       {/* --- Background Video Layer --- */}
       <video
-        className="absolute inset-0 w-full h-full  object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0"
         src="/videos/homepage/heroVideo.mov"
         autoPlay
         loop
@@ -24,26 +57,16 @@ const HeroSection = () => {
       />
 
       {/* --- Overlay Layer --- */}
-      <div className="absolute inset-0  hero-background z-0"></div>
+      <div className="absolute inset-0 hero-background z-0"></div>
 
       {/* --- Content Layer --- */}
       <div className="container relative z-10 py-16 md:py-24">
         <div className="max-w-[1300px]">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight">
-            Build Your{" "}
-            <Typewriter
-              string="Distribution"
-              className="text-primary inline"
-              cursor="_"
-              cursorClassName="text-primary"
-              stopBlinkinOnComplete={true}
-              onComplete={() => setShowRevenue(true)}
-            />
+            Build Your <RotatingWords />
             <br />
             Accelerate Your{" "}
-            {!showRevenue ? (
-              <span className="text-primary inline">Revenue</span>
-            ) : (
+            {showRevenue && (
               <Typewriter
                 string="Revenue"
                 className="text-primary inline"
