@@ -45,7 +45,6 @@ const PartnerCallout = () => {
               height={500}
               alt="Manufacturing workers"
               className="w-[650px] h-full object-cover rounded-2xl"
-
             />
           </motion.div>
 
@@ -65,7 +64,7 @@ const PartnerCallout = () => {
               ) : (
                 <span className="text-primary inline">Your Brand</span>
               )}{" "}
-              with the Right {" "}
+              with the Right{" "}
               {showDistributors ? (
                 <Typewriter
                   onComplete={() => {}}
@@ -97,9 +96,12 @@ const PartnerCallout = () => {
               ))}
             </ul>
 
-            <Button className="group inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+            <Button
+              size="sm"
+              className="group inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black"
+            >
               <Link href="/contact" className="inline-flex items-center">
-                LETS TALK
+                Explore the Distributor Hub
                 <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
               </Link>
             </Button>

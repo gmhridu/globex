@@ -93,7 +93,7 @@ const ValueProposition = () => {
               for your {/* Products */}
               {showProducts ? (
                 <Typewriter
-                onComplete={() => {}}
+                  onComplete={() => {}}
                   string="Products?"
                   className="text-primary inline"
                   cursor="_"
@@ -121,9 +121,11 @@ const ValueProposition = () => {
             </p>
 
             <div className="mt-8">
-              <Button className="group mt-8 inline-flex w-[180px] whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+              <Button
+              size="sm"
+              className="group mt-8 inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
                 <Link href="/contact" className="inline-flex items-center">
-                  LETS TALK
+                  Explore Our Growth Framework
                   <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
                 </Link>
               </Button>
