@@ -3,11 +3,11 @@ import React from "react";
 
 const Partner = () => {
   return (
-    <section className="relative bg-white py-16 px-8">
-      <div className="relative container mx-auto max-w-6xl mb-12">
+    <section className="relative bg-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
+      <div className="relative container mx-auto max-w-6xl mb-8 sm:mb-10 md:mb-12">
         {/* Main Heading */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 md:mb-6 leading-tight px-2 sm:px-4">
             Partnering for a Brighter Future: Supporting Shooting Star
             Children&apos;s Hospices
           </h1>
@@ -15,9 +15,9 @@ const Partner = () => {
         </div>
 
         {/* Content Paragraphs */}
-        <div className="space-y-8 text-gray-700 leading-relaxed">
+        <div className="space-y-4 sm:space-y-6 md:space-y-8 text-gray-700 leading-relaxed px-2 sm:px-4">
           {/* First Paragraph */}
-          <p className="text-lg md:text-xl text-center">
+          <p className="text-base sm:text-lg md:text-xl text-center">
             <span className="font-semibold text-gray-900">We Are Globex</span>{" "}
             is honored to partner with{" "}
             <span className="font-semibold text-gray-900">
@@ -29,7 +29,7 @@ const Partner = () => {
           </p>
 
           {/* Second Paragraph */}
-          <p className="text-lg text-center leading-relaxed">
+          <p className="text-base sm:text-lg text-center leading-relaxed">
             <span className="font-semibold text-gray-900">
               Shooting Star Children&apos;s Hospices
             </span>{" "}
@@ -47,7 +47,7 @@ const Partner = () => {
           </p>
 
           {/* Third Paragraph */}
-          <p className="text-lg text-center leading-relaxed">
+          <p className="text-base sm:text-lg text-center leading-relaxed">
             Supporting approximately{" "}
             <span className="font-semibold text-blue-600">
               500 babies, children, and young adults
@@ -65,7 +65,7 @@ const Partner = () => {
           </p>
 
           {/* Fourth Paragraph */}
-          <p className="text-lg text-center leading-relaxed">
+          <p className="text-base sm:text-lg text-center leading-relaxed">
             At{" "}
             <span className="font-semibold text-gray-900">We Are Globex</span>,
             we are deeply moved by the life-changing work of{" "}
@@ -79,14 +79,14 @@ const Partner = () => {
           </p>
 
           {/* Call to Action */}
-          <div className="text-center pt-8">
-            <p className="text-lg mb-4">
+          <div className="text-center pt-4 sm:pt-6 md:pt-8">
+            <p className="text-base sm:text-lg mb-3 sm:mb-4 px-2">
               Get involved today at{" "}
               <a
                 href="https://www.shootingstar.org.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 underline font-medium transition-colors duration-200"
+                className="text-blue-500 hover:text-blue-700 underline font-medium transition-colors duration-200 break-words"
               >
                 www.shootingstar.org.uk
               </a>{" "}
@@ -95,8 +95,8 @@ const Partner = () => {
           </div>
 
           {/* Charity Registration */}
-          <div className="text-center pt-4 border-t border-gray-200">
-            <p className="text-sm text-gray-600 font-medium">
+          <div className="text-center pt-3 sm:pt-4 border-t border-gray-200">
+            <p className="text-xs sm:text-sm text-gray-600 font-medium px-2">
               Shooting Star Children&apos;s Hospices are a Registered Charity
               No: 1042495*
             </p>
@@ -107,13 +107,13 @@ const Partner = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-transparent pointer-events-none -z-10 rounded-3xl"></div>
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center px-4 sm:px-6 md:px-8">
         <Image
           src={"/assests/charity/shooting-star.jpeg"}
           alt="shooting-star"
           width={600}
           height={400}
-          className="max-w-[600px] h-auto rounded-lg"
+          className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto rounded-lg"
         />
       </div>
     </section>
