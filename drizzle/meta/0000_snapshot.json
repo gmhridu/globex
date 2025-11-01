@@ -1,5 +1,5 @@
 {
-  "id": "2b1719e7-0713-42f7-96c5-a24b2a4994f1",
+  "id": "85c42099-e57a-42af-8f56-69175af0f0e0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -436,7 +436,16 @@
       "isRLSEnabled": false
     }
   },
-  "enums": {},
+  "enums": {
+    "public.role": {
+      "name": "role",
+      "schema": "public",
+      "values": [
+        "admin",
+        "super-admin"
+      ]
+    }
+  },
   "schemas": {},
   "sequences": {},
   "roles": {},

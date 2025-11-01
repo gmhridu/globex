@@ -13,7 +13,8 @@
     "db:drop": "drizzle-kit drop",
     "db:studio": "drizzle-kit studio",
     "db:seed": "npx tsx ./src/db/seed.ts",
-    "db:reset": "npm run db:drop && npm run db:push"
+    "db:reset": "npm run db:drop && npm run db:push",
+    "create-admin": "npx tsx scripts/create-admin.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

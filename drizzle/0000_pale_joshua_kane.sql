@@ -1,6 +1,4 @@
--- Create enum type for role
-CREATE TYPE "role" AS ENUM('admin', 'super-admin');
-
+CREATE TYPE "public"."role" AS ENUM('admin', 'super-admin');--> statement-breakpoint
 CREATE TABLE "account" (
 	"id" text PRIMARY KEY NOT NULL,
 	"account_id" text NOT NULL,
