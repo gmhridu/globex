@@ -7,7 +7,6 @@ import GlobexLogo from "../home/GlobexLogo";
 const footerLinks = {
   main: [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/about-us" },
     { label: "Careers", href: "/career" },
   ],
   services: [

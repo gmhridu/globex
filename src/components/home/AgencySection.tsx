@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { ArrowRight } from "lucide-react";
 import { Typewriter } from "react-typewriting-effect";
 import "react-typewriting-effect/dist/index.css";
+import Link from "next/link";
 
 const AgencySection = () => {
   const [ref, inView] = useInView({
@@ -27,18 +28,21 @@ const AgencySection = () => {
       description:
         "Expand into new markets by tapping into our network of vetted distributors worldwide.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
+      href: "/the-distribution-hub"
     },
     {
       title: "The Private Label Hub",
       description:
         "Connect with brands actively seeking private label partners — no cold outreach, just real opportunities.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
+      href: "/private-label-hub"
     },
     {
       title: "The Contract MFG Hub",
       description:
         "Get discovered by brands actively searching for trusted contract manufacturing partners. No cold calls—just qualified leads, ready to build.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
+      href: "/contract-manufacturing"
     },
   ];
 
@@ -95,6 +99,8 @@ const AgencySection = () => {
               className="relative border-2 border-black hover:border-[var(--hover-color)] rounded-2xl p-8 bg-white/70 backdrop-blur-sm transition-all duration-300 hover:bg-white cursor-pointer"
               style={{ "--hover-color": "#031325" } as React.CSSProperties}
             >
+              <Link href={service.href}>
+
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-900">
                   {service.title}
@@ -109,6 +115,7 @@ const AgencySection = () => {
 
               {/* Decorative hover effect ring */}
               <span className="absolute inset-0 rounded-2xl border-2 border-transparent hover:border-secondary/50 transition-all duration-300 pointer-events-none" />
+              </Link>
             </motion.div>
           ))}
         </div>
