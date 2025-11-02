@@ -1,4 +1,10 @@
-import { boolean, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
 export const roleEnum = pgEnum("role", ["admin", "super-admin"]);
@@ -107,8 +113,21 @@ export const contactSubmission = pgTable("contact_submission", {
     .notNull(),
 });
 
-export const insertContactSubmissionSchema = createInsertSchema(contactSubmission);
-export const selectContactSubmissionSchema = createSelectSchema(contactSubmission);
+export const insertContactSubmissionSchema =
+  createInsertSchema(contactSubmission);
+export const selectContactSubmissionSchema =
+  createSelectSchema(contactSubmission);
 
 export type InsertContactSubmission = typeof contactSubmission.$inferInsert;
 export type SelectContactSubmission = typeof contactSubmission.$inferSelect;
+
+export const blogs = pgTable("blogs", {
+  id: text("id").primaryKey(),
+  title: text("title").notNull(),
+  excerpt: text("excerpt").notNull(),
+  author: text("author").notNull().default("Globex Team"),
+  date: timestamp("date").defaultNow().notNull(),
+  body: text("body").notNull(),
+  image: text("image"),
+  category: text("category").notNull(),
+});

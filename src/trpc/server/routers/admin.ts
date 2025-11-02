@@ -1,5 +1,5 @@
 import { baseProcedure, protectedProcedure, createTRPCRouter } from "../init";
-import { admin, contactSubmission } from "@/db/schema";
+import { admin, contactSubmission, blogs } from "@/db/schema";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { eq, or, desc, sql } from "drizzle-orm";
@@ -372,6 +372,230 @@ export const adminRouter = createTRPCRouter({
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Failed to fetch status counts",
+      });
+    }
+  }),
+
+  // Blog management procedures
+  getAllBlogs: protectedProcedure
+    .input(
+      z.object({
+        limit: z.number().min(1).max(100).default(50),
+        offset: z.number().min(0).default(0),
+      })
+    )
+    .query(async ({ ctx, input }) => {
+      try {
+        const allBlogs = await ctx.db
+          .select()
+          .from(blogs)
+          .orderBy(desc(blogs.date))
+          .limit(input.limit)
+          .offset(input.offset);
+
+        const totalCount = await ctx.db
+          .select({ count: sql<number>`count(*)` })
+          .from(blogs);
+
+        return {
+          blogs: allBlogs,
+          totalCount: totalCount[0]?.count || 0,
+          hasMore: (input.offset + input.limit) < (totalCount[0]?.count || 0),
+        };
+      } catch {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to fetch blogs",
+        });
+      }
+    }),
+
+  getBlogById: protectedProcedure
+    .input(z.object({ id: z.string().min(1, "ID is required") }))
+    .query(async ({ ctx, input }) => {
+      try {
+        const blog = await ctx.db
+          .select()
+          .from(blogs)
+          .where(eq(blogs.id, input.id))
+          .limit(1);
+
+        if (!blog || blog.length === 0) {
+          throw new TRPCError({
+            code: "NOT_FOUND",
+            message: "Blog not found",
+          });
+        }
+
+        return blog[0];
+      } catch (error) {
+        if (error instanceof TRPCError) {
+          throw error;
+        }
+
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to fetch blog",
+        });
+      }
+    }),
+
+  createBlog: protectedProcedure
+    .input(z.object({
+      title: z.string().min(1, "Title is required"),
+      excerpt: z.string().min(10, "Excerpt must be at least 10 characters"),
+      body: z.string().min(10, "Body must be at least 10 characters"),
+      image: z.string().optional(),
+      category: z.string().min(1, "Category is required"),
+      author: z.string().min(1, "Author is required"),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        const newBlog = await ctx.db
+          .insert(blogs)
+          .values({
+            id: crypto.randomUUID(),
+            ...input,
+            date: new Date(),
+          })
+          .returning({
+            id: blogs.id,
+            title: blogs.title,
+            excerpt: blogs.excerpt,
+            body: blogs.body,
+            image: blogs.image,
+            category: blogs.category,
+            author: blogs.author,
+            date: blogs.date,
+          });
+
+        return {
+          success: true,
+          blog: newBlog[0],
+        };
+      } catch (error) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to create blog",
+        });
+      }
+    }),
+
+  updateBlog: protectedProcedure
+    .input(z.object({
+      id: z.string().min(1, "ID is required"),
+      title: z.string().min(1).optional(),
+      excerpt: z.string().min(10).optional(),
+      body: z.string().min(10).optional(),
+      image: z.string().optional(),
+      category: z.string().min(1).optional(),
+      author: z.string().min(1).optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        const updateData: any = {};
+
+        if (input.title !== undefined) updateData.title = input.title;
+        if (input.excerpt !== undefined) updateData.excerpt = input.excerpt;
+        if (input.body !== undefined) updateData.body = input.body;
+        if (input.image !== undefined) updateData.image = input.image;
+        if (input.category !== undefined) updateData.category = input.category;
+        if (input.author !== undefined) updateData.author = input.author;
+
+        const updatedBlog = await ctx.db
+          .update(blogs)
+          .set(updateData)
+          .where(eq(blogs.id, input.id))
+          .returning({
+            id: blogs.id,
+            title: blogs.title,
+            excerpt: blogs.excerpt,
+            body: blogs.body,
+            image: blogs.image,
+            category: blogs.category,
+            author: blogs.author,
+            date: blogs.date,
+          });
+
+        if (!updatedBlog || updatedBlog.length === 0) {
+          throw new TRPCError({
+            code: "NOT_FOUND",
+            message: "Blog not found",
+          });
+        }
+
+        return {
+          success: true,
+          blog: updatedBlog[0],
+        };
+      } catch (error) {
+        if (error instanceof TRPCError) {
+          throw error;
+        }
+
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to update blog",
+        });
+      }
+    }),
+
+  deleteBlog: protectedProcedure
+    .input(z.object({ id: z.string().min(1, "ID is required") }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        const deletedBlog = await ctx.db
+          .delete(blogs)
+          .where(eq(blogs.id, input.id))
+          .returning({
+            id: blogs.id,
+          });
+
+        if (!deletedBlog || deletedBlog.length === 0) {
+          throw new TRPCError({
+            code: "NOT_FOUND",
+            message: "Blog not found",
+          });
+        }
+
+        return {
+          success: true,
+          message: "Blog deleted successfully",
+        };
+      } catch (error) {
+        if (error instanceof TRPCError) {
+          throw error;
+        }
+
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to delete blog",
+        });
+      }
+    }),
+
+  getBlogStats: protectedProcedure.query(async ({ ctx }) => {
+    try {
+      const totalBlogs = await ctx.db
+        .select({ count: sql<number>`count(*)` })
+        .from(blogs);
+
+      const categories = await ctx.db
+        .select({
+          category: blogs.category,
+          count: sql<number>`count(*)`,
+        })
+        .from(blogs)
+        .groupBy(blogs.category);
+
+      return {
+        totalBlogs: totalBlogs[0]?.count || 0,
+        categories: categories.map(({ category, count }) => ({ category, count })),
+      };
+    } catch {
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Failed to fetch blog stats",
       });
     }
   }),

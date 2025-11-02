@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight } from "lucide-react";
@@ -12,66 +12,32 @@ const Resources = () => {
     threshold: 0.4,
   });
 
-  const [showAll, setShowAll] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("/api/blogs");
+        if (!response.ok) {
+          throw new Error("Failed to fetch blogs");
+        }
+        const data = await response.json();
+        setBlogs(data.slice(0, 4)); // Limit to 4 blogs for homepage
+      } catch (err) {
+        setFetchError(err instanceof Error ? err.message : "An error occurred");
+        console.error("Error fetching blogs:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const resources = [
-    {
-      id: 1,
-      category: "Recruitment",
-      title:
-        "The Importance of Internships for Progressive Companies and Students: Bridging the Gap Between Education and Industry",
-      excerpt:
-        "In today's rapidly evolving job market, internships have become an essential stepping stone...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/11/Internships-1024x449.jpg",
-      author: "Globex Team",
-      date: "2024-11-15",
-      body: "Detailed content about internships...",
-    },
-    {
-      id: 2,
-      category: "Food & Hospitality",
-      title:
-        "Top Hospitality Trends to Watch in 2024: How Globex Can Help You Stay Ahead",
-      excerpt:
-        "Stay ahead in the hospitality industry with the latest trends and insights...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/11/HOSPITALITY-980x551.jpg",
-      author: "Globex Team",
-      date: "2024-11-10",
-      body: "Detailed content about hospitality trends...",
-    },
-    {
-      id: 3,
-      category: "Assistive Technology",
-      title:
-        "The Evolution of Education in 2024: Embracing Edtech with Globex Support",
-      excerpt:
-        "EdTech is transforming education. Learn how Globex supports this innovation...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/11/Benefits-Of-EdTech-In-The-Classroom.avif",
-      author: "Globex Team",
-      date: "2024-11-05",
-      body: "Detailed content about education evolution...",
-    },
-    {
-      id: 4,
-      category: "Assistive Technology",
-      title:
-        "Empowering Accessibility: How Globex Navigates Europe's Assistive Technology Trends",
-      excerpt:
-        "The assistive technology industry is rapidly growing. Explore the trends...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/10/pexels-thisisengineering-3912959-980x653.jpg",
-      author: "Globex Team",
-      date: "2024-10-30",
-      body: "Detailed content about assistive technology...",
-    },
-  ];
+    fetchBlogs();
+  }, []);
 
-  const visibleResources = showAll ? resources : resources.slice(0, 3);
+  const visibleBlogs = blogs.slice(0, 4);
 
   return (
     <section className="bg-white py-12">
@@ -89,61 +55,86 @@ const Resources = () => {
           <h3 className="text-4xl md:text-4xl font-bold">Featured Resources</h3>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {visibleResources.map((resource, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
-            >
-              <Link href={`/blogs/${resource.id}`}>
-                <div className="relative h-44 md:h-48">
-                  <Image
-                    width={500}
-                    height={500}
-                    src={resource.image}
-                    alt={resource.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <span className="absolute top-3 left-3 bg-primary  px-2 py-0.5 rounded-full text-xs font-semibold">
-                    {resource.category}
-                  </span>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {loading ? (
+            Array.from({ length: 4 }).map((_, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden shadow-sm"
+              >
+                <div className="h-44 md:h-48 bg-gray-200 animate-pulse"></div>
                 <div className="p-4 md:p-5">
-                  <h4 className="text-md md:text-lg font-semibold mb-2 line-clamp-2">
-                    {resource.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm md:text-base mb-3 line-clamp-3">
-                    {resource.excerpt}
-                  </p>
-                  <div>
-                    <div className="inline-flex items-center gap-2 text-primary hover:text-secondary font-medium text-sm md:text-base transition-colors cursor-pointer">
+                  <div className="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded animate-pulse mb-1"></div>
+                  <div className="h-3 bg-gray-200 rounded animate-pulse w-3/4"></div>
+                </div>
+              </motion.div>
+            ))
+          ) : fetchError ? (
+            <div className="col-span-full text-center py-8">
+              <p className="text-gray-500">
+                Failed to load blogs: {fetchError}
+              </p>
+            </div>
+          ) : (
+            visibleBlogs.map((blog, index) => (
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              >
+                <Link href={`/blogs/${blog.id}`}>
+                  <div className="relative h-44 md:h-48">
+                    <Image
+                      width={500}
+                      height={500}
+                      src={blog.image || "https://via.placeholder.com/400x300"}
+                      alt={blog.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <span className="absolute top-3 left-3 bg-primary px-2 py-0.5 rounded-full text-xs font-semibold">
+                      {blog.category}
+                    </span>
+                  </div>
+                  <div className="p-4 md:p-5">
+                    <h4 className="text-md md:text-lg font-semibold mb-2 line-clamp-2">
+                      {blog.title}
+                    </h4>
+                    <p className="text-gray-600 text-sm md:text-base mb-3 line-clamp-3">
+                      {blog.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                      <span>By {blog.author}</span>
+                      <span>
+                        {new Date(blog.date).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 text-primary hover:text-secondary font-medium text-sm transition-colors cursor-pointer">
                       Read More <ChevronRight className="w-4 h-4" />
                     </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </motion.div>
+            ))
+          )}
         </div>
 
         <div className="flex justify-center mt-6">
-          {loading ? (
-            <div className="flex space-x-2">
-              <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
-              <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-400"></div>
-            </div>
-          ) : (
-            <Link
-              href="/blogs"
-              className="px-6 py-2 rounded-full bg-primary font-semibold hover:bg-secondary transition-all inline-block"
-            >
-              {showAll ? "See Few" : "See More"}
-            </Link>
-          )}
+          <Link
+            href="/blogs"
+            className="px-6 py-2 rounded-full bg-primary font-semibold hover:bg-secondary transition-all inline-block"
+          >
+            See More
+          </Link>
         </div>
       </div>
     </section>

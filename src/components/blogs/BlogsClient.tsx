@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight } from "lucide-react";
@@ -12,6 +12,45 @@ const BlogsClient = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
   const [showAll, setShowAll] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [fetchLoading, setFetchLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setFetchLoading(true);
+        const response = await fetch("/api/blogs");
+        if (!response.ok) {
+          throw new Error("Failed to fetch blogs");
+        }
+        const data = await response.json();
+        // Transform data to match Blog interface
+        const transformedBlogs: Blog[] = data.map(
+          (blog: any, index: number) => ({
+            id: index + 1, // Use index + 1 as number ID for frontend
+            category: blog.category || "General",
+            title: blog.title,
+            excerpt: blog.excerpt,
+            image: blog.image || "https://via.placeholder.com/400x300",
+            author: blog.author,
+            date: blog.date
+              ? new Date(blog.date).toISOString().split("T")[0]
+              : new Date().toISOString().split("T")[0],
+            body: blog.body,
+          })
+        );
+        setBlogs(transformedBlogs);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+        console.error("Error fetching blogs:", err);
+      } finally {
+        setFetchLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   const handleToggle = () => {
     setLoading(true);
@@ -21,75 +60,8 @@ const BlogsClient = () => {
     }, 600);
   };
 
-  const blogs: Blog[] = [
-    {
-      id: 1,
-      category: "Recruitment",
-      title:
-        "The Importance of Internships for Progressive Companies and Students",
-      excerpt:
-        "Discover how internships bridge the gap between education and industry for both students and businesses...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/11/Internships-1024x449.jpg",
-      author: "Globex Team",
-      date: "2024-11-15",
-      body: `
-        Internships have become essential in today's rapidly changing job market.
-        They provide students with practical exposure while giving companies access to fresh perspectives and future-ready talent.
-        At Globex, we help businesses design meaningful internship programs that build real skills and foster innovation.
-      `,
-    },
-    {
-      id: 2,
-      category: "Food & Hospitality",
-      title:
-        "Top Hospitality Trends to Watch in 2024: How Globex Can Help You Stay Ahead",
-      excerpt:
-        "Explore key trends shaping hospitality in 2024 and how Globex empowers businesses to adapt and thrive...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/11/HOSPITALITY-980x551.jpg",
-      author: "Globex Team",
-      date: "2024-11-10",
-      body: `
-        Hospitality is evolving faster than ever with technology, personalization, and sustainability leading the way.
-        Globex works closely with hotels and restaurants to modernize their operations and align with guest expectations.
-      `,
-    },
-    {
-      id: 3,
-      category: "Assistive Technology",
-      title:
-        "The Evolution of Education in 2024: Embracing EdTech with Globex Support",
-      excerpt:
-        "Technology is revolutionizing learning. See how Globex supports EdTech adoption across institutions...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/11/Benefits-Of-EdTech-In-The-Classroom.avif",
-      author: "Globex Team",
-      date: "2024-11-05",
-      body: `
-        The education sector is undergoing a digital transformation with EdTech leading the charge.
-        Globex partners with educational organizations to integrate smart tools that improve student engagement and outcomes.
-      `,
-    },
-    {
-      id: 4,
-      category: "Assistive Technology",
-      title:
-        "Empowering Accessibility: How Globex Navigates Europe's Assistive Tech Trends",
-      excerpt:
-        "Assistive technology is reshaping accessibility in Europe. Learn how Globex supports this vital growth...",
-      image:
-        "https://weareglobex.com/wp-content/uploads/2024/10/pexels-thisisengineering-3912959-980x653.jpg",
-      author: "Globex Team",
-      date: "2024-10-30",
-      body: `
-        Assistive technology enables inclusivity and independence.
-        At Globex, we collaborate with innovators to make technology accessible for everyone, promoting equality through innovation.
-      `,
-    },
-  ];
-
-  const visibleBlogs = showAll ? blogs : blogs.slice(0, 3);
+  // Display all blogs or first 3 based on showAll state
+  const displayVisibleBlogs = showAll ? blogs : blogs.slice(0, 3);
 
   return (
     <section className="bg-white py-16">
@@ -110,7 +82,7 @@ const BlogsClient = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleBlogs.map((blog, index) => (
+          {displayVisibleBlogs.map((blog, index) => (
             <motion.div
               key={blog.id}
               initial={{ opacity: 0, y: 20 }}
@@ -157,23 +129,44 @@ const BlogsClient = () => {
           ))}
         </div>
 
-        {/* Load More Button */}
-        <div className="flex justify-center mt-10">
-          {loading ? (
+        {/* Loading State for Fetch */}
+        {fetchLoading && (
+          <div className="flex justify-center h-screen mt-10">
             <div className="flex space-x-2">
-              <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
-              <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-400"></div>
+              <div className="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
+              <div className="w-3 h-3 bg-primary rounded-full animate-bounce delay-200"></div>
+              <div className="w-3 h-3 bg-primary rounded-full animate-bounce delay-400"></div>
             </div>
-          ) : (
-            <button
-              onClick={handleToggle}
-              className="px-8 py-3 rounded-full bg-primary text-white font-semibold hover:bg-secondary transition-all"
-            >
-              {showAll ? "Show Less" : "Load More"}
-            </button>
-          )}
-        </div>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center mt-10 text-red-600">
+            <p>Failed to load blogs: {error}</p>
+            <p className="text-sm mt-2">Showing static content instead.</p>
+          </div>
+        )}
+
+        {/* Load More Button */}
+        {!fetchLoading && blogs.length > 3 && (
+          <div className="flex justify-center mt-10">
+            {loading ? (
+              <div className="flex space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-400"></div>
+              </div>
+            ) : (
+              <button
+                onClick={handleToggle}
+                className="px-8 py-3 rounded-full bg-primary text-white font-semibold hover:bg-secondary transition-all"
+              >
+                {showAll ? "Show Less" : "Load More"}
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

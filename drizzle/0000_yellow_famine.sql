@@ -31,6 +31,17 @@ CREATE TABLE "admin" (
 	CONSTRAINT "admin_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
+CREATE TABLE "blogs" (
+	"id" text PRIMARY KEY NOT NULL,
+	"title" text NOT NULL,
+	"excerpt" text NOT NULL,
+	"author" text DEFAULT 'Globex Team' NOT NULL,
+	"date" timestamp DEFAULT now() NOT NULL,
+	"body" text NOT NULL,
+	"image" text,
+	"category" text NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "contact_submission" (
 	"id" text PRIMARY KEY NOT NULL,
 	"first_name" text NOT NULL,

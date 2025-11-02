@@ -27,6 +27,7 @@ import Link from "next/link";
 import { useTRPC } from "@/trpc/client";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -59,6 +60,8 @@ const ContactForm = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const trpc = useTRPC();
   const queryClient = useQueryClient();
 
@@ -91,6 +94,7 @@ const ContactForm = () => {
         bc.close();
       }
       form.reset();
+      setRecaptchaValue(null);
     },
     onError: (error) => {
       console.error("Failed to submit contact form:", error);
@@ -98,10 +102,61 @@ const ContactForm = () => {
   });
   const submitContact = useMutation(submissionContact);
 
-  const isLoading = submitContact.isPending;
+  const isLoading = submitContact.isPending || isSubmitting;
+
+  const handleRecaptchaChange = (value: string | null) => {
+    setRecaptchaValue(value);
+  };
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    submitContact.mutate(values);
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Submit to server-side API instead of tRPC
+    fetch('/api/contact/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...values,
+        recaptchaToken: recaptchaValue,
+      }),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+      return response.json();
+    })
+    .then(() => {
+      setIsSubmitted(true);
+      // Invalidate admin dashboard queries to update in real-time
+      queryClient.invalidateQueries({
+        queryKey: ["admin", "getAllSubmissions"],
+      });
+      queryClient.invalidateQueries({ queryKey: ["admin", "getStatusCounts"] });
+      queryClient.invalidateQueries({ queryKey: ["admin", "getUnreadCount"] });
+      // Broadcast to other tabs
+      if (typeof window !== "undefined") {
+        const bc = new BroadcastChannel("contact-submissions");
+        bc.postMessage({ type: "new-submission" });
+        bc.close();
+      }
+      form.reset();
+      setRecaptchaValue(null);
+    })
+    .catch(error => {
+      console.error("Failed to submit contact form:", error);
+      alert("Failed to submit form. Please try again.");
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
   }
 
   return (
@@ -333,11 +388,20 @@ const ContactForm = () => {
                     )}
                   />
 
+                  {/* reCAPTCHA */}
+                  <div className="flex justify-center">
+                    <ReCAPTCHA
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_CLIENT_KEY || "6LcokP8rAAAAACetr4oh6tl70AAtIo86APhHugek"}
+                      onChange={handleRecaptchaChange}
+                      theme="dark"
+                    />
+                  </div>
+
                   <Button
                     type="submit"
                     variant="primary"
                     size="md"
-                    disabled={isLoading}
+                    disabled={isLoading || !recaptchaValue}
                     className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors duration-200 disabled:opacity-50"
                   >
                     {isLoading ? "Submitting..." : "Submit Form"}
