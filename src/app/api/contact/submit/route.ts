@@ -99,12 +99,12 @@ export async function POST(request: NextRequest) {
       await resend.emails.send({
         from: "Globex Team <noreply@weareglobex.com>",
         to: email,
-        subject: "Thank you for contacting Globex",
+        subject: "Thank you for contacting We Are Globex",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #1f2937;">Thank you for contacting Globex!</h2>
             <p>Dear ${firstName} ${lastName},</p>
-            <p>Thank you for reaching out to us. We've received your message and will get back to you within 24 hours.</p>
+            <p>Thank you for reaching out to us. We've received your message and will get back to you within 72 hours.</p>
 
             <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <h3 style="color: #374151; margin-top: 0;">Your Message Summary:</h3>
