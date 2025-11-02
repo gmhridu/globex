@@ -19,9 +19,9 @@ export async function POST(request: NextRequest) {
     } = await request.json();
 
     // Verify reCAPTCHA
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    const recaptchaSecret = process.env.RECAPTCHA_SERVER_KEY;
     if (!recaptchaSecret) {
-      console.error("RECAPTCHA_SECRET_KEY is not set");
+      console.error("RECAPTCHA_SERVER_KEY is not set");
       return NextResponse.json(
         { error: "Server configuration error" },
         { status: 500 }

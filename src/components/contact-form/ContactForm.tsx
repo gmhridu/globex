@@ -324,19 +324,19 @@ const ContactForm = () => {
                             value={field.value}
                             onValueChange={field.onChange}
                           >
-                            <SelectTrigger className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all">
+                            <SelectTrigger className="w-full bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all">
                               <SelectValue placeholder="Select an option..." />
                             </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="new-idea">
+                            <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg z-50">
+                              <SelectItem value="new-idea" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 px-3 py-2">
                                 The idea of going international is new to me and
                                 I haven&apos;t given it much thought
                               </SelectItem>
-                              <SelectItem value="actively-looking">
+                              <SelectItem value="actively-looking" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 px-3 py-2">
                                 I&apos;m actively looking to expand
                                 internationally
                               </SelectItem>
-                              <SelectItem value="already-international">
+                              <SelectItem value="already-international" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 px-3 py-2">
                                 We&apos;re already international but looking to
                                 grow further
                               </SelectItem>
