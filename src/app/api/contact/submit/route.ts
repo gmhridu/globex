@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
         subject: "Thank you for contacting We Are Globex",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #1f2937;">Thank you for contacting Globex!</h2>
+            <h2 style="color: #1f2937;">Thank you for contacting We Are Globex!</h2>
             <p>Dear ${firstName} ${lastName},</p>
             <p>Thank you for reaching out to us. We've received your message and will get back to you within 72 hours.</p>
 
