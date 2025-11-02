@@ -24,9 +24,9 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import { useTRPC } from "@/trpc/client";
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const formSchema = z.object({
@@ -62,7 +62,6 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const trpc = useTRPC();
   const queryClient = useQueryClient();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -78,85 +77,64 @@ const ContactForm = () => {
     },
   });
 
-  const submissionContact = trpc.contact.submitContact.mutationOptions({
-    onSuccess: () => {
-      setIsSubmitted(true);
-      // Invalidate admin dashboard queries to update in real-time
-      queryClient.invalidateQueries({
-        queryKey: ["admin", "getAllSubmissions"],
-      });
-      queryClient.invalidateQueries({ queryKey: ["admin", "getStatusCounts"] });
-      queryClient.invalidateQueries({ queryKey: ["admin", "getUnreadCount"] });
-      // Broadcast to other tabs
-      if (typeof window !== "undefined") {
-        const bc = new BroadcastChannel("contact-submissions");
-        bc.postMessage({ type: "new-submission" });
-        bc.close();
-      }
-      form.reset();
-      setRecaptchaValue(null);
-    },
-    onError: (error) => {
-      console.error("Failed to submit contact form:", error);
-    },
-  });
-  const submitContact = useMutation(submissionContact);
-
-  const isLoading = submitContact.isPending || isSubmitting;
+  const isLoading = isSubmitting;
 
   const handleRecaptchaChange = (value: string | null) => {
     setRecaptchaValue(value);
   };
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     if (!recaptchaValue) {
-      alert("Please complete the reCAPTCHA verification.");
+      toast.error("Please complete the reCAPTCHA verification.");
       return;
     }
 
     setIsSubmitting(true);
 
-    // Submit to server-side API instead of tRPC
-    fetch('/api/contact/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        ...values,
-        recaptchaToken: recaptchaValue,
-      }),
-    })
-    .then(response => {
+    try {
+      const response = await fetch('/api/contact/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...values,
+          recaptchaToken: recaptchaValue,
+        }),
+      });
+
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit form');
       }
-      return response.json();
-    })
-    .then(() => {
+
+      // const result = await response.json();
+
+      toast.success("Contact form submitted successfully!");
       setIsSubmitted(true);
+
       // Invalidate admin dashboard queries to update in real-time
       queryClient.invalidateQueries({
         queryKey: ["admin", "getAllSubmissions"],
       });
       queryClient.invalidateQueries({ queryKey: ["admin", "getStatusCounts"] });
       queryClient.invalidateQueries({ queryKey: ["admin", "getUnreadCount"] });
+
       // Broadcast to other tabs
       if (typeof window !== "undefined") {
         const bc = new BroadcastChannel("contact-submissions");
         bc.postMessage({ type: "new-submission" });
         bc.close();
       }
+
       form.reset();
       setRecaptchaValue(null);
-    })
-    .catch(error => {
+    } catch (error) {
       console.error("Failed to submit contact form:", error);
-      alert("Failed to submit form. Please try again.");
-    })
-    .finally(() => {
+      toast.error(error instanceof Error ? error.message : "Failed to submit form. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    });
+    }
   }
 
   return (
@@ -346,7 +324,7 @@ const ContactForm = () => {
                             value={field.value}
                             onValueChange={field.onChange}
                           >
-                            <SelectTrigger>
+                            <SelectTrigger className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all">
                               <SelectValue placeholder="Select an option..." />
                             </SelectTrigger>
                             <SelectContent>
@@ -388,14 +366,14 @@ const ContactForm = () => {
                     )}
                   />
 
-                  {/* reCAPTCHA */}
-                  <div className="flex justify-center">
-                    <ReCAPTCHA
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_CLIENT_KEY || "6LcokP8rAAAAACetr4oh6tl70AAtIo86APhHugek"}
-                      onChange={handleRecaptchaChange}
-                      theme="dark"
-                    />
-                  </div>
+                 {/* reCAPTCHA */}
+                 <div className="flex justify-center py-4">
+                   <ReCAPTCHA
+                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_CLIENT_KEY || "6LcokP8rAAAAACetr4oh6tl70AAtIo86APhHugek"}
+                     onChange={handleRecaptchaChange}
+                     theme="dark"
+                   />
+                 </div>
 
                   <Button
                     type="submit"
