@@ -493,7 +493,14 @@ export const adminRouter = createTRPCRouter({
     }))
     .mutation(async ({ ctx, input }) => {
       try {
-        const updateData: any = {};
+        const updateData: {
+          title?: string;
+          excerpt?: string;
+          body?: string;
+          image?: string;
+          category?: string;
+          author?: string;
+        } = {};
 
         if (input.title !== undefined) updateData.title = input.title;
         if (input.excerpt !== undefined) updateData.excerpt = input.excerpt;

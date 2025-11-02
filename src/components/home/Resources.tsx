@@ -12,7 +12,15 @@ const Resources = () => {
     threshold: 0.4,
   });
 
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<{
+    id: string;
+    title: string;
+    excerpt: string;
+    image?: string;
+    category: string;
+    author: string;
+    date: string;
+  }[]>([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
 

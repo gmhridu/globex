@@ -59,7 +59,16 @@ const AdminDashboard = () => {
 
   // Blog management states
   const [activeTab, setActiveTab] = useState<"contacts" | "blogs">("contacts");
-  const [selectedBlog, setSelectedBlog] = useState<any>(null);
+  const [selectedBlog, setSelectedBlog] = useState<{
+    id: string;
+    title: string;
+    excerpt: string;
+    body: string;
+    image?: string;
+    category: string;
+    author: string;
+    date: string;
+  } | null>(null);
   const [isBlogDetailModalOpen, setIsBlogDetailModalOpen] = useState(false);
   const [isCreateBlogModalOpen, setIsCreateBlogModalOpen] = useState(false);
   const [blogFormData, setBlogFormData] = useState({
@@ -72,8 +81,30 @@ const AdminDashboard = () => {
   });
 
   // Using database data
-  const [submissions, setSubmissions] = useState<any[]>([]);
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [submissions, setSubmissions] = useState<{
+    id: string;
+    firstName: string;
+    lastName: string;
+    company: string;
+    email: string;
+    phone: string;
+    description: string;
+    message: string;
+    status: "new" | "in_progress" | "completed" | "archived";
+    isRead: boolean;
+    submittedAt: Date;
+    updatedAt: Date;
+  }[]>([]);
+  const [blogs, setBlogs] = useState<{
+    id: string;
+    title: string;
+    excerpt: string;
+    body: string;
+    image?: string;
+    category: string;
+    author: string;
+    date: string;
+  }[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [contactsLoading, setContactsLoading] = useState(true);
@@ -226,7 +257,16 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleEditBlog = (blog: any) => {
+  const handleEditBlog = (blog: {
+    id: string;
+    title: string;
+    excerpt: string;
+    body: string;
+    image?: string;
+    category: string;
+    author: string;
+    date: string;
+  }) => {
     setSelectedBlog(blog);
     setBlogFormData({
       title: blog.title,
@@ -589,7 +629,7 @@ const AdminDashboard = () => {
                 <div className="relative">
                   <select
                     value={statusFilter}
-                    onChange={(e) => setStatusFilter(e.target.value as any)}
+                    onChange={(e) => setStatusFilter(e.target.value as "all" | "new" | "in_progress" | "completed" | "archived")}
                     className="appearance-none pl-4 pr-10 py-3.5 bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm font-medium text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer min-w-[160px]"
                   >
                     <option value="all">All Status</option>

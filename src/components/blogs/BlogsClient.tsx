@@ -27,7 +27,16 @@ const BlogsClient = () => {
         const data = await response.json();
         // Transform data to match Blog interface
         const transformedBlogs: Blog[] = data.map(
-          (blog: any, index: number) => ({
+          (blog: {
+            id: string;
+            category: string;
+            title: string;
+            excerpt: string;
+            image?: string;
+            author: string;
+            date: string;
+            body: string;
+          }, index: number) => ({
             id: index + 1, // Use index + 1 as number ID for frontend
             category: blog.category || "General",
             title: blog.title,
