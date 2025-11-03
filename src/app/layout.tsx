@@ -177,6 +177,14 @@ export default function RootLayout({
           <Toaster />
           <div>{children}</div>
         </Provider>
+        {/* HubSpot Embed Code */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js-eu1.hs-scripts.com/145916817.js"
+        ></script>
       </body>
     </html>
   );
