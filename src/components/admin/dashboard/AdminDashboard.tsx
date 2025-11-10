@@ -30,6 +30,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { toast } from "sonner";
+import ImageUploader from "../../ui/ImageUploader";
 
 // Blogs are now fetched from database
 
@@ -1157,17 +1158,11 @@ const AdminDashboard = () => {
                     </div>
                   </div>
 
-                  {/* Image URL */}
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-slate-300">Image URL</label>
-                    <input
-                      type="url"
-                      value={blogFormData.image}
-                      onChange={(e) => setBlogFormData(prev => ({ ...prev, image: e.target.value }))}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
-                      placeholder="https://example.com/image.jpg"
-                    />
-                  </div>
+                  {/* Image Upload */}
+                  <ImageUploader
+                    value={blogFormData.image}
+                    onChange={(url) => setBlogFormData(prev => ({ ...prev, image: url }))}
+                  />
 
                   {/* Body */}
                   <div className="space-y-2">
@@ -1300,17 +1295,11 @@ const AdminDashboard = () => {
                     </div>
                   </div>
 
-                  {/* Image URL */}
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-slate-300">Image URL</label>
-                    <input
-                      type="url"
-                      value={blogFormData.image}
-                      onChange={(e) => setBlogFormData(prev => ({ ...prev, image: e.target.value }))}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
-                      placeholder="https://example.com/image.jpg"
-                    />
-                  </div>
+                  {/* Image Upload */}
+                  <ImageUploader
+                    value={blogFormData.image}
+                    onChange={(url) => setBlogFormData(prev => ({ ...prev, image: url }))}
+                  />
 
                   {/* Body */}
                   <div className="space-y-2">
