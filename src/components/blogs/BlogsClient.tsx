@@ -36,8 +36,8 @@ const BlogsClient = () => {
             author: string;
             date: string;
             body: string;
-          }, index: number) => ({
-            id: index + 1, // Use index + 1 as number ID for frontend
+          }) => ({
+            id: blog.id, // Use real database id
             category: blog.category || "General",
             title: blog.title,
             excerpt: blog.excerpt,
