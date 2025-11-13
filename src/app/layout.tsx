@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Provider } from "@/providers";
+import DisableContextMenu from "@/components/ui/DisableContextMenu";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -174,6 +175,7 @@ export default function RootLayout({
         cz-shortcut-listen="true"
       >
         <Provider>
+          <DisableContextMenu />
           <Toaster />
           <div>{children}</div>
         </Provider>
