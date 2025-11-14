@@ -77,6 +77,25 @@ const ProductsCards = () => {
       image: "/assests/our-markets/mining.jpg",
       alt: "Mining",
     },
+    {
+      id: 13,
+      title: "Smart Home & IoT Consumer Devices",
+      image: "/assests/our-markets/pexels-jonathanborba-14309809.jpg",
+      alt: "Smart Home",
+    },
+    {
+      id: 14,
+      title: "Sexual Wellness Products",
+      image: "/assests/our-markets/AdobeStock_616054145.jpeg",
+      alt: "Sexual wellness products",
+    },
+
+    {
+      id: 15,
+      title: "Luxury Home Décor & Accessories",
+      image: "/assests/our-markets/pexels-falling4utah-2724749.jpg",
+      alt: "Luxury Home Décor & Accessories",
+    },
   ];
 
   return (
@@ -86,7 +105,7 @@ const ProductsCards = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform cursor-pointer"
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform cursor-pointer min-h-[400px]"
               style={{
                 background:
                   "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(240,248,255,0.8) 100%)",
@@ -98,22 +117,23 @@ const ProductsCards = () => {
                   inset 0 -1px 0 rgba(0, 100, 200, 0.1),
                   0 0 0 1px rgba(100, 150, 255, 0.2)
                 `,
+                display: "flex",
+                flexDirection: "column"
               }}
             >
-
               {/* Image container */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-[300px] overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.alt}
                   width={400}
-                  height={300}
+                  height={400}
                   className="w-full h-full object-cover transition-transform duration-300"
                 />
               </div>
 
               {/* Content */}
-              <div className="relative p-6 bg-secondary backdrop-blur-sm">
+              <div className="relative p-6 bg-secondary backdrop-blur-sm flex-1 flex items-center justify-center min-h-[10px]">
                 <h3 className="text-xl font-bold text-primary text-center">
                   {product.title}
                 </h3>
