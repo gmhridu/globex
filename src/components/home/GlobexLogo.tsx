@@ -8,7 +8,7 @@ const GlobexLogo: React.FC<{ className?: string }> = ({ className }) => {
         decoding="async"
         width="160"
         height="40"
-        src="https://weareglobex.com/wp-content/uploads/2024/11/Globex_Logo_Reversed.png"
+        src="/logos/Globex_Logo_Reversed.png"
         alt="Globex Logo"
       />
     </div>
