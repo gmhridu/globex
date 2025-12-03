@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Blog } from "../../../types/blog";
 
@@ -114,9 +113,7 @@ const BlogsClient = () => {
               <Link href={`/blogs/${blog.id}`}>
                 <div className="relative h-52">
                   {blog.image ? (
-                    <Image
-                      width={500}
-                      height={500}
+                    <img
                       src={blog.image}
                       alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
