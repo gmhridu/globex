@@ -175,7 +175,7 @@ export default function RootLayout({
         cz-shortcut-listen="true"
       >
         <Provider>
-          <DisableContextMenu />
+          {/* <DisableContextMenu /> */}
           <Toaster />
           <div>{children}</div>
         </Provider>
