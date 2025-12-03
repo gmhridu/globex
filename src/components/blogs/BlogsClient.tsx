@@ -20,7 +20,15 @@ const BlogsClient = () => {
     const fetchBlogs = async () => {
       try {
         setFetchLoading(true);
-        const response = await fetch("/api/blogs");
+        // Add timeout to prevent indefinite loading
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
+        const response = await fetch("/api/blogs", {
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
         }
@@ -41,7 +49,7 @@ const BlogsClient = () => {
             category: blog.category || "General",
             title: blog.title,
             excerpt: blog.excerpt,
-            image: blog.image || "https://via.placeholder.com/400x300",
+            image: blog.image,
             author: blog.author,
             date: blog.date
               ? new Date(blog.date).toISOString().split("T")[0]
@@ -51,7 +59,11 @@ const BlogsClient = () => {
         );
         setBlogs(transformedBlogs);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
+        if (err instanceof Error && err.name === 'AbortError') {
+          setError("Request timed out. Please check your connection.");
+        } else {
+          setError(err instanceof Error ? err.message : "An error occurred");
+        }
         console.error("Error fetching blogs:", err);
       } finally {
         setFetchLoading(false);
@@ -101,13 +113,19 @@ const BlogsClient = () => {
             >
               <Link href={`/blogs/${blog.id}`}>
                 <div className="relative h-52">
-                  <Image
-                    width={500}
-                    height={500}
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  {blog.image ? (
+                    <Image
+                      width={500}
+                      height={500}
+                      src={blog.image}
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                      <span className="text-gray-500 text-sm">No Image</span>
+                    </div>
+                  )}
                   <span className="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
                     {blog.category}
                   </span>
@@ -140,7 +158,7 @@ const BlogsClient = () => {
 
         {/* Loading State for Fetch */}
         {fetchLoading && (
-          <div className="flex justify-center h-screen mt-10">
+          <div className="flex justify-center py-16">
             <div className="flex space-x-2">
               <div className="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
               <div className="w-3 h-3 bg-primary rounded-full animate-bounce delay-200"></div>
