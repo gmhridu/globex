@@ -1,30 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    // Remove turbopack if enabled
-    // turbopack: true,
-  },
-  /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
+        hostname: "**",
       },
       {
-        protocol: "https",
-        hostname: "weareglobex.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "upload.wikimedia.org",
-        port: "",
-        pathname: "/**",
+        protocol: "http",
+        hostname: "**",
       },
     ],
   },

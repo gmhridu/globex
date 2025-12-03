@@ -3,6 +3,7 @@
 import React, { useState, useRef, DragEvent, ChangeEvent } from 'react';
 import { Upload, X, Image as ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
+import Image from 'next/image';
 
 interface ImageUploaderProps {
   value?: string;
@@ -82,9 +83,11 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange, classNam
 
       {preview ? (
         <div className="relative">
-          <img
+          <Image
             src={preview}
             alt="Preview"
+            width={500}
+            height={200}
             className="w-full h-48 object-cover rounded-xl border border-slate-700/50"
           />
           <button
