@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GlobexLogo from "../home/GlobexLogo";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 interface NavigationItem {
   label: string;
@@ -75,7 +76,7 @@ const navigation: NavigationItem[] = [
   },
   {
     label: "Blogs",
-    href: "/blogs"
+    href: "/blogs",
   },
   {
     label: "Contact",
@@ -100,10 +101,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   const handleDropdown = (label: string) => {
     setActiveDropdown(activeDropdown === label ? null : label);
@@ -183,89 +180,128 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-md transition-colors duration-200"
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? (
-              <X
-                className={`w-6 h-6 text-white`}
-              />
-            ) : (
-              <Menu
-                className={`w-6 h-6 text-white`}
-              />
-            )}
-          </button>
-        </div>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <button
+                className="lg:hidden p-2 rounded-md transition-colors duration-200"
+                aria-label="Toggle mobile menu"
+              >
+                <Menu className="w-8 h-8 text-white" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="full" className="bg-secondary border-none p-0">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col h-full bg-secondary pt-20 pb-10 px-6 overflow-y-auto">
+                {/* Mobile Menu Header */}
+                <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
+                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                    <GlobexLogo className="h-10 w-auto" />
+                  </Link>
+                </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden bg-white rounded-lg shadow-lg mt-4 border border-gray-100"
-            >
-              <div className="py-4">
-                {navigation.map((item) => (
-                  <div key={item.label}>
-                    {item.children ? (
-                      <div>
-                        <button
-                          onClick={() => handleDropdown(item.label)}
-                          className="flex items-center justify-between w-full px-4 py-3 text-gray-900 hover:bg-gray-50 font-medium"
+                {/* Mobile Navigation Links */}
+                <nav className="flex flex-col space-y-2">
+                  {navigation.map((item, index) => (
+                    <motion.div
+                      key={item.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + index * 0.05, duration: 0.3 }}
+                    >
+                      {item.children ? (
+                        <div className="flex flex-col">
+                          <button
+                            onClick={() => handleDropdown(item.label)}
+                            className="flex items-center justify-between w-full py-4 text-xl font-bold text-white group"
+                          >
+                            <span className="group-hover:text-primary-400 transition-colors uppercase tracking-wider">
+                              {item.label}
+                            </span>
+                            <ChevronDown
+                              className={`w-5 h-5 transition-transform duration-300 ${
+                                activeDropdown === item.label
+                                  ? "rotate-180 text-primary-400"
+                                  : "rotate-0 text-white/50"
+                              }`}
+                            />
+                          </button>
+                          <AnimatePresence>
+                            {activeDropdown === item.label && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{
+                                  duration: 0.3,
+                                  ease: "easeInOut",
+                                }}
+                                className="overflow-hidden bg-white/5 rounded-xl mt-1"
+                              >
+                                <div className="py-2 flex flex-col">
+                                  {item.children.map((child, childIndex) => (
+                                    <motion.div
+                                      key={child.href}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{
+                                        delay: 0.1 + childIndex * 0.03,
+                                      }}
+                                    >
+                                      <Link
+                                        href={child.href}
+                                        className="block px-6 py-3 text-white/80 hover:text-primary-400 hover:bg-white/5 transition-all"
+                                        onClick={() =>
+                                          setIsMobileMenuOpen(false)
+                                        }
+                                      >
+                                        {child.label}
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="block py-4 text-xl font-bold text-white hover:text-primary-400 transition-all uppercase tracking-wider"
+                          onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          <span>{item.label}</span>
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              activeDropdown === item.label
-                                ? "rotate-180"
-                                : "rotate-0"
-                            }`}
-                          />
-                        </button>
-                        <AnimatePresence>
-                          {activeDropdown === item.label && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="overflow-hidden bg-gray-50"
-                            >
-                              {item.children.map((child) => (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  className="block px-6 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-500"
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                  {child.label}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="block px-4 py-3 text-gray-900 hover:bg-gray-50 hover:text-primary-500 font-medium"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    )}
+                          {item.label}
+                        </Link>
+                      )}
+                    </motion.div>
+                  ))}
+                </nav>
+
+                {/* Mobile Menu Footer/Contact */}
+                <motion.div
+                  className="mt-auto pt-10 border-t border-white/10"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <p className="text-white/50 text-sm mb-4 uppercase tracking-widest font-semibold text-center">
+                    Get in Touch
+                  </p>
+                  <div className="flex flex-col space-y-4 items-center">
+                    <Link
+                      href="/contact"
+                      className="w-full bg-primary-500 text-white text-center py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-primary-600 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Request a Quote
+                    </Link>
                   </div>
-                ))}
+                </motion.div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

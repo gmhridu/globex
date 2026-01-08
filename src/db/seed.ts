@@ -136,7 +136,7 @@ const seedBlogs = [
     title: "Industry 4.0: The Smart Factory Revolution",
     excerpt: "Understanding the technologies driving the fourth industrial revolution.",
     body: "Industry 4.0 represents a fundamental shift in how we manufacture goods. This in-depth article explores the key technologies powering smart factories, including IoT sensors, AI and machine learning, robotics, cloud computing, and cyber-physical systems. Learn about the benefits of digital transformation, implementation strategies, and how to overcome common challenges when adopting Industry 4.0 technologies.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400",
+    image: "https://res.cloudinary.com/dyhmsn6hr/image/upload/v1764783850/WhatsApp_Image_2025-12-03_at_11.40.59_PM_uwvg1e.jpg",
     category: "Technology",
     author: "Globex Team",
     date: new Date("2024-11-01T00:00:00Z"),
