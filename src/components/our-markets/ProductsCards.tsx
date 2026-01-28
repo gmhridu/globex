@@ -79,9 +79,9 @@ const ProductsCards = () => {
     },
     {
       id: 13,
-      title: "Smart Home & IoT Consumer Devices",
+      title: "Maritime Industry",
       image: "/assests/our-markets/pexels-jonathanborba-14309809.jpg",
-      alt: "Smart Home",
+      alt: "Maritime Industry",
     },
     {
       id: 14,
