@@ -85,9 +85,9 @@ const ProductsCards = () => {
     },
     {
       id: 14,
-      title: "Sexual Wellness Products",
+      title: "Oil & Gas",
       image: "/assests/our-markets/AdobeStock_616054145.jpeg",
-      alt: "Sexual wellness products",
+      alt: "Oil & Gas",
     },
 
     {
