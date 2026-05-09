@@ -2,11 +2,9 @@
 import { useState, useEffect } from "react";
 import { motion, easeOut } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Button from "../ui/Button";
 import Link from "next/link";
-import { Typewriter } from "react-typewriting-effect";
 import "react-typewriting-effect/dist/index.css";
 
 const fadeUpVariants = {
@@ -61,10 +59,10 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight text-center md:text-left">
-              Struggling to <span className="text-primary">Attract</span> the
-              Right <br className="hidden md:block" />
-              <span className="text-primary">Distributors</span> for your{" "}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
+              Struggling to <span className="text-primary">Attract</span> the {" "}
+              <br className="block md:hidden" />
+              Right <span className="text-primary">Distributors</span> for your{" "}
               <span className="text-primary">Products?</span>
             </h2>
             <p className="text-md mb-6 font-semibold">
