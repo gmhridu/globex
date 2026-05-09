@@ -44,19 +44,9 @@ const AgencySection = () => {
         >
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight">
             Connecting{" "}
-            {inView ? (
-              <Typewriter
-                string="Private Label Manufacturers"
-                cursor="_"
-                cursorClassName="text-primary"
-                stopBlinkinOnComplete={true}
-                className="text-primary"
-              />
-            ) : (
-              <span className="text-primary inline-block">
-                Private Label Manufacturers
-              </span>
-            )}{" "}
+            <span className="text-primary inline-block">
+              Private Label Manufacturers
+            </span>{" "}
             with Ready-to-Buy Brands.
           </h2>
         </motion.div>

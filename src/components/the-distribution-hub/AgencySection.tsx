@@ -58,20 +58,7 @@ const AgencySection = () => {
         >
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight">
             Stop Guessing. Start Growing. The{" "}
-            {startAnimation ? (
-              <Typewriter
-                string="Globex Distributor Hub"
-                className="text-primary inline"
-                cursor="_"
-                cursorClassName="text-primary"
-                stopBlinkinOnComplete
-                delay={200}
-              />
-            ) : (
-              <span className="text-primary inline">
-                Globex Distributor Hub
-              </span>
-            )}{" "}
+            <span className="text-primary inline">Globex Distributor Hub</span>{" "}
             builds real, lasting distributor relationships, powered by insight,
             experience, and strategy, not luck.
           </h2>

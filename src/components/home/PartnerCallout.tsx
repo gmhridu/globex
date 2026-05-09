@@ -51,33 +51,10 @@ const PartnerCallout = () => {
           {/* Right side - Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-              Position{" "}
-              {startAnimation ? (
-                <Typewriter
-                  string="Your Brand"
-                  className="text-primary inline"
-                  cursor="_"
-                  cursorClassName="text-primary"
-                  stopBlinkinOnComplete
-                  onComplete={() => setShowDistributors(true)}
-                />
-              ) : (
-                <span className="text-primary inline">Your Brand</span>
-              )}{" "}
+              Position <span className="text-primary inline">Your Brand</span>{" "}
               with the Right{" "}
-              {showDistributors ? (
-                <Typewriter
-                  onComplete={() => {}}
-                  string="Distributors,"
-                  className="text-primary inline"
-                  cursor="_"
-                  cursorClassName="text-primary"
-                  stopBlinkinOnComplete
-                />
-              ) : (
-                <span className="text-primary inline">Distributors,</span>
-              )}{" "}
-              and Grow with Confidence
+              <span className="text-primary inline">Distributors,</span> and
+              Grow with Confidence
             </h2>
 
             <p className="text-md font-semibold mb-4">

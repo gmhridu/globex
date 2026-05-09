@@ -37,17 +37,7 @@ const TrustedPartner = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
             A trusted partner for{" "}
-            {inView ? (
-              <Typewriter
-                string="Manufacturers"
-                cursor="_"
-                cursorClassName="text-primary"
-                stopBlinkinOnComplete={true}
-                className="text-primary"
-              />
-            ) : (
-              <span className="text-primary inline">Manufacturers</span>
-            )}
+            <span className="text-primary inline">Manufacturers</span>
           </h2>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl text-center mx-auto">
             We understand the challenges manufacturers face when sourcing

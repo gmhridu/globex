@@ -62,47 +62,10 @@ const ValueProposition = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Struggling to{" "}
-              {startAnimation ? (
-                <Typewriter
-                  string="Attract"
-                  className="text-primary inline"
-                  cursor="_"
-                  cursorClassName="text-primary"
-                  stopBlinkinOnComplete
-                  onComplete={() => setShowDistributors(true)}
-                />
-              ) : (
-                <span className="text-primary inline">Attract</span>
-              )}{" "}
+              Struggling to <span className="text-primary inline">Attract</span>{" "}
               the Right <br />
-              {/* Distributors */}
-              {showDistributors ? (
-                <Typewriter
-                  string="Distributors"
-                  className="text-primary inline"
-                  cursor="_"
-                  cursorClassName="text-primary"
-                  stopBlinkinOnComplete
-                  onComplete={() => setShowProducts(true)}
-                  delay={150}
-                />
-              ) : (
-                <span className="text-primary inline">Distributors</span>
-              )}{" "}
-              for your {/* Products */}
-              {showProducts ? (
-                <Typewriter
-                  onComplete={() => {}}
-                  string="Products?"
-                  className="text-primary inline"
-                  cursor="_"
-                  cursorClassName="text-primary"
-                  stopBlinkinOnComplete
-                />
-              ) : (
-                <span className="text-primary inline">Products?</span>
-              )}
+              <span className="text-primary inline">Distributors</span> for your{" "}
+              <span className="text-primary inline">Products?</span>
             </h2>
 
             <p className="text-md mb-6 font-semibold">
@@ -122,8 +85,9 @@ const ValueProposition = () => {
 
             <div className="mt-8">
               <Button
-              size="sm"
-              className="group mt-8 inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+                size="sm"
+                className="group mt-8 inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black"
+              >
                 <Link href="/contact" className="inline-flex items-center">
                   Explore Our Growth Framework
                   <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />

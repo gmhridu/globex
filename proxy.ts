@@ -1,16 +1,16 @@
 import { auth } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Only process admin routes
-  if (!pathname.startsWith('/admin/')) {
+  if (!pathname.startsWith("/admin/")) {
     return NextResponse.next();
   }
 
   // Allow access to login page
-  if (pathname === '/admin/login') {
+  if (pathname === "/admin/login") {
     return NextResponse.next();
   }
 
@@ -22,16 +22,16 @@ export async function middleware(request: NextRequest) {
 
     if (!session || !session?.user) {
       // Redirect to login page if no user session
-      const loginUrl = new URL('/admin/login', request.url);
+      const loginUrl = new URL("/admin/login", request.url);
       return NextResponse.redirect(loginUrl);
     }
 
     // User is authenticated, allow access
     return NextResponse.next();
   } catch (error) {
-    console.error('Middleware session check error:', error);
+    console.error("Middleware session check error:", error);
     // On error, redirect to login
-    const loginUrl = new URL('/admin/login', request.url);
+    const loginUrl = new URL("/admin/login", request.url);
     return NextResponse.redirect(loginUrl);
   }
 }
@@ -42,6 +42,6 @@ export const config = {
     /*
      * Match all admin routes
      */
-    '/admin/:path*',
+    "/admin/:path*",
   ],
 };

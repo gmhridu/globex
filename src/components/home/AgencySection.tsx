@@ -28,21 +28,21 @@ const AgencySection = () => {
       description:
         "Expand into new markets by tapping into our network of vetted distributors worldwide.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
-      href: "/the-distribution-hub"
+      href: "/the-distribution-hub",
     },
     {
       title: "The Private Label Hub",
       description:
         "Connect with brands actively seeking private label partners — no cold outreach, just real opportunities.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
-      href: "/private-label-hub"
+      href: "/private-label-hub",
     },
     {
       title: "The Contract MFG Hub",
       description:
         "Get discovered by brands actively searching for trusted contract manufacturing partners. No cold calls—just qualified leads, ready to build.",
       icon: <ArrowRight className="w-8 h-8 text-primary" />,
-      href: "/contract-manufacturing"
+      href: "/contract-manufacturing",
     },
   ];
 
@@ -58,19 +58,10 @@ const AgencySection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight">
-            We&apos;re A{" "}
-            {startAnimation ? (
-              <Typewriter
-                string="Growth Agency"
-                className="text-primary"
-                cursor="_"
-                cursorClassName="text-primary"
-                delay={200}
-                stopBlinkinOnComplete
-              />
-            ) : (
+            We&apos;re A {" "}
+
               <span className="text-primary">Growth Agency</span>
-            )}{" "}
+            {" "}
             Built For Manufacturing.
           </h2>
 
@@ -100,21 +91,20 @@ const AgencySection = () => {
               style={{ "--hover-color": "#031325" } as React.CSSProperties}
             >
               <Link href={service.href}>
-
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-gray-900">
-                  {service.title}
-                </h3>
-                <div className="w-12 h-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary/10 text-2xl">
-                  {service.icon}
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {service.title}
+                  </h3>
+                  <div className="w-12 h-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary/10 text-2xl">
+                    {service.icon}
+                  </div>
                 </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+                <p className="text-gray-600 leading-relaxed">
+                  {service.description}
+                </p>
 
-              {/* Decorative hover effect ring */}
-              <span className="absolute inset-0 rounded-2xl border-2 border-transparent hover:border-secondary/50 transition-all duration-300 pointer-events-none" />
+                {/* Decorative hover effect ring */}
+                <span className="absolute inset-0 rounded-2xl border-2 border-transparent hover:border-secondary/50 transition-all duration-300 pointer-events-none" />
               </Link>
             </motion.div>
           ))}
