@@ -52,9 +52,9 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-center md:text-left">
               Expanding Into New Markets Without
-              <br />
+              <br className="hidden md:block" />
               the Right Network Can Stall Growth
             </h2>
             <p className="text-md mb-3 font-semibold">
@@ -73,8 +73,9 @@ const ValueProposition = () => {
 
             <div className="">
               <Button
-              size="sm"
-              className="group  inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+                size="sm"
+                className="group  inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black"
+              >
                 <Link href="/contact" className="inline-flex items-center">
                   Start My 4-Step Plan
                   <ChevronRight

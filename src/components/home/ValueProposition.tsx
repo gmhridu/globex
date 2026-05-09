@@ -61,13 +61,12 @@ const ValueProposition = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Struggling to <span className="text-primary inline">Attract</span>{" "}
-              the Right <br />
-              <span className="text-primary inline">Distributors</span> for your{" "}
-              <span className="text-primary inline">Products?</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight text-center md:text-left">
+              Struggling to <span className="text-primary">Attract</span> the
+              Right <br className="hidden md:block" />
+              <span className="text-primary">Distributors</span> for your{" "}
+              <span className="text-primary">Products?</span>
             </h2>
-
             <p className="text-md mb-6 font-semibold">
               If your growth is tied to just a handful of clients or markets,
               it’s only a matter of time before things stall. Without fresh,
