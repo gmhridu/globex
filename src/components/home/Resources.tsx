@@ -116,15 +116,8 @@ const Resources = () => {
                     <p className="text-gray-600 text-sm md:text-base mb-3 line-clamp-3">
                       {blog.excerpt}
                     </p>
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                    <div className="flex items-center text-xs text-gray-500 mb-3">
                       <span>By {blog.author}</span>
-                      <span>
-                        {new Date(blog.date).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
-                      </span>
                     </div>
                     <div className="inline-flex items-center gap-2 text-primary hover:text-secondary font-medium text-sm transition-colors cursor-pointer">
                       Read More <ChevronRight className="w-4 h-4" />

@@ -61,9 +61,9 @@ const ProductsCards = () => {
     },
     {
       id: 10,
-      title: "Tobacco",
-      image: "/assests/our-markets/tobacco.jpg",
-      alt: "Tobacco",
+      title: "Arts and Crafts",
+      image: "/assests/our-markets/artsandcrafts.jpeg",
+      alt: "Arts and Crafts",
     },
     {
       id: 11,
