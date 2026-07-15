@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import AwardsSection from "@/components/home/AwardsSection";
 import PartnerLogos from "@/components/home/PartnerLogos";
 import ValueProposition from "@/components/home/ValueProposition";
 import AgencySection from "@/components/home/AgencySection";
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <main>
         <HeroSection />
+        <AwardsSection />
         <PartnerLogos />
         <ValueProposition />
         <AgencySection />

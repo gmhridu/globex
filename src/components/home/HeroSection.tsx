@@ -51,7 +51,7 @@ const HeroSection = () => {
 
       {/* --- Content Layer --- */}
       <div className="container relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[1300px]">
+        <div className="max-w-325">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[3.5rem] font-bold text-white leading-tight">
             Building Global Growth,
           </h1>
@@ -65,12 +65,17 @@ const HeroSection = () => {
             markets with a results-driven strategy.
           </p>
 
-          <Button className="group mt-2 inline-flex w-full sm:w-[200px] whitespace-nowrap items-center justify-center text-base sm:text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
+          <Button className="group mt-2 inline-flex w-full sm:w-50 whitespace-nowrap items-center justify-center text-base sm:text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black">
             <Link href="/contact" className="inline-flex items-center">
               GET IN TOUCH
-              <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
+              <ChevronRight className="h-5 w-5 transform -translate-x-2.5 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
             </Link>
           </Button>
+
+          <div className="mt-6 inline-flex items-center gap-3 border border-primary/40 rounded-full px-5 py-2.5">
+            <span className="text-primary text-xl">🏆</span>
+            <span className="text-white text-sm sm:text-base font-medium">2026 Business Consultancy of the Year</span>
+          </div>
         </div>
       </div>
     </section>

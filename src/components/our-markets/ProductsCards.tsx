@@ -105,7 +105,7 @@ const ProductsCards = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform cursor-pointer min-h-[400px]"
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform cursor-pointer min-h-100"
               style={{
                 background:
                   "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(240,248,255,0.8) 100%)",
