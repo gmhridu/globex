@@ -36,7 +36,7 @@ export default function Footer() {
                 <GlobexLogo />
               </Link>
               <p className="text-primary-500 font-semibold text-lg mb-4">
-                A Growth Agency built for Manufacturing
+                Growth & Export Partner for Manufacturers
               </p>
               <p className="text-gray-300 leading-relaxed">
                 We help manufacturers scale faster by delivering qualified

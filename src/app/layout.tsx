@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "We Are Globex | A Growth Agency Built for Manufacturing",
+    default: "We Are Globex | Growth & Export Partner for Manufacturers",
     template: "%s | We Are Globex",
   },
   description:
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "We Are Globex | A Growth Agency Built for Manufacturing",
+    title: "We Are Globex | Growth & Export Partner for Manufacturers",
     description:
       "We help businesses expand, scale, and succeed in international markets with a results-driven strategy.",
     url: "/",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "We Are Globex | A Growth Agency Built for Manufacturing",
+    title: "We Are Globex | Growth & Export Partner for Manufacturers",
     description:
       "We help businesses expand, scale, and succeed in international markets with a results-driven strategy.",
     images: ["/images/twitter-image.jpg"],
@@ -131,7 +131,7 @@ export default function RootLayout({
               url: "https://weareglobex.com",
               logo: "https://weareglobex.com/images/logo.png",
               description:
-                "A Growth Agency Built for Manufacturing. We help businesses expand, scale, and succeed in international markets.",
+                "Growth & Export Partner for Manufacturers. We help businesses expand, scale, and succeed in international markets.",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+1-XXX-XXX-XXXX",

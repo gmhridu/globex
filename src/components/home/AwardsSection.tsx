@@ -45,7 +45,9 @@ const AwardsSection = () => {
               impact.
             </p>
 
-            <div>
+            {/* disabled button for now */}
+
+            {/* <div>
               <Link
                 href="/blog"
                 className="group inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold text-sm tracking-wider uppercase px-6 py-3 rounded-full transition-all duration-300 hover:bg-primary hover:text-white"
@@ -53,7 +55,7 @@ const AwardsSection = () => {
                 Read the Announcement
                 <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

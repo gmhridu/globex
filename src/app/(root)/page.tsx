@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import Home from "./home/page.tsx";
 
 export const metadata: Metadata = {
-  title: "We Are Globex | A Growth Agency Built for Manufacturing",
+  title: "We Are Globex | Growth & Export Partner for Manufacturers",
   description:
     "Build Your Distribution. Accelerate Your Revenue. We help businesses expand, scale, and succeed in international markets with a results-driven strategy.",
   openGraph: {
-    title: "We Are Globex | A Growth Agency Built for Manufacturing",
+    title: "We Are Globex | Growth & Export Partner for Manufacturers",
     description:
       "Build Your Distribution. Accelerate Your Revenue. We help businesses expand, scale, and succeed in international markets with a results-driven strategy.",
     images: [
