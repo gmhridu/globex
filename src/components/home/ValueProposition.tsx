@@ -1,0 +1,101 @@
+"use client";
+import { useState, useEffect } from "react";
+import { motion, easeOut } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import Button from "../ui/Button";
+import Link from "next/link";
+import "react-typewriting-effect/dist/index.css";
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+};
+
+const zoomInVariants = {
+  hidden: { opacity: 0, scale: 0.3 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: easeOut },
+  },
+};
+
+const ValueProposition = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
+
+  // State for sequential animations
+  const [startAnimation, setStartAnimation] = useState(false);
+  const [showDistributors, setShowDistributors] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
+
+  useEffect(() => {
+    if (inView && !startAnimation) setStartAnimation(true);
+  }, [inView, startAnimation]);
+
+  return (
+    <section className="bg-white py-12" ref={ref}>
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left side - Image */}
+          <motion.div
+            className="relative"
+            variants={zoomInVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            <img
+              src="/assests/home/struggling.jpeg"
+              alt="Manufacturing professional smiling"
+              width={400}
+              height={300}
+              className="w-[650px] h-[400px] object-cover object-center rounded-2xl"
+            />
+          </motion.div>
+
+          {/* Right side - Text Content */}
+          <motion.div
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
+              Struggling to <span className="text-primary">Attract</span> the {" "}
+              <br className="block md:hidden" />
+              Right <span className="text-primary">Distributors</span> for your{" "}
+              <span className="text-primary">Products?</span>
+            </h2>
+            <p className="text-md mb-6 font-semibold">
+              If your growth is tied to just a handful of clients or markets,
+              it’s only a matter of time before things stall. Without fresh,
+              qualified distributor interest, scaling becomes unpredictable —
+              and risky.
+            </p>
+
+            <p className="text-md mb-8 font-semibold">
+              At <span className="font-black">We Are Globex</span>, we help
+              manufacturers diversify their pipeline by connecting them directly
+              to pre-vetted distributors across Europe, North America, and
+              beyond — reducing dependency and unlocking steady, scalable
+              growth.
+            </p>
+
+            <div className="mt-8">
+              <Button
+                size="sm"
+                className="group mt-8 inline-flex whitespace-nowrap items-center justify-center text-lg bg-primary text-black transition-all duration-300 hover:bg-white hover:text-black"
+              >
+                <Link href="/contact" className="inline-flex items-center">
+                  Explore Our Growth Framework
+                  <ChevronRight className="h-5 w-5 transform translate-x-[-10px] opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-3 group-hover:opacity-100" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ValueProposition;
