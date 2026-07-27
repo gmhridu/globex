@@ -76,6 +76,21 @@ const ContactSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full md:w-[600px]"
         >
+          <img
+            src="/assests/contact/contact-image.jpeg"
+            alt="Contact Globex"
+            className="w-full h-auto rounded-lg shadow-md object-cover"
+          />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="w-full max-w-3xl mx-auto"
+        >
           <ContactForm2 />
         </motion.div>
       </div>

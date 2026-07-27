@@ -37,7 +37,7 @@ export default function CarrerPage() {
     <main>
       <HeroSection />
       <ContactSection />
-      <Locations />
+      {/* <Locations /> */}
       <ContactForm />
     </main>
   );
