@@ -40,7 +40,7 @@ const ContactSection = () => {
               <p className="text-left">
                 Our office
                 <br />
-                60 London Wall, London EC2M 5TQ
+                Victory Way Admirals Park, Dartford, Kent DA2 6QD
               </p>
             </div>
             <div className="flex items-center space-x-3">
@@ -77,7 +77,7 @@ const ContactSection = () => {
           className="w-full md:w-[600px]"
         >
           <img
-            src="/assests/contact/contact-image.jpeg"
+            src="/assests/contact/contact-image.png"
             alt="Contact Globex"
             className="w-full h-auto rounded-lg shadow-md object-cover"
           />

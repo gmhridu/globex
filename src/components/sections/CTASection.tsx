@@ -87,7 +87,7 @@ export default function CTASection() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-400">Visit Us</div>
-                  <div className="text-white font-medium">London, UK</div>
+                  <div className="text-white font-medium">Dartford, Kent</div>
                 </div>
               </div>
             </div>

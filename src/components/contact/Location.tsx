@@ -5,8 +5,8 @@ export default function Locations() {
     <div className="w-full flex items-center justify-center mt-12 mb-10 gap-6 flex-wrap">
       <LocationCard
         title="London"
-        address="60 London Wall, London"
-        postalCode="EC2M 5TQ"
+        address="Victory Way Admirals Park, Dartford, Kent"
+        postalCode="DA2 6QD"
         imageUrl="/assests/contact/london.jpg"
       />
       <LocationCard
