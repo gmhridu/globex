@@ -1,0 +1,13 @@
+:root {
+  --globex-gold: #F9B84E;
+  --globex-icon-size: 48px;
+}
+.globex-icon {
+  width: var(--globex-icon-size);
+  height: var(--globex-icon-size);
+  color: var(--globex-gold);
+  display: inline-block;
+  vertical-align: middle;
+}
+.globex-icon--small { --globex-icon-size: 24px; }
+.globex-icon--large { --globex-icon-size: 64px; }

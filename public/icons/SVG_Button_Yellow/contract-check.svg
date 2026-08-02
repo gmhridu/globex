@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-contract-check">
+  <title id="title-contract-check">Appointment and Purchase Order Support</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 7h25l10 10v22"/>
+    <path d="M37 7v11h10"/>
+    <line x1="19" y1="27" x2="39" y2="27"/>
+    <line x1="19" y1="35" x2="34" y2="35"/>
+    <circle cx="45" cy="47" r="12"/>
+    <polyline points="39,47 44,52 52,42"/>
+  </g>
+</svg>

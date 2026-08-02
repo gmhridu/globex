@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-align-match">
+  <title id="title-align-match">Align and Match</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25 20l-6-6c-5-5-13-5-18 0s-5 13 0 18l7 7c5 5 13 5 18 0l4-4"/>
+    <path d="M39 44l6 6c5 5 13 5 18 0s5-13 0-18l-7-7c-5-5-13-5-18 0l-4 4"/>
+    <line x1="24" y1="40" x2="40" y2="24"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-currency-growth">
+  <title id="title-currency-growth">Investment and Pipeline Growth</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="22" cy="33" r="14"/>
+    <path d="M22 22v22"/>
+    <path d="M28 25c-2-3-10-3-11 2-1 5 11 4 11 9s-8 5-13 2"/>
+    <polyline points="38,47 46,39 52,42 58,31"/>
+    <path d="M51 31h7v7"/>
+  </g>
+</svg>

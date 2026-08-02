@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-research-map">
+  <title id="title-research-map">Market Prioritisation</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="31" cy="32" r="21"/>
+    <circle cx="31" cy="32" r="13"/>
+    <circle cx="31" cy="32" r="5"/>
+    <circle cx="31" cy="32" r="1.5" fill="#E9C056" stroke="none"/>
+  </g>
+</svg>

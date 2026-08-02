@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-bar-chart">
+  <title id="title-bar-chart">Reporting Visibility</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="9" y1="55" x2="57" y2="55"/>
+    <rect x="13" y="35" width="7" height="20" rx="1"/>
+    <rect x="26" y="26" width="7" height="29" rx="1"/>
+    <rect x="39" y="14" width="7" height="41" rx="1"/>
+    <rect x="52" y="22" width="5" height="33" rx="1"/>
+  </g>
+</svg>

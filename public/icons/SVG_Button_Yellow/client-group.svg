@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-client-group">
+  <title id="title-client-group">Client References</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="18" r="6"/>
+    <circle cx="16" cy="23" r="5"/>
+    <circle cx="48" cy="23" r="5"/>
+    <path d="M21 48c0-10 5-17 11-17s11 7 11 17"/>
+    <path d="M6 49c0-8 4-14 10-14 3 0 5 2 7 5"/>
+    <path d="M58 49c0-8-4-14-10-14-3 0-5 2-7 5"/>
+  </g>
+</svg>

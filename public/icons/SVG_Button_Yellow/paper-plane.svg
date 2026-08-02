@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-paper-plane">
+  <title id="title-paper-plane">Targeted Outreach</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="7,28 57,8 38,56 29,36"/>
+    <line x1="29" y1="36" x2="57" y2="8"/>
+    <line x1="29" y1="36" x2="30" y2="50"/>
+  </g>
+</svg>

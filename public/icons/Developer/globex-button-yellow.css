@@ -1,0 +1,9 @@
+:root {
+  --globex-button-yellow: #E9C056;
+}
+.globex-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  color: var(--globex-button-yellow);
+}

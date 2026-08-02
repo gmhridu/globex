@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-scalability">
+  <title id="title-scalability">Commercial Growth</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="8" y1="55" x2="8" y2="10"/>
+    <line x1="8" y1="55" x2="56" y2="55"/>
+    <polyline points="13,46 24,36 33,40 48,22"/>
+    <path d="M40 22h8v8"/>
+  </g>
+</svg>

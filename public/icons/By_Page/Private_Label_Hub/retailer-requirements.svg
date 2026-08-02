@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-retailer-requirements">
+  <title id="title-retailer-requirements">Commercial Brief</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="14" y="11" width="36" height="46" rx="5"/>
+    <rect x="23" y="7" width="18" height="10" rx="4"/>
+    <line x1="22" y1="27" x2="42" y2="27"/>
+    <line x1="22" y1="35" x2="42" y2="35"/>
+    <line x1="22" y1="43" x2="35" y2="43"/>
+  </g>
+</svg>

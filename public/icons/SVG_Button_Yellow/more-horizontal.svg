@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-more-horizontal">
+  <title id="title-more-horizontal">More Options</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="16" cy="32" r="2" fill="#E9C056" stroke="none"/>
+    <circle cx="32" cy="32" r="2" fill="#E9C056" stroke="none"/>
+    <circle cx="48" cy="32" r="2" fill="#E9C056" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-email">
+  <title id="title-email">Email</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="14" width="50" height="36" rx="5"/>
+    <polyline points="8,18 32,36 56,18"/>
+  </g>
+</svg>

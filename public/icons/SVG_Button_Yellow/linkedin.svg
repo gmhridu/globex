@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-linkedin">
+  <title id="title-linkedin">LinkedIn</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="8" width="48" height="48" rx="6"/>
+    <circle cx="20" cy="22" r="2.5" fill="#E9C056" stroke="none"/>
+    <line x1="20" y1="29" x2="20" y2="46"/>
+    <path d="M29 46V29"/>
+    <path d="M29 36c0-5 3-8 8-8s8 3 8 9v9"/>
+  </g>
+</svg>

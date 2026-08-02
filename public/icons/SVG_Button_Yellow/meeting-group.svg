@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-meeting-group">
+  <title id="title-meeting-group">Commercial Meetings</title>
+  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="15" r="5"/>
+    <circle cx="17" cy="23" r="4"/>
+    <circle cx="47" cy="23" r="4"/>
+    <rect x="12" y="39" width="40" height="10" rx="4"/>
+    <path d="M24 39c0-7 3-12 8-12s8 5 8 12"/>
+    <path d="M8 38c0-6 4-10 9-10 3 0 5 1 7 4"/>
+    <path d="M56 38c0-6-4-10-9-10-3 0-5 1-7 4"/>
+  </g>
+</svg>
