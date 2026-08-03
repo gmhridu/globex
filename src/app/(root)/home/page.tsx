@@ -9,12 +9,14 @@ import ClientChallenges from "@/components/home/ClientChallenges";
 import SuccessStory from "@/components/home/SuccessStory";
 import Resources from "@/components/home/Resources";
 import ContactForm from "@/components/contact-form/ContactForm";
+import BottomInfoBar from "@/components/home/hero-section/bottom-info-bar";
 
 export default function Home() {
   return (
     <>
       <main>
         <HeroSection />
+        <BottomInfoBar />
         <AwardsSection />
         <PartnerLogos />
         <ValueProposition />
