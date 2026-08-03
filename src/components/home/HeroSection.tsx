@@ -7,7 +7,7 @@ import BottomInfoBar from "./hero-section/bottom-info-bar";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[#07090D] py-20 md:py-20">
+    <section className="relative overflow-hidden bg-[#07090D] pt-20 pb-0 md:pt-20 md:pb-0">
       <div className="relative min-h-150 sm:min-h-160 md:h-180 lg:h-180">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
