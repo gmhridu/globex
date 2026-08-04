@@ -169,7 +169,7 @@ export default function DistributorProcess() {
             <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] mb-4">
               What Globex Actually Does
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
               Distributor Development, Not Database Delivery.
             </h2>
             <p className="text-gray-500 text-base sm:text-lg max-w-3xl mx-auto">
@@ -245,7 +245,7 @@ export default function DistributorProcess() {
             <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] mb-4">
               How It Works
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               A Proven Process. Global Results.
             </h2>
           </div>

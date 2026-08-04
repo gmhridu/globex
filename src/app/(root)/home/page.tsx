@@ -5,6 +5,9 @@ import ValueProposition from "@/components/home/ValueProposition";
 import AgencySection from "@/components/home/AgencySection";
 import StrategySteps from "@/components/home/StrategySteps";
 import DistributorProcess from "@/components/home/DistributorProcess";
+import MarketCoverage from "@/components/home/MarketCoverage";
+import ExecutionOverAdvice from "@/components/home/ExecutionOverAdvice";
+import WhoWeWorkWith from "@/components/home/WhoWeWorkWith";
 import PartnerCallout from "@/components/home/PartnerCallout";
 import ClientChallenges from "@/components/home/ClientChallenges";
 import SuccessStory from "@/components/home/SuccessStory";
@@ -23,11 +26,10 @@ export default function Home() {
         <InternationalGrowth/>
         <OfferSection />
         <DistributorProcess />
-        <PartnerCallout />
-        <ClientChallenges />
-        <SuccessStory />
-        <Resources />
-        <ContactForm />
+        <MarketCoverage />
+        <ExecutionOverAdvice />
+        <WhoWeWorkWith />
+        
       </main>
     </>
   );

@@ -34,7 +34,7 @@ const InternationalGrowthCard: InternationalGrowthCardsProps[] = [
 export function InternationalGrowth() {
   return (
     <div className="mt-10 container mx-auto">
-      <h2 className="text-3xl font-medium text-center">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight text-center">
         Why International Growth Feels Harder Than It Should Be.
       </h2>
 
