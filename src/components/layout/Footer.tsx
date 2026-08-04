@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { Linkedin } from "lucide-react";
-import GlobexLogo from "../home/GlobexLogo";
+import { sans } from "@/lib/utils";
+import { useState } from "react";
 
 const footerLinks = {
   main: [
@@ -23,109 +22,140 @@ const footerLinks = {
 };
 
 export default function Footer() {
-  const getYear = () => new Date().getFullYear();
+  const [page, setPage] = useState<'home' | 'private-label' | 'distribution-hub' | 'markets' | 'certified-distributor' | 'contact' | 'charity' | 'careers' | 'blog' | 'case-studies' | 'privacy-policy' | 'gdpr'>('home')
   return (
-    <footer className="bg-dark-900 text-white">
-      {/* Main Footer */}
-      <div className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-6 gap-8">
-            {/* Brand Section */}
-            <div className="lg:col-span-3">
-              <Link href="/" className="block mb-4">
-                <GlobexLogo />
-              </Link>
-              <p className="text-primary-500 font-semibold text-lg mb-4">
-                Growth & Export Partner for Manufacturers
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                We help manufacturers scale faster by delivering qualified
-                opportunities, strategic expansion support, and global partner
-                connections – so you can focus on production while we fuel your
-                growth.
-              </p>
+    <footer className="bg-[#0a0c10] border-t border-border py-16">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+          <div className="md:col-span-2">
+            <div className="mb-4">
+              <img
+                src={"/logos/Globex_Logo_Reversed.png"}
+                alt="We Are Globex"
+                className="h-8 w-auto"
+              />
             </div>
-
-            {/* Main Links */}
-            <div>
-              <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">
-                Main
-              </h4>
-              <ul className="space-y-2">
-                {footerLinks.main.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services Links */}
-            <div>
-              <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">
-                Services
-              </h4>
-              <ul className="space-y-2">
-                {footerLinks.services.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company Links */}
-            <div>
-              <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">
-                Company
-              </h4>
-              <ul className="space-y-2">
-                {footerLinks.company.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p
+              className="text-sm text-muted-foreground max-w-xs leading-relaxed"
+              style={sans()}
+            >
+              Growth & Export Partner for Manufacturers. We build distribution
+              across Europe and the Middle East.
+            </p>
+          </div>
+          <div>
+            <h4
+              className="text-[0.65rem] uppercase tracking-widest text-[#e8a020] mb-5"
+              style={sans(600)}
+            >
+              Services
+            </h4>
+            <ul className="space-y-3">
+              {[
+                "Distribution Hub",
+                "Private Label Hub",
+                "Market Coverage",
+                "Commercial Routes",
+              ].map((s) => (
+                <li key={s}>
+                  <a
+                    href="#"
+                    className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                    style={sans()}
+                  >
+                    {s}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4
+              className="text-[0.65rem] uppercase tracking-widest text-[#e8a020] mb-5"
+              style={sans(600)}
+            >
+              Company
+            </h4>
+            <ul className="space-y-3">
+              {["Home", "About"].map((s) => (
+                <li key={s}>
+                  <a
+                    href="#"
+                    className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                    style={sans()}
+                  >
+                    {s}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <button
+                  onClick={() => setPage("case-studies")}
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Case Studies
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setPage("careers")}
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Careers
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setPage("charity")}
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Our Charity Partner
+                </button>
+              </li>
+              <li></li>
+              {[].map((s) => (
+                <li key={s}>
+                  <a
+                    href="#"
+                    className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                    style={sans()}
+                  >
+                    {s}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Footer */}
-      <div className="border-t border-gray-700 py-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {getYear()} <span className="text-gray-500">•</span> We Are
-              Globex ™️
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <Link
-                href="https://www.linkedin.com/company/weareglobex/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-full flex items-center justify-center transition-colors duration-200"
-                aria-label="Follow us on LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </Link>
-            </div>
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border gap-3">
+          <p className="text-xs text-[#3a3f4d]" style={sans()}>
+            © 2025 We Are Globex. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-xs text-[#3a3f4d]">
+            <button
+              onClick={() => setPage("privacy-policy")}
+              className="hover:text-muted-foreground transition-colors"
+              style={sans()}
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => setPage("gdpr")}
+              className="hover:text-muted-foreground transition-colors"
+              style={sans()}
+            >
+              GDPR Statement
+            </button>
+            <a
+              href="#"
+              className="hover:text-muted-foreground transition-colors"
+              style={sans()}
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>
