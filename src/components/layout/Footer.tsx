@@ -1,7 +1,7 @@
 "use client";
 
 import { sans } from "@/lib/utils";
-import { useState } from "react";
+import Link from "next/link";
 
 const footerLinks = {
   main: [
@@ -22,18 +22,19 @@ const footerLinks = {
 };
 
 export default function Footer() {
-  const [page, setPage] = useState<'home' | 'private-label' | 'distribution-hub' | 'markets' | 'certified-distributor' | 'contact' | 'charity' | 'careers' | 'blog' | 'case-studies' | 'privacy-policy' | 'gdpr'>('home')
   return (
     <footer className="bg-[#0a0c10] border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
           <div className="md:col-span-2">
             <div className="mb-4">
-              <img
-                src={"/logos/Globex_Logo_Reversed.png"}
-                alt="We Are Globex"
-                className="h-8 w-auto"
-              />
+              <Link href="/">
+                <img
+                  src={"/logos/Globex_Logo_Reversed.png"}
+                  alt="We Are Globex"
+                  className="h-8 w-auto"
+                />
+              </Link>
             </div>
             <p
               className="text-sm text-muted-foreground max-w-xs leading-relaxed"
@@ -51,22 +52,24 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-3">
-              {[
-                "Distribution Hub",
-                "Private Label Hub",
-                "Market Coverage",
-                "Commercial Routes",
-              ].map((s) => (
-                <li key={s}>
-                  <a
-                    href="#"
-                    className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
-                    style={sans()}
-                  >
-                    {s}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/the-distribution-hub"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Distribution Hub
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/private-label-hub"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Private Label Hub
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -77,56 +80,51 @@ export default function Footer() {
               Company
             </h4>
             <ul className="space-y-3">
-              {["Home", "About"].map((s) => (
-                <li key={s}>
-                  <a
-                    href="#"
-                    className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
-                    style={sans()}
-                  >
-                    {s}
-                  </a>
-                </li>
-              ))}
               <li>
-                <button
-                  onClick={() => setPage("case-studies")}
+                <Link
+                  href="/"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#about"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/case-studies"
                   className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
                   style={sans()}
                 >
                   Case Studies
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => setPage("careers")}
+                <Link
+                  href="/career"
                   className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
                   style={sans()}
                 >
                   Careers
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => setPage("charity")}
+                <Link
+                  href="/shooting-star"
                   className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
                   style={sans()}
                 >
                   Our Charity Partner
-                </button>
+                </Link>
               </li>
-              <li></li>
-              {[].map((s) => (
-                <li key={s}>
-                  <a
-                    href="#"
-                    className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
-                    style={sans()}
-                  >
-                    {s}
-                  </a>
-                </li>
-              ))}
             </ul>
           </div>
         </div>
@@ -135,27 +133,27 @@ export default function Footer() {
             © 2025 We Are Globex. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-[#3a3f4d]">
-            <button
-              onClick={() => setPage("privacy-policy")}
+            <Link
+              href="/privacy-policy"
               className="hover:text-muted-foreground transition-colors"
               style={sans()}
             >
               Privacy Policy
-            </button>
-            <button
-              onClick={() => setPage("gdpr")}
+            </Link>
+            <Link
+              href="/gdpr-statement"
               className="hover:text-muted-foreground transition-colors"
               style={sans()}
             >
               GDPR Statement
-            </button>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/terms-of-service"
               className="hover:text-muted-foreground transition-colors"
               style={sans()}
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
