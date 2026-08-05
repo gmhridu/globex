@@ -1,17 +1,22 @@
-import ContactForm from "@/components/contact-form/ContactForm";
-import AgencySection from "@/components/the-distribution-hub/AgencySection";
-import HeroSection from "@/components/the-distribution-hub/HeroSection";
-import PartnerCallout from "@/components/the-distribution-hub/PartnerCallout";
-import StrategySteps from "@/components/the-distribution-hub/StrategySteps";
-import SuccessStory from "@/components/the-distribution-hub/SuccessStory";
-import ValueProposition from "@/components/the-distribution-hub/ValueProposition";
+import { Hero } from "@/components/the-distribution-hub/hero/hero";
+import { CaseStudy } from "@/components/the-distribution-hub/case-study/case-study";
+import { PartnerTypes } from "@/components/the-distribution-hub/partner-types/partner-types";
+import { Process } from "@/components/the-distribution-hub/process/process";
+import { WhyGlobex } from "@/components/the-distribution-hub/why-globex/why-globex";
+import { Faq } from "@/components/the-distribution-hub/faq/faq";
+import { Cta } from "@/components/the-distribution-hub/cta/cta";
 export const metadata = {
-  title: "The Distribution Hub - Powering Distribution Across Europe & Middle East | Globex",
-  description: "Welcome to the Distributor Hub, your gateway to connecting with qualified distributors, importers, and key market partners across Europe and the Middle East.",
-  keywords: "distribution, distributors, Europe, Middle East, Globex, importers, market partners, supply chain",
+  title:
+    "The Distribution Hub - Powering Distribution Across Europe & Middle East | Globex",
+  description:
+    "Welcome to the Distributor Hub, your gateway to connecting with qualified distributors, importers, and key market partners across Europe and the Middle East.",
+  keywords:
+    "distribution, distributors, Europe, Middle East, Globex, importers, market partners, supply chain",
   openGraph: {
-    title: "The Distribution Hub - Powering Distribution Across Europe & Middle East",
-    description: "Connect with qualified distributors and partners in Europe and the Middle East through Globex's Distributor Hub.",
+    title:
+      "The Distribution Hub - Powering Distribution Across Europe & Middle East",
+    description:
+      "Connect with qualified distributors and partners in Europe and the Middle East through Globex's Distributor Hub.",
     url: "/the-distribution-hub",
     siteName: "WeAreGlobex",
     images: [
@@ -27,24 +32,25 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Distribution Hub - Powering Distribution Across Europe & Middle East",
-    description: "Connect with qualified distributors and partners in Europe and the Middle East through Globex's Distributor Hub.",
+    title:
+      "The Distribution Hub - Powering Distribution Across Europe & Middle East",
+    description:
+      "Connect with qualified distributors and partners in Europe and the Middle East through Globex's Distributor Hub.",
     images: ["/assests/tailored-solutions/distributor-hub/hero.jpg"],
   },
 };
-
 
 export default function TheDistributionHubPage() {
   return (
     <>
       <main>
-        <HeroSection />
-        <ValueProposition />
-        <AgencySection />
-        <StrategySteps />
-        <PartnerCallout />
-        <SuccessStory />
-        <ContactForm />
+        <Hero />
+        <PartnerTypes />
+        <WhyGlobex />
+        <Process />
+        <CaseStudy />
+        <Faq />
+        <Cta />
       </main>
     </>
   );
