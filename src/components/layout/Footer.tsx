@@ -109,7 +109,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/career"
+                  href="/careers"
                   className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
                   style={sans()}
                 >
