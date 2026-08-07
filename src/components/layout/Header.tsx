@@ -47,15 +47,20 @@ export default function Header() {
           />
         </Link>
         <div className="hidden md:flex items-center gap-8">
-          {["About", "Solutions", "Process", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+          {[
+            { label: "About", href: "/#about" },
+            { label: "Solutions", href: "/#solutions" },
+            { label: "Process", href: "/#process" },
+            { label: "Contact", href: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
               className="text-[0.7rem] uppercase tracking-widest text-muted-foreground hover:text-[#e8a020] transition-colors"
               style={sans(500)}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
           <Link
             href="/our-markets"
