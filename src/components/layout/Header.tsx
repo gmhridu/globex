@@ -86,7 +86,7 @@ export default function Header() {
             For Buyers
           </Link>
           <Link
-            href="/blog"
+            href="/blogs"
             className="text-[0.7rem] uppercase tracking-widest text-muted-foreground hover:text-[#e8a020] transition-colors"
             style={sans(500)}
           >

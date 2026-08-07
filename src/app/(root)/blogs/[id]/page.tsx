@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import BlogsDetailes from "@/components/blogs/BlogsDetailes";
+import { BlogDetails } from "@/components/blogs/blog-details/blog-details";
+import { posts } from "@/constant/blogs";
 export const metadata = {
   title: "Blog Details - Insights from Globex",
   description: "Read detailed blog posts and insights from Globex. Stay updated with industry trends, manufacturing tips, and expert advice.",
@@ -39,25 +40,8 @@ export default async function BlogDetailsPage({
   const awaitedParams = await params;
   const blogId = awaitedParams.id;
 
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/blogs/${blogId}`, {
-      cache: 'no-store' // Ensure we get fresh data
-    });
+  const post = posts.find((p) => p.slug === blogId);
+  if (!post) return notFound();
 
-    if (!response.ok) {
-      if (response.status === 404) {
-        return notFound();
-      }
-      throw new Error('Failed to fetch blog');
-    }
-
-    const blog = await response.json();
-
-    if (!blog) return notFound();
-
-    return <BlogsDetailes blog={blog} />;
-  } catch (error) {
-    console.error('Error fetching blog:', error);
-    return notFound();
-  }
+  return <BlogDetails initialSlug={blogId} />;
 }
