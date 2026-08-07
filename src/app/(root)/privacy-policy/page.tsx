@@ -1,4 +1,5 @@
-import ContactForm from "@/components/contact-form/ContactForm";
+
+import { ContactForm } from "@/components/contact/contact-form/contact-form";
 import HeroSection from "@/components/privacy-policy/HomeSection";
 import Policies from "@/components/privacy-policy/Policies";
 export const metadata = {

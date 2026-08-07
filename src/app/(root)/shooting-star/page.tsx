@@ -1,4 +1,5 @@
-import ContactForm from "@/components/contact-form/ContactForm";
+
+import { ContactForm } from "@/components/contact/contact-form/contact-form";
 import HeroSection from "@/components/shooting-star/HeroSection";
 import Partner from "@/components/shooting-star/Partner";
 export const metadata = {
