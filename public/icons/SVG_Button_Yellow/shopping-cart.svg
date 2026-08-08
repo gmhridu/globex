@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-shopping-cart">
-  <title id="title-shopping-cart">Retail Buyer</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M7 13h7l6 29h27l7-20H18"/>
-    <line x1="22" y1="29" x2="50" y2="29"/>
-    <circle cx="25" cy="52" r="3"/>
-    <circle cx="45" cy="52" r="3"/>
-  </g>
-</svg>

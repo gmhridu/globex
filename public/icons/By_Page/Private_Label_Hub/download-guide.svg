@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-download-guide">
-  <title id="title-download-guide">Download</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="32" y1="8" x2="32" y2="40"/>
-    <polyline points="21,29 32,40 43,29"/>
-    <path d="M12 45v10h40V45"/>
-  </g>
-</svg>

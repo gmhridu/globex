@@ -1,8 +1,5 @@
-import { ContactForm } from "@/components/contact/contact-form/contact-form";
 import { Body } from "@/components/gdrp-statement/body/body";
-import Complaint from "@/components/gdrp-statement/complaint";
 import { Hero } from "@/components/gdrp-statement/hero/hero";
-import HeroSection from "@/components/gdrp-statement/HeroSection";
 export const metadata = {
   title: "GDPR Statement - Globex",
   description:

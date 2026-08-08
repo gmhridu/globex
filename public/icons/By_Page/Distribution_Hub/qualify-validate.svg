@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-qualify-validate">
-  <title id="title-qualify-validate">Qualification and Due Diligence</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M32 7l20 8v14c0 13-8 23-20 28C20 52 12 42 12 29V15z"/>
-    <polyline points="22,31 29,38 43,23"/>
-  </g>
-</svg>

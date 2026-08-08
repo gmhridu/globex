@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-magnifying-glass">
-  <title id="title-magnifying-glass">Market Research</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="27" cy="27" r="15"/>
-    <line x1="38" y1="38" x2="53" y2="53"/>
-  </g>
-</svg>

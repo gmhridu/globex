@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-master-distributor">
-  <title id="title-master-distributor">Master Distributor</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="26" cy="18" r="6"/>
-    <path d="M12 49c0-10 6-18 14-18s14 8 14 18"/>
-    <polygon points="49,15 52,21 59,22 54,27 55,34 49,31 43,34 44,27 39,22 46,21"/>
-    <path d="M18 50h29"/>
-  </g>
-</svg>

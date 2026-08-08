@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-footer-location">
-  <title id="title-footer-location">Local Market Execution</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M32 56s17-17 17-31a17 17 0 1 0-34 0c0 14 17 31 17 31z"/>
-    <circle cx="32" cy="25" r="6"/>
-  </g>
-</svg>

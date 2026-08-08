@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-crown-profit">
-  <title id="title-crown-profit">Higher Margin</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="10,22 20,34 32,17 44,34 54,22 49,47 15,47"/>
-    <line x1="16" y1="53" x2="48" y2="53"/>
-    <polyline points="20,42 29,34 36,39 45,27"/>
-    <path d="M38 27h7v7"/>
-  </g>
-</svg>

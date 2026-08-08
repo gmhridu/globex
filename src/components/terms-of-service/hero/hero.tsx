@@ -18,9 +18,9 @@ export function Hero() {
             className="text-[4rem] md:text-[6rem] leading-[0.88] uppercase"
             style={serif()}
           >
-            GDPR
+            Terms of
             <br />
-            <span className="text-[#e8a020]">Statement.</span>
+            <span className="text-[#e8a020]">Service.</span>
           </h1>
           <div>
             <p
@@ -36,10 +36,9 @@ export function Hero() {
               className="text-sm text-muted-foreground leading-relaxed mt-4 max-w-sm"
               style={sans()}
             >
-              We Are Globex Ltd is committed to full compliance with the UK
-              General Data Protection Regulation (UK GDPR) and the EU General
-              Data Protection Regulation (EU GDPR). This statement explains how
-              we meet our obligations.
+              We Are Globex Ltd helps brands enter and expand across Europe and
+              the Middle East. These terms govern your use of our website,
+              services, and engagement with our team.
             </p>
           </div>
         </div>

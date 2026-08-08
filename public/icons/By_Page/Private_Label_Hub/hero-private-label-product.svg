@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#E9C056" role="img" aria-labelledby="title-hero-private-label-product">
-  <title id="title-hero-private-label-product">Private Label Product</title>
-  <g fill="none" stroke="#E9C056" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="25" y="6" width="14" height="7" rx="2"/>
-    <rect x="27" y="13" width="10" height="7" rx="2"/>
-    <path d="M23 20h18l4 8v24c0 4-3 6-7 6H26c-4 0-7-2-7-6V28z"/>
-    <rect x="24" y="34" width="16" height="12" rx="2"/>
-  </g>
-</svg>

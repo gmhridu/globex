@@ -98,6 +98,7 @@ export default function Footer() {
                   About
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="/case-studies"
@@ -130,7 +131,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border gap-3">
           <p className="text-xs text-[#3a3f4d]" style={sans()}>
-            © 2025 We Are Globex. All rights reserved.
+            © {new Date().getFullYear()} We Are Globex. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-[#3a3f4d]">
             <Link
