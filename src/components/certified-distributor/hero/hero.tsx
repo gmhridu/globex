@@ -42,7 +42,7 @@ export function Hero() {
             Network.
           </h1>
           <p
-            className="text-muted-foreground text-base max-w-sm leading-relaxed mb-10"
+            className="text-foreground text-base max-w-sm leading-relaxed mb-10"
             style={sans()}
           >
             Become a certified Globex distributor and gain exclusive access to a

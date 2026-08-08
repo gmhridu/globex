@@ -1,5 +1,6 @@
 import { sans, serif } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 const painPoints = [
   { label: "Choosing the Right Markets" },
@@ -55,13 +56,13 @@ export function Hero() {
             </span>
           </h1>
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-block px-8 py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors"
               style={sans(600)}
             >
               Book a Free Strategy Session
-            </a>
+            </Link>
             <a
               href="#process"
               className="inline-block px-8 py-4 border border-white/20 text-[#f0ede8] text-[0.7rem] uppercase tracking-widest hover:border-[#e8a020] hover:text-[#e8a020] transition-colors"
@@ -74,7 +75,7 @@ export function Hero() {
           {/* Award + trust bar */}
           <div className="flex flex-col sm:flex-row gap-3">
             {/* Award badge */}
-            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-[#e8a020]/25 bg-[#151820]/80 backdrop-blur-sm">
+            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm">
               <span className="text-2xl">🏆</span>
               <div>
                 <p
@@ -84,14 +85,14 @@ export function Hero() {
                   Business Consultancy of the Year
                 </p>
                 <p
-                  className="text-[0.65rem] text-[#7a7f8e] mt-0.5"
+                  className="text-[0.65rem] text-muted-foreground mt-0.5"
                   style={sans()}
                 >
                   2026 Award Winner
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-[#2a2f3d] bg-[#151820]/80 backdrop-blur-sm">
+            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-border bg-card/80 backdrop-blur-sm">
               <span className="text-2xl">🌍</span>
               <div>
                 <p
@@ -101,14 +102,14 @@ export function Hero() {
                   Europe & Middle East
                 </p>
                 <p
-                  className="text-[0.65rem] text-[#7a7f8e] mt-0.5"
+                  className="text-[0.65rem] text-muted-foreground mt-0.5"
                   style={sans()}
                 >
                   Local Market Expertise
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-[#2a2f3d] bg-[#151820]/80 backdrop-blur-sm">
+            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-border bg-card/80 backdrop-blur-sm">
               <span className="text-2xl">✦</span>
               <div>
                 <p
@@ -118,7 +119,7 @@ export function Hero() {
                   Client References
                 </p>
                 <p
-                  className="text-[0.65rem] text-[#7a7f8e] mt-0.5"
+                  className="text-[0.65rem] text-muted-foreground mt-0.5"
                   style={sans()}
                 >
                   Available Upon Request
@@ -131,7 +132,7 @@ export function Hero() {
         {/* Right: four pain-point callouts */}
         <div className="hidden lg:block">
           <p
-            className="text-[0.65rem] uppercase tracking-[0.2em] text-[#3a3f4d] mb-5"
+            className="text-[0.65rem] uppercase tracking-[0.2em] text-white/90 mb-5"
             style={sans(500)}
           >
             Why Growth Stalls
@@ -140,12 +141,12 @@ export function Hero() {
             {painPoints.map((p, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 py-3 px-4 border border-[#2a2f3d] bg-[#151820]/60"
+                className="flex items-center gap-4 py-3 px-4 border border-border bg-card/60"
               >
                 <span className="text-[#e8a020] text-xs" style={serif(700)}>
                   0{i + 1}
                 </span>
-                <span className="text-sm text-[#c4bfb8]" style={sans(500)}>
+                <span className="text-sm text-secondary-foreground" style={sans(500)}>
                   {p.label}
                 </span>
               </div>

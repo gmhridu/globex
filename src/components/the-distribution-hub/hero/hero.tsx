@@ -39,7 +39,7 @@ export function Hero() {
             <span className="text-[#e8a020]">Hub.</span>
           </h1>
           <p
-            className="text-muted-foreground text-base max-w-sm leading-relaxed mb-10"
+            className="text-foreground text-base max-w-sm leading-relaxed mb-10"
             style={sans()}
           >
             We build active distribution partnerships across Europe and the
