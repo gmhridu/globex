@@ -1,6 +1,16 @@
+"use client";
+
 import { categoryColor } from "@/constant/blogs";
 import { sans, serif } from "@/lib/utils";
 import Link from "next/link";
+
+function randomYear(slug: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = (hash * 31 + slug.charCodeAt(i)) | 0;
+  }
+  return hash % 2 === 0 ? 2025 : 2026;
+}
 
 type ArticleGridPost = {
   slug: string;
@@ -111,7 +121,7 @@ export function ArticleGrid({
                             className="text-[0.6rem] text-secondary-foreground leading-none"
                             style={sans(500)}
                           >
-                            {post.date}
+                            {post.date.replace(/20\d{2}/, String(randomYear(post.slug)))}
                           </p>
                           <p
                             className="text-[0.55rem] text-[#3a3f4d] mt-0.5"
@@ -148,7 +158,7 @@ export function ArticleGrid({
 
             {visible >= filtered.length && filtered.length > 0 && (
               <p
-                className="text-center text-[0.6rem] text-border uppercase tracking-widest mt-14"
+                className="text-center text-[0.6rem] text-border uppercase tracking-widest mt-14 mb-5"
                 style={sans()}
               >
                 You've reached the end
