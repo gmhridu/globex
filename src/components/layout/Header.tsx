@@ -25,7 +25,7 @@ const mobNavLinks = [
   { label: "Careers", href: "/careers" },
   { label: "Our Charity Partner", href: "/shooting-star" },
   { label: "Blog", href: "/blogs" },
-  {label: "Contact Us", href: "/contact"}
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Header() {
@@ -102,7 +102,7 @@ export default function Header() {
       </div>
       {menuOpen && (
         <div className="md:hidden bg-card border-t border-border px-6 py-5 space-y-4">
-          {navLinks.map((item) => (
+          {mobNavLinks.map((item) => (
             <Link
               key={item.label}
               href={item.href}
