@@ -4,11 +4,11 @@ import Home from "./home/page.tsx";
 export const metadata: Metadata = {
   title: "We Are Globex | Growth & Export Partner for Manufacturers",
   description:
-    "Build Your Distribution. Accelerate Your Revenue. We help businesses expand, scale, and succeed in international markets with a results-driven strategy.",
+    "Europe & Middle East Market Entry for U.S. & Canadian Manufacturers. We help manufacturers build distribution networks, enter new markets and accelerate international revenue across Europe and the Middle East.",
   openGraph: {
     title: "We Are Globex | Growth & Export Partner for Manufacturers",
     description:
-      "Build Your Distribution. Accelerate Your Revenue. We help businesses expand, scale, and succeed in international markets with a results-driven strategy.",
+      "Europe & Middle East Market Entry for U.S. & Canadian Manufacturers. We help manufacturers build distribution networks, enter new markets and accelerate international revenue across Europe and the Middle East.",
     images: [
       {
         url: "/images/og-home.jpg",
