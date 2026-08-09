@@ -70,6 +70,15 @@ export default function Footer() {
                   Private Label Hub
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/certified-distributor"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  For Buyers
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -87,6 +96,15 @@ export default function Footer() {
                   style={sans()}
                 >
                   Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-markets"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Markets
                 </Link>
               </li>
 
@@ -115,6 +133,16 @@ export default function Footer() {
                   style={sans()}
                 >
                   Our Charity Partner
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/blogs"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Blog
                 </Link>
               </li>
             </ul>
