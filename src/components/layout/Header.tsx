@@ -11,9 +11,9 @@ const navLinks = [
   { label: "Private Label", href: "/private-label-hub" },
   { label: "For Buyers", href: "/certified-distributor" },
   { label: "Blog", href: "/blogs" },
-  { label: "Case Studies", href: "" },
-  { label: "Careers", href: "" },
-  { label: "Our Charity Partner", href: "" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Careers", href: "/careers" },
+  { label: "Our Charity Partner", href: "/shooting-star" },
 ];
 
 export default function Header() {
