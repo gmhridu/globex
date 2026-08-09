@@ -51,7 +51,7 @@ export function CaseStudy() {
                 </div>
               </div>
               <div
-                className="flex justify-center gap-6 text-[0.6rem] uppercase tracking-widest text-[#3a3f4d]"
+                className="flex justify-center gap-6 text-[0.6rem] uppercase tracking-widest text-foreground/90"
                 style={sans(500)}
               >
                 <span>Petfood</span>
