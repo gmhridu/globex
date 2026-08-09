@@ -11,7 +11,9 @@ const navLinks = [
   { label: "Private Label", href: "/private-label-hub" },
   { label: "For Buyers", href: "/certified-distributor" },
   { label: "Blog", href: "/blogs" },
-  { label: "Contact", href: "/contact" },
+  { label: "Case Studies", href: "" },
+  { label: "Careers", href: "" },
+  { label: "Our Charity Partner", href: "" },
 ];
 
 export default function Header() {
@@ -55,12 +57,12 @@ export default function Header() {
             className="h-8 w-auto"
           />
         </Link>
-        <div className="hidden md:flex items-center justify-center gap-8 mx-auto">
+        <div className="hidden md:flex items-center justify-center gap-8 px-8 mx-auto">
           {navLinks.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-[0.7rem] uppercase tracking-widest text-muted-foreground hover:text-[#e8a020] transition-colors text-nowrap"
+              className="text-[0.7rem] uppercase tracking-widest text-foreground/90 hover:text-[#e8a020] transition-colors text-nowrap"
               style={sans(500)}
             >
               {item.label}

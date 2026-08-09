@@ -40,7 +40,7 @@ export function Hero() {
             Hub.
           </h1>
           <p
-            className="text-muted-foreground text-base max-w-sm leading-relaxed mb-10"
+            className="text-foreground text-base max-w-sm leading-relaxed mb-10"
             style={sans()}
           >
             We connect manufacturers with buyers, brand owners, and retailers
@@ -105,7 +105,7 @@ export function Hero() {
         {/* Right — is private label right for you? */}
         <div className="hidden lg:block">
           <p
-            className="text-[0.65rem] uppercase tracking-[0.2em] text-[#3a3f4d] mb-5"
+            className="text-[0.65rem] uppercase tracking-[0.2em] text-foreground mb-5"
             style={sans(500)}
           >
             Is Private Label the Right Route?

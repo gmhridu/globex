@@ -107,7 +107,7 @@ export function Hero() {
         {/* Right — qualification checklist */}
         <div className="hidden lg:block">
           <p
-            className="text-[0.65rem] uppercase tracking-[0.2em] text-[#3a3f4d] mb-5"
+            className="text-[0.65rem] uppercase tracking-[0.2em] text-foreground mb-5"
             style={sans(500)}
           >
             Who We're Looking For

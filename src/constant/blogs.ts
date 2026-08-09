@@ -16,7 +16,7 @@ export const posts = [
     excerpt:
       "With US–China trade tensions reshaping global supply chains, North American manufacturers are accelerating their search for alternative export markets. Here's how the smart ones are doing it.",
     author: "We Are Globex",
-    date: "Oct 25, 2024",
+    date: "Jul 28, 2026",
     readTime: "6 min read",
     featured: true,
     img: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=1200&h=700&fit=crop&auto=format",
@@ -29,7 +29,7 @@ export const posts = [
     excerpt:
       "Cross-border e-commerce is no longer a niche channel. For manufacturers looking to enter European markets, understanding the digital shelf is now as critical as landing a distributor.",
     author: "We Are Globex",
-    date: "Oct 25, 2024",
+    date: "Jul 1, 2026",
     readTime: "5 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?w=800&h=500&fit=crop&auto=format",
@@ -42,7 +42,7 @@ export const posts = [
     excerpt:
       "The outdoor and hunting equipment sector is undergoing a technology-driven transformation. We look at what this means for North American manufacturers eyeing European sporting goods distribution.",
     author: "We Are Globex",
-    date: "Oct 31, 2024",
+    date: "Jun 18, 2026",
     readTime: "4 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&h=500&fit=crop&auto=format",
@@ -55,7 +55,7 @@ export const posts = [
     excerpt:
       "The Gulf remains one of the highest-value export destinations for consumer goods manufacturers — but the entry process has its own logic. Here's what to know before you start.",
     author: "We Are Globex",
-    date: "Sep 18, 2024",
+    date: "May 22, 2026",
     readTime: "7 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1781130410887-065f6fef81e1?w=800&h=500&fit=crop&auto=format",
@@ -68,7 +68,7 @@ export const posts = [
     excerpt:
       "Most manufacturers approach distributor selection the wrong way. They optimise for coverage when they should be optimising for fit. Here's the framework we use with every client.",
     author: "We Are Globex",
-    date: "Aug 30, 2024",
+    date: "Apr 9, 2026",
     readTime: "8 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1606964212858-c215029db704?w=800&h=500&fit=crop&auto=format",
@@ -81,7 +81,7 @@ export const posts = [
     excerpt:
       "Building a brand in Europe takes years. Supplying under an existing one can generate revenue in months. We break down when private label makes sense — and when it doesn't.",
     author: "We Are Globex",
-    date: "Aug 12, 2024",
+    date: "Mar 3, 2026",
     readTime: "6 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1717386255773-1e3037c81788?w=800&h=500&fit=crop&auto=format",
@@ -94,7 +94,7 @@ export const posts = [
     excerpt:
       "Before you spend a pound on market entry, answer these 12 questions honestly. They'll tell you more about your export readiness than any consultant's report.",
     author: "We Are Globex",
-    date: "Jul 22, 2024",
+    date: "Feb 12, 2026",
     readTime: "5 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1581091212991-8891c7d4bd9b?w=800&h=500&fit=crop&auto=format",
@@ -107,7 +107,7 @@ export const posts = [
     excerpt:
       "The Middle East food and beverage market is expanding at pace. But route-to-market decisions made in year one tend to stick. Here's how to get them right.",
     author: "We Are Globex",
-    date: "Jun 14, 2024",
+    date: "Jan 21, 2026",
     readTime: "9 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4?w=800&h=500&fit=crop&auto=format",
@@ -120,7 +120,7 @@ export const posts = [
     excerpt:
       "Sweden, Norway, Finland, and Denmark are among the wealthiest consumer markets in the world. They're also among the most demanding. Here's what North American manufacturers need to understand before they try to enter.",
     author: "We Are Globex",
-    date: "Nov 14, 2024",
+    date: "Dec 11, 2025",
     readTime: "7 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&h=500&fit=crop&auto=format",
@@ -133,7 +133,7 @@ export const posts = [
     excerpt:
       "The three most common European route-to-market structures each come with different economics, risk profiles, and growth ceilings. Most manufacturers pick the wrong one — here's how to choose correctly.",
     author: "We Are Globex",
-    date: "Dec 3, 2024",
+    date: "Nov 6, 2025",
     readTime: "8 min read",
     featured: false,
     img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop&auto=format",

@@ -89,15 +89,6 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/#about"
-                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
-                  style={sans()}
-                >
-                  About
-                </Link>
-              </li>
 
               <li>
                 <Link

@@ -124,7 +124,7 @@ export function Hero() {
           {[
             { value: "47", label: "Markets Active" },
             { value: "340+", label: "Manufacturers Served" },
-            { value: "£2.4B+", label: "Export Revenue Unlocked" },
+            { value: "£35M+", label: "Export Revenue Unlocked" },
             { value: "94%", label: "Client Retention Rate" },
           ].map((s) => (
             <div
