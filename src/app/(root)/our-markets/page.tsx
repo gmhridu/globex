@@ -1,13 +1,18 @@
-import ContactForm from "@/components/contact-form/ContactForm";
-import HeroSection from "@/components/our-markets/HeroSection";
-import ProductsCards from "@/components/our-markets/ProductsCards";
+import { ContactForm } from "@/components/our-markets/contact-form/contact-form";
+import { Hero } from "@/components/our-markets/hero/hero";
+import { PathToGrowth } from "@/components/our-markets/path-to-growth/path-to-growth";
+import { Regions } from "@/components/our-markets/regions/regions";
+import { Sectors } from "@/components/our-markets/sectors/sectors";
 export const metadata = {
   title: "Our Markets - Manufacturing Industries Served by Globex",
-  description: "Explore the manufacturing industries and markets served by Globex. Discover our expertise in various sectors and how we connect manufacturers with opportunities.",
-  keywords: "manufacturing industries, markets, Globex, sectors, manufacturers, opportunities",
+  description:
+    "Explore the manufacturing industries and markets served by Globex. Discover our expertise in various sectors and how we connect manufacturers with opportunities.",
+  keywords:
+    "manufacturing industries, markets, Globex, sectors, manufacturers, opportunities",
   openGraph: {
     title: "Our Markets - Manufacturing Industries Served by Globex",
-    description: "Explore the manufacturing industries and markets served by Globex. Discover our expertise in various sectors.",
+    description:
+      "Explore the manufacturing industries and markets served by Globex. Discover our expertise in various sectors.",
     url: "/our-markets",
     siteName: "Globex",
     images: [
@@ -24,17 +29,19 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Our Markets - Manufacturing Industries Served by Globex",
-    description: "Explore the manufacturing industries and markets served by Globex. Discover our expertise in various sectors.",
+    description:
+      "Explore the manufacturing industries and markets served by Globex. Discover our expertise in various sectors.",
     images: ["/assests/our-markets/agriculture.jpg"],
   },
 };
 
-
 export default function OurMarkets() {
   return (
     <main>
-      <HeroSection />
-      <ProductsCards />
+      <Hero />
+      <Regions />
+      <Sectors />
+      <PathToGrowth />
       <ContactForm />
     </main>
   );

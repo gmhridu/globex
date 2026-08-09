@@ -1,13 +1,14 @@
-import ContactForm from "@/components/contact-form/ContactForm";
-import HeroSection from "@/components/privacy-policy/HomeSection";
-import Policies from "@/components/privacy-policy/Policies";
+import { Body } from "@/components/privacy-policy/body/body";
+import { Hero } from "@/components/privacy-policy/hero/hero";
 export const metadata = {
   title: "Privacy Policy - Globex",
-  description: "Read Globex's privacy policy to understand how we collect, use, and protect your personal information.",
+  description:
+    "Read Globex's privacy policy to understand how we collect, use, and protect your personal information.",
   keywords: "privacy policy, Globex, personal information, data protection",
   openGraph: {
     title: "Privacy Policy - Globex",
-    description: "Read Globex's privacy policy to understand how we collect, use, and protect your personal information.",
+    description:
+      "Read Globex's privacy policy to understand how we collect, use, and protect your personal information.",
     url: "/privacy-policy",
     siteName: "Globex",
     images: [
@@ -24,18 +25,17 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy - Globex",
-    description: "Read Globex's privacy policy to understand how we collect, use, and protect your personal information.",
+    description:
+      "Read Globex's privacy policy to understand how we collect, use, and protect your personal information.",
     images: ["/assests/privacy-policy/heroImage.jpg"],
   },
 };
 
-
 export default function PrivayPolicyPage() {
   return (
     <>
-      <HeroSection />
-      <Policies />
-      <ContactForm />
+      <Hero />
+      <Body />
     </>
   );
 }

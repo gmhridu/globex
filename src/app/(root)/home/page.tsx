@@ -1,30 +1,28 @@
-import HeroSection from "@/components/home/HeroSection";
-import AwardsSection from "@/components/home/AwardsSection";
-import PartnerLogos from "@/components/home/PartnerLogos";
-import ValueProposition from "@/components/home/ValueProposition";
-import AgencySection from "@/components/home/AgencySection";
-import StrategySteps from "@/components/home/StrategySteps";
-import PartnerCallout from "@/components/home/PartnerCallout";
-import ClientChallenges from "@/components/home/ClientChallenges";
-import SuccessStory from "@/components/home/SuccessStory";
-import Resources from "@/components/home/Resources";
-import ContactForm from "@/components/contact-form/ContactForm";
+import { Hero } from "@/components/home/hero-section/hero";
+import { TwoSolutions } from "@/components/home/two-solutions/two-solutions";
+import { CommercialRoutes } from "@/components/home/commercial-routes/commercial-routes";
+import { Markets } from "@/components/home/markets/markets";
+import { Process } from "@/components/home/process/process";
+import { WhyGlobex } from "@/components/home/why-globex/why-globex";
+import { CaseStudy } from "@/components/home/case-study/case-study";
+import { WhoWeWorkWith } from "@/components/home/who-we-work-with/who-we-work-with";
+import { Faq } from "@/components/home/faq/faq";
+import { Cta } from "@/components/home/cta/cta";
 
 export default function Home() {
   return (
     <>
       <main>
-        <HeroSection />
-        <AwardsSection />
-        <PartnerLogos />
-        <ValueProposition />
-        <AgencySection />
-        <StrategySteps />
-        <PartnerCallout />
-        <ClientChallenges />
-        <SuccessStory />
-        <Resources />
-        <ContactForm />
+        <Hero />
+        <TwoSolutions />
+        <CommercialRoutes />
+        <Markets />
+        <Process />
+        <WhyGlobex />
+        <CaseStudy />
+        <WhoWeWorkWith />
+        <Faq />
+        <Cta />
       </main>
     </>
   );
