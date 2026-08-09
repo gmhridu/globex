@@ -146,6 +146,15 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+            <li>
+              <Link
+                href="/contact"
+                className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                style={sans()}
+              >
+                Contact Us
+              </Link>
+            </li>
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border gap-3">

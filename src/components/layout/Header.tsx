@@ -16,6 +16,18 @@ const navLinks = [
   { label: "Blog", href: "/blogs" },
 ];
 
+const mobNavLinks = [
+  { label: "Markets", href: "/our-markets" },
+  { label: "Distribution", href: "/the-distribution-hub" },
+  { label: "Private Label", href: "/private-label-hub" },
+  { label: "For Buyers", href: "/certified-distributor" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Careers", href: "/careers" },
+  { label: "Our Charity Partner", href: "/shooting-star" },
+  { label: "Blog", href: "/blogs" },
+  {label: "Contact Us", href: "/contact"}
+];
+
 export default function Header() {
   const [_page, setPage] = useState<
     | "home"
