@@ -2,27 +2,34 @@ import { sans, serif } from "@/lib/utils";
 
 const contactDetails = [
   {
-    icon: '✉️',
-    label: 'Email Us',
-    value: 'info@weareglobex.com',
-    sub: 'We respond within one business day.',
-    href: 'mailto:info@weareglobex.com',
+    icon: "✉️",
+    label: "Email Us",
+    value: "info@weareglobex.com",
+    sub: "We respond within one business day.",
+    href: "mailto:info@weareglobex.com",
   },
   {
-    icon: '📞',
-    label: 'Call Us',
-    value: '(+44) 203 829 9510',
-    sub: 'Mon – Fri, 9am – 5pm GMT.',
-    href: 'tel:+442038299510',
+    icon: "📞",
+    label: "Call Us",
+    value: "(+44) 203 829 9510",
+    sub: "Mon – Fri, 9am – 5pm GMT.",
+    href: "tel:+442038299510",
   },
   {
-    icon: '📍',
-    label: 'Visit Us',
-    value: 'Victory Way Admirals Park, Dartford, Kent DA2 6QD',
-    sub: 'United Kingdom.',
-    href: 'https://maps.google.com',
+    icon: "📍",
+    label: "Visit Us",
+    value: "Victory Way Admirals Park, Dartford, Kent DA2 6QD",
+    sub: "United Kingdom.",
+    href: "https://maps.google.com",
   },
-]
+  {
+    icon: "💼",
+    label: "Follow Us on LinkedIn",
+    value: "Linkedin",
+    sub: "Updates, insights, and market news.",
+    href: "https://www.linkedin.com/company/weareglobex",
+  },
+];
 
 export function HaveQuestions() {
   return (
@@ -101,7 +108,10 @@ export function HaveQuestions() {
                 >
                   Victory Way Admirals Park
                 </p>
-                <p className="text-xs text-muted-foreground mt-0.5" style={sans()}>
+                <p
+                  className="text-xs text-muted-foreground mt-0.5"
+                  style={sans()}
+                >
                   Dartford, Kent DA2 6QD · United Kingdom
                 </p>
               </div>

@@ -30,7 +30,7 @@ export function Hero() {
               Last Updated
             </p>
             <p className="text-base text-secondary-foreground" style={sans()}>
-              September 22, 2024
+              August 8, 2026
             </p>
             <p
               className="text-sm text-muted-foreground leading-relaxed mt-4 max-w-sm"
