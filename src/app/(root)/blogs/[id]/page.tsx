@@ -1,37 +1,85 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogDetails } from "@/components/blogs/blog-details/blog-details";
 import { posts } from "@/constant/blogs";
-export const metadata = {
-  title: "Blog Details - Insights from Globex",
-  description: "Read detailed blog posts and insights from Globex. Stay updated with industry trends, manufacturing tips, and expert advice.",
-  keywords: "blog details, insights, Globex, industry trends, manufacturing, expert advice",
-  openGraph: {
-    title: "Blog Details - Insights from Globex",
-    description: "Read detailed blog posts and insights from Globex on industry trends and manufacturing.",
-    url: "/blogs/[id]",
-    siteName: "Globex",
-    images: [
-      {
-        url: "/assests/home/hero.jpg", // Assuming a default image, adjust if needed
-        width: 1200,
-        height: 630,
-        alt: "Blog Details Image",
-      },
-    ],
-    locale: "en_US",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog Details - Insights from Globex",
-    description: "Read detailed blog posts and insights from Globex on industry trends and manufacturing.",
-    images: ["/assests/home/hero.jpg"],
-  },
-};
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://weareglobex.com";
 
 interface BlogDetailsPageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: BlogDetailsPageProps): Promise<Metadata> {
+  const awaitedParams = await params;
+  const post = posts.find((p) => p.slug === awaitedParams.id);
+
+  if (!post) {
+    return {
+      title: "Blog Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const publishedTime = new Date(post.date).toISOString();
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    keywords: [
+      post.category,
+      "manufacturing",
+      "export strategy",
+      "market intelligence",
+      "trade and tariffs",
+      "European distribution",
+      "Middle East market entry",
+      "industry insights",
+    ],
+    authors: [{ name: post.author, url: SITE_URL }],
+    category: post.category,
+    alternates: {
+      canonical: `/blogs/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `${SITE_URL}/blogs/${post.slug}`,
+      siteName: "We Are Globex",
+      locale: "en_US",
+      type: "article",
+      publishedTime,
+      authors: [post.author],
+      section: post.category,
+      images: [
+        {
+          url: post.img,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.img],
+      creator: "@weareglobex",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+  };
 }
 
 export default async function BlogDetailsPage({
@@ -43,5 +91,38 @@ export default async function BlogDetailsPage({
   const post = posts.find((p) => p.slug === blogId);
   if (!post) return notFound();
 
-  return <BlogDetails initialSlug={blogId} />;
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blogs",
+        item: `${SITE_URL}/blogs`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `${SITE_URL}/blogs/${post.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <BlogDetails initialSlug={blogId} />
+    </>
+  );
 }
