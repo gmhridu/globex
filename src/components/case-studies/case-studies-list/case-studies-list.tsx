@@ -394,7 +394,7 @@ export function CaseStudiesList() {
               <div
                 className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
                 style={{
-                  maxHeight: isOpen ? "1200px" : "0px",
+                  maxHeight: isOpen ? "5000px" : "0px",
                 }}
               >
                 <div className="border-t border-border">
