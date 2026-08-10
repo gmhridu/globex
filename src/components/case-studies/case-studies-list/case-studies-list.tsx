@@ -392,8 +392,10 @@ export function CaseStudiesList() {
 
               {/* Expanded detail panel */}
               <div
-                className="overflow-hidden transition-all duration-500 ease-in-out"
-                style={{ maxHeight: isOpen ? "900px" : "0px" }}
+                className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                style={{
+                  maxHeight: isOpen ? "1200px" : "0px",
+                }}
               >
                 <div className="border-t border-border">
                   <div
