@@ -1,21 +1,26 @@
 import { sans, serif } from "@/lib/utils";
 
+const teamImages = [
+  "https://images.unsplash.com/photo-1622675363311-3e1904dc1885?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1573164574511-73c773193279?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1573167507387-6b4b98cb7c13?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1681949103006-70066fb25dfe?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1538688423619-a81d3f23454b?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=400&h=300&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=300&fit=crop&auto=format",
+];
 export function ReadyToMakeImpact() {
-  const teamImages = [
-    "https://images.unsplash.com/photo-1622675363311-3e1904dc1885?w=400&h=300&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=400&h=300&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1573164574511-73c773193279?w=400&h=300&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1573167507387-6b4b98cb7c13?w=400&h=300&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1681949103006-70066fb25dfe?w=400&h=300&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1538688423619-a81d3f23454b?w=400&h=300&fit=crop&auto=format",
-  ];
-
   return (
     <section id="careers-mission" className="border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Team photo mosaic */}
-          <div className="grid grid-cols-3 gap-px bg-border">
+          <div className="grid grid-cols-3 gap-px bg-border self-start">
             {teamImages.map((img, i) => (
               <div
                 key={i}
