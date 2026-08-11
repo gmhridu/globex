@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     // Send email to admin
     try {
       await resend.emails.send({
-        from: "Globex Website <noreply@weareglobex.com>",
+        from: "We Are Globex <noreply@weareglobex.com>",
         to: "info@weareglobex.com",
         replyTo: email,
         subject: `New website enquiry from ${firstName} ${lastName}`,
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
     // Send confirmation email to user
     try {
       await resend.emails.send({
-        from: "Globex Team <noreply@weareglobex.com>",
+        from: "We Are Globex <noreply@weareglobex.com>",
         to: email,
         replyTo: "info@weareglobex.com",
         subject: "We've received your enquiry — We Are Globex",

@@ -34,7 +34,7 @@ export function emailLayout(opts: {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="x-apple-disable-message-reformatting" />
-    <title>Globex</title>
+    <title>We Are Globex</title>
   </head>
   <body style="margin: 0; padding: 0; background-color: #f3f4f6; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;">
     <span style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">${escapeHtml(preheader)}</span>
