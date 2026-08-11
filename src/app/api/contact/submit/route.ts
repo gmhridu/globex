@@ -13,10 +13,18 @@ export async function POST(request: NextRequest) {
       company,
       email,
       phone,
+      describes,
       description,
       message,
       recaptchaToken,
     } = await request.json();
+
+    if (!firstName || !lastName || !email || !message) {
+      return NextResponse.json(
+        { error: "Name, email and message are required" },
+        { status: 400 }
+      );
+    }
 
     // Verify reCAPTCHA (optional — skipped when no token is provided)
     const recaptchaSecret = process.env.RECAPTCHA_SERVER_KEY;
@@ -49,10 +57,10 @@ export async function POST(request: NextRequest) {
       id: `contact_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
       firstName,
       lastName,
-      company,
+      company: company || "",
       email,
-      phone,
-      description,
+      phone: phone || "",
+      description: describes || description || "",
       message,
       status: "new",
       isRead: false,
