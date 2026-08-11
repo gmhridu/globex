@@ -60,6 +60,7 @@ export function ContactForm() {
       if (!response.ok || !result.success) {
         throw new Error(result.error || "Failed to submit");
       }
+      form.reset();
       setSubmitted(true);
     } catch (error) {
       console.error("Contact form error:", error);
@@ -163,7 +164,10 @@ export function ContactForm() {
                   We'll be in touch within one business day.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    form.reset();
+                    setSubmitted(false);
+                  }}
                   className="mt-8 text-[0.65rem] uppercase tracking-widest text-muted-foreground hover:text-[#e8a020] transition-colors border-b border-border pb-0.5"
                   style={sans(500)}
                 >
