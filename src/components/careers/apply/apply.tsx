@@ -42,16 +42,44 @@ const openPositions = [
   },
 ];
 
+const emptyForm = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  role: "",
+  message: "",
+};
+
 export function Apply() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    role: "",
-    message: "",
-  });
+  const [form, setForm] = useState(emptyForm);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    try {
+      const response = await fetch("/api/careers/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit");
+      }
+      setForm(emptyForm);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Careers form error:", err);
+      setError("Failed to submit. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const inputCls =
     "w-full bg-[#0d0f14] border border-[#2a2f3d] px-4 py-3 text-sm text-[#f0ede8] placeholder-[#3a3f4d] focus:border-[#e8a020] focus:outline-none transition-colors";
@@ -111,10 +139,13 @@ export function Apply() {
                   className="text-sm text-muted-foreground max-w-xs"
                   style={sans()}
                 >
-                  We'll be in touch. Thanks for your interest in Globex.
+                  We'll be in touch. Thanks for your interest in We Are Globex.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setForm(emptyForm);
+                    setSubmitted(false);
+                  }}
                   className="mt-8 text-[0.65rem] uppercase tracking-widest text-muted-foreground hover:text-[#e8a020] transition-colors border-b border-border pb-0.5"
                   style={sans(500)}
                 >
@@ -131,10 +162,7 @@ export function Apply() {
                 </div>
                 <form
                   className="space-y-5"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSubmitted(true);
-                  }}
+                  onSubmit={handleSubmit}
                 >
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -268,11 +296,17 @@ export function Apply() {
                   </p>
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                     style={sans(600)}
                   >
-                    Submit Application →
+                    {isSubmitting ? "Submitting…" : "Submit Application →"}
                   </button>
+                  {error && (
+                    <p className="text-[0.7rem] text-red-400" style={sans()}>
+                      {error}
+                    </p>
+                  )}
                 </form>
               </>
             )}
