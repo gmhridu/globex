@@ -2,12 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db/db";
 import { marketContactSubmission } from "@/db/schema";
 import { Resend } from "resend";
+import {
+  emailLayout,
+  detailTable,
+  escapeHtml,
+  escapeNewlines,
+} from "@/lib/email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, country, sector, message } = await request.json();
+    const { name, country, sector, message, email } = await request.json();
 
     if (!name || !country || !sector) {
       return NextResponse.json(
@@ -35,29 +41,24 @@ export async function POST(request: NextRequest) {
     // Send email to admin
     try {
       await resend.emails.send({
-        from: "Our Markets Enquiry <noreply@weareglobex.com>",
+        from: "Globex Website <website@weareglobex.com>",
         to: "info@weareglobex.com",
-        subject: `New Market Enquiry — ${sector} (${country})`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #1f2937;">New Our Markets Enquiry</h2>
-            <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <h3 style="color: #374151; margin-top: 0;">Contact Details:</h3>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Country:</strong> ${country}</p>
-              <p><strong>Sector:</strong> ${sector}</p>
-            </div>
-            <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <h3 style="color: #374151; margin-top: 0;">Message:</h3>
-              <p style="white-space: pre-wrap;">${message || "No message provided."}</p>
-            </div>
-            <div style="background-color: #eff6ff; padding: 15px; border-radius: 8px; margin: 20px 0;">
-              <p style="margin: 0; color: #1d4ed8;">
-                <strong>Submitted at:</strong> ${new Date().toLocaleString()}
-              </p>
-            </div>
-          </div>
-        `,
+        replyTo: email || "info@weareglobex.com",
+        subject: `New market enquiry — ${sector} (${country})`,
+        html: emailLayout({
+          preheader: "A new Our Markets enquiry has been received.",
+          content: `
+            <h2 style="margin: 0 0 16px 0; color: #111827; font-size: 20px; line-height: 1.3;">New Our Markets Enquiry</h2>
+            <p style="margin: 0 0 20px 0; color: #9ca3af; font-size: 13px;">Received ${escapeHtml(new Date().toLocaleString())}</p>
+            ${detailTable([
+              ["Name", name],
+              ["Country", country],
+              ["Sector", sector],
+            ])}
+            <h3 style="margin: 24px 0 8px 0; color: #111827; font-size: 15px;">Message</h3>
+            <p style="margin: 0; padding: 16px; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; color: #111827; font-size: 14px; line-height: 1.7;">${escapeNewlines(message || "No message provided.")}</p>
+          `,
+        }),
       });
     } catch (emailError) {
       console.error("Failed to send admin email:", emailError);
