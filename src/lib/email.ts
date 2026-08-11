@@ -46,7 +46,7 @@ export function emailLayout(opts: {
               <td style="background-color: #0d0f14; padding: 28px 32px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td style="color: #f0ede8; font-size: 24px; font-weight: 700; letter-spacing: 1px;">GLOBEX</td>
+                    <td style="color: #f0ede8; font-size: 24px; font-weight: 700; letter-spacing: 1px;">We Are Globex</td>
                     <td align="right" style="color: #e8a020; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Trade · Distribution · Export</td>
                   </tr>
                 </table>
