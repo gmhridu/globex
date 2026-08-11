@@ -1,6 +1,10 @@
 "use client";
 import { sans, serif } from "@/lib/utils";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast } from "sonner";
 
 const SECTORS = [
   "Agriculture",
@@ -19,13 +23,51 @@ const SECTORS = [
   "Luxury Home Décor",
 ];
 
+const formSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  country: z.string().min(1, "Country is required"),
+  sector: z.string().min(1, "Sector is required"),
+  message: z.string().optional(),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    country: "",
-    sector: "",
-  });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      country: "",
+      sector: "",
+      message: "",
+    },
+    mode: "onBlur",
+  });
+
+  const onSubmit = async (values: FormValues) => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/our-markets-contact/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit");
+      }
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Market enquiry error:", error);
+      toast.error("Failed to submit enquiry. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="mkt-contact"
@@ -53,7 +95,7 @@ export function ContactForm() {
                 className="text-5xl md:text-6xl uppercase leading-none mb-6"
                 style={serif()}
               >
-                Let's Explore
+                Let&apos;s Explore
                 <br />
                 <span className="text-[#e8a020]">
                   Your Next
@@ -65,7 +107,7 @@ export function ContactForm() {
                 className="text-sm text-muted-foreground max-w-xs leading-relaxed"
                 style={sans()}
               >
-                Tell us about your product and where you want to go. We'll
+                Tell us about your product and where you want to go. We&apos;ll
                 respond within one business day.
               </p>
               <div className="mt-10 space-y-3">
@@ -102,7 +144,7 @@ export function ContactForm() {
                   Enquiry Received.
                 </h3>
                 <p className="text-sm text-muted-foreground" style={sans()}>
-                  We'll be in touch within one business day.
+                  We&apos;ll be in touch within one business day.
                 </p>
               </div>
             ) : (
@@ -118,10 +160,8 @@ export function ContactForm() {
 
                 <form
                   className="space-y-5"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSubmitted(true);
-                  }}
+                  noValidate
+                  onSubmit={form.handleSubmit(onSubmit)}
                 >
                   <div>
                     <label
@@ -132,11 +172,7 @@ export function ContactForm() {
                     </label>
                     <input
                       type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
+                      {...form.register("name")}
                       className="w-full bg-[#0d0f14] border border-border px-4 py-3 text-sm text-[#f0ede8] focus:border-[#e8a020] focus:outline-none transition-colors"
                       style={sans()}
                       placeholder="Jane Smith"
@@ -151,11 +187,7 @@ export function ContactForm() {
                       Country
                     </label>
                     <select
-                      required
-                      value={formData.country}
-                      onChange={(e) =>
-                        setFormData({ ...formData, country: e.target.value })
-                      }
+                      {...form.register("country")}
                       className="w-full bg-[#0d0f14] border border-border px-4 py-3 text-sm text-[#f0ede8] focus:border-[#e8a020] focus:outline-none transition-colors appearance-none"
                       style={sans()}
                     >
@@ -188,11 +220,7 @@ export function ContactForm() {
                       Select Sector
                     </label>
                     <select
-                      required
-                      value={formData.sector}
-                      onChange={(e) =>
-                        setFormData({ ...formData, sector: e.target.value })
-                      }
+                      {...form.register("sector")}
                       className="w-full bg-[#0d0f14] border border-border px-4 py-3 text-sm text-[#f0ede8] focus:border-[#e8a020] focus:outline-none transition-colors appearance-none"
                       style={sans()}
                     >
@@ -216,6 +244,7 @@ export function ContactForm() {
                     </label>
                     <textarea
                       rows={4}
+                      {...form.register("message")}
                       className="w-full bg-[#0d0f14] border border-border px-4 py-3 text-sm text-[#f0ede8] focus:border-[#e8a020] focus:outline-none transition-colors resize-none"
                       style={sans()}
                       placeholder="Tell us about your product and where you'd like to sell it…"
@@ -224,10 +253,11 @@ export function ContactForm() {
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors mt-2"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={sans(600)}
                   >
-                    Submit Enquiry →
+                    {isSubmitting ? "Submitting…" : "Submit Enquiry →"}
                   </button>
                 </form>
               </>

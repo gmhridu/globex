@@ -121,6 +121,31 @@ export const selectContactSubmissionSchema =
 export type InsertContactSubmission = typeof contactSubmission.$inferInsert;
 export type SelectContactSubmission = typeof contactSubmission.$inferSelect;
 
+export const marketContactSubmission = pgTable("market_contact_submission", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  country: text("country").notNull(),
+  sector: text("sector").notNull(),
+  message: text("message").notNull().default(""),
+  status: text("status").default("new").notNull(), // new, in_progress, completed, archived
+  isRead: boolean("is_read").default(false).notNull(),
+  submittedAt: timestamp("submitted_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
+});
+
+export const insertMarketContactSubmissionSchema =
+  createInsertSchema(marketContactSubmission);
+export const selectMarketContactSubmissionSchema =
+  createSelectSchema(marketContactSubmission);
+
+export type InsertMarketContactSubmission =
+  typeof marketContactSubmission.$inferInsert;
+export type SelectMarketContactSubmission =
+  typeof marketContactSubmission.$inferSelect;
+
 export const blogs = pgTable("blogs", {
   id: text("id").primaryKey(),
   title: text("title").notNull(),

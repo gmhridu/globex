@@ -2,6 +2,10 @@
 
 import { sans, serif } from "@/lib/utils";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast } from "sonner";
 
 const DESCRIBES = [
   "North American Manufacturer",
@@ -12,17 +16,58 @@ const DESCRIBES = [
   "Other",
 ];
 
+const formSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z
+    .email("Please enter a valid email address")
+    .min(1, "Email is required"),
+  phone: z.string().optional(),
+  company: z.string().optional(),
+  describes: z.string().min(1, "Please select an option"),
+  message: z.string().min(1, "Message is required"),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
 export function ContactForm() {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    describes: "",
-    message: "",
-  });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      company: "",
+      describes: "",
+      message: "",
+    },
+    mode: "onBlur",
+  });
+
+  const onSubmit = async (values: FormValues) => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit");
+      }
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Contact form error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const inputCls =
     "w-full bg-[#0d0f14] border border-[#2a2f3d] px-4 py-3 text-sm text-[#f0ede8] placeholder-[#3a3f4d] focus:border-[#e8a020] focus:outline-none transition-colors";
@@ -135,10 +180,8 @@ export function ContactForm() {
                 </div>
                 <form
                   className="space-y-5"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSubmitted(true);
-                  }}
+                  noValidate
+                  onSubmit={form.handleSubmit(onSubmit)}
                 >
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -150,14 +193,10 @@ export function ContactForm() {
                       </label>
                       <input
                         type="text"
-                        required
                         placeholder="Jane"
                         className={inputCls}
                         style={sans()}
-                        value={form.firstName}
-                        onChange={(e) =>
-                          setForm({ ...form, firstName: e.target.value })
-                        }
+                        {...form.register("firstName")}
                       />
                     </div>
                     <div>
@@ -169,14 +208,10 @@ export function ContactForm() {
                       </label>
                       <input
                         type="text"
-                        required
                         placeholder="Smith"
                         className={inputCls}
                         style={sans()}
-                        value={form.lastName}
-                        onChange={(e) =>
-                          setForm({ ...form, lastName: e.target.value })
-                        }
+                        {...form.register("lastName")}
                       />
                     </div>
                   </div>
@@ -190,14 +225,10 @@ export function ContactForm() {
                       </label>
                       <input
                         type="email"
-                        required
                         placeholder="jane@company.com"
                         className={inputCls}
                         style={sans()}
-                        value={form.email}
-                        onChange={(e) =>
-                          setForm({ ...form, email: e.target.value })
-                        }
+                        {...form.register("email")}
                       />
                     </div>
                     <div>
@@ -212,10 +243,7 @@ export function ContactForm() {
                         placeholder="+1 555 000 0000"
                         className={inputCls}
                         style={sans()}
-                        value={form.phone}
-                        onChange={(e) =>
-                          setForm({ ...form, phone: e.target.value })
-                        }
+                        {...form.register("phone")}
                       />
                     </div>
                   </div>
@@ -231,10 +259,7 @@ export function ContactForm() {
                       placeholder="Your Company Ltd"
                       className={inputCls}
                       style={sans()}
-                      value={form.company}
-                      onChange={(e) =>
-                        setForm({ ...form, company: e.target.value })
-                      }
+                      {...form.register("company")}
                     />
                   </div>
                   <div>
@@ -245,13 +270,9 @@ export function ContactForm() {
                       Which best describes you?
                     </label>
                     <select
-                      required
                       className={`${inputCls} appearance-none`}
                       style={sans()}
-                      value={form.describes}
-                      onChange={(e) =>
-                        setForm({ ...form, describes: e.target.value })
-                      }
+                      {...form.register("describes")}
                     >
                       <option value="" disabled>
                         Select an option
@@ -272,22 +293,19 @@ export function ContactForm() {
                     </label>
                     <textarea
                       rows={5}
-                      required
                       placeholder="Tell us what you're working on and how we can help…"
                       className={`${inputCls} resize-none`}
                       style={sans()}
-                      value={form.message}
-                      onChange={(e) =>
-                        setForm({ ...form, message: e.target.value })
-                      }
+                      {...form.register("message")}
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                     style={sans(600)}
                   >
-                    Send Message →
+                    {isSubmitting ? "Sending…" : "Send Message →"}
                   </button>
                   <p
                     className="text-[0.6rem] text-[#3a3f4d] text-center"

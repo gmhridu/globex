@@ -28,9 +28,13 @@ import {
   TrendingUp,
   Activity,
   LogOut,
+  Globe,
 } from "lucide-react";
 import { toast } from "sonner";
 import ImageUploader from "../../ui/ImageUploader";
+import MarketEnquiries from "./MarketEnquiries";
+import { BlogsView, type BlogPost } from "@/components/blogs/BlogsView";
+import { CATEGORIES } from "@/constant/blogs";
 
 // Blogs are now fetched from database
 
@@ -59,7 +63,9 @@ const AdminDashboard = () => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   // Blog management states
-  const [activeTab, setActiveTab] = useState<"contacts" | "blogs">("contacts");
+  const [activeTab, setActiveTab] = useState<
+    "contacts" | "blogs" | "markets"
+  >("contacts");
   const [selectedBlog, setSelectedBlog] = useState<{
     id: string;
     title: string;
@@ -397,19 +403,19 @@ const AdminDashboard = () => {
   const totalSubmissions = Object.values(statusCounts).reduce((a, b) => a + b, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="relative max-w-400 mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent tracking-tight mb-2">
+              <h1 className="text-4xl font-bold bg-linear-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent tracking-tight mb-2">
                 Admin Dashboard
               </h1>
               <p className="text-slate-400 text-sm flex items-center gap-2">
@@ -432,7 +438,7 @@ const AdminDashboard = () => {
                <button
                  onClick={() => setIsLoading(true)}
                  disabled={isLoading}
-                 className="px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl text-sm font-medium hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-500/25 disabled:opacity-50 flex items-center gap-2"
+                 className="px-4 py-2.5 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-xl text-sm font-medium hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-500/25 disabled:opacity-50 flex items-center gap-2"
                >
                  <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
                  Refresh
@@ -446,7 +452,7 @@ const AdminDashboard = () => {
               onClick={() => setActiveTab("contacts")}
               className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 activeTab === "contacts"
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30"
+                  ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30"
                   : "text-slate-400 hover:text-white hover:bg-slate-700/50"
               }`}
             >
@@ -462,12 +468,23 @@ const AdminDashboard = () => {
               onClick={() => setActiveTab("blogs")}
               className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 activeTab === "blogs"
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30"
+                  ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30"
                   : "text-slate-400 hover:text-white hover:bg-slate-700/50"
               }`}
             >
               <FileText className="w-4 h-4 inline mr-2" />
               Blogs
+            </button>
+            <button
+              onClick={() => setActiveTab("markets")}
+              className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                activeTab === "markets"
+                  ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30"
+                  : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+              }`}
+            >
+              <Globe className="w-4 h-4 inline mr-2" />
+              Markets
             </button>
           </div>
         </div>
@@ -515,14 +532,14 @@ const AdminDashboard = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-                className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 group overflow-hidden"
+                className="relative bg-linear-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 group overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 bg-linear-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
                 <div className="relative">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${stat.gradient} shadow-lg`}>
+                    <div className={`p-3 rounded-xl bg-linear-to-br ${stat.gradient} shadow-lg`}>
                       <stat.icon className="w-5 h-5 text-white" />
                     </div>
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 ${
@@ -545,7 +562,7 @@ const AdminDashboard = () => {
               </div>
             ))}
           </div>
-        ) : (
+        ) : activeTab === "blogs" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {[
               {
@@ -583,13 +600,13 @@ const AdminDashboard = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-                className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 group overflow-hidden"
+                className="relative bg-linear-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 group overflow-hidden"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 bg-linear-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
                 <div className="relative">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${stat.gradient} shadow-lg`}>
+                    <div className={`p-3 rounded-xl bg-linear-to-br ${stat.gradient} shadow-lg`}>
                       <stat.icon className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-xs font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-1 rounded-full">
@@ -609,10 +626,13 @@ const AdminDashboard = () => {
               </div>
             ))}
           </div>
+        ) : (
+          <MarketEnquiries />
         )}
 
         {/* Filters & Search */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50 p-6 mb-6">
+        {activeTab !== "markets" && (
+        <div className="bg-linear-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50 p-6 mb-6">
           <div className="flex flex-col lg:flex-row gap-4">
             <div className="flex-1 relative group">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-blue-400 transition-colors" />
@@ -631,7 +651,7 @@ const AdminDashboard = () => {
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value as "all" | "new" | "in_progress" | "completed" | "archived")}
-                    className="appearance-none pl-4 pr-10 py-3.5 bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm font-medium text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer min-w-[160px]"
+                    className="appearance-none pl-4 pr-10 py-3.5 bg-slate-900/50 border border-slate-700/50 rounded-xl text-sm font-medium text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all cursor-pointer min-w-40"
                   >
                     <option value="all">All Status</option>
                     <option value="new">New</option>
@@ -644,7 +664,7 @@ const AdminDashboard = () => {
               ) : (
                 <button
                   onClick={handleCreateBlog}
-                  className="px-5 py-3.5 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-green-500 transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2"
+                  className="px-5 py-3.5 bg-linear-to-r from-emerald-600 to-green-600 text-white rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-green-500 transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2"
                 >
                   <Plus className="w-4 h-4" />
                   New Blog
@@ -658,10 +678,11 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Content Table */}
         {activeTab === "contacts" ? (
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50 overflow-hidden">
+          <div className="bg-linear-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50 overflow-hidden">
             {contactsLoading ? (
               <div className="py-16 text-center">
                 <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-400" />
@@ -710,7 +731,7 @@ const AdminDashboard = () => {
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
                             <div className="relative">
-                              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
+                              <div className="w-11 h-11 rounded-xl bg-linear-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
                                 <span className="text-sm font-bold text-white">
                                   {submission.firstName[0]}{submission.lastName[0]}
                                 </span>
@@ -785,140 +806,52 @@ const AdminDashboard = () => {
               </div>
             )}
           </div>
-        ) : (
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50 overflow-hidden">
+        ) : activeTab === "blogs" ? (
+          <div className="bg-card">
             {blogsLoading ? (
               <div className="py-16 text-center">
                 <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-slate-400" />
                 <p className="text-slate-300 font-medium">Loading blogs...</p>
               </div>
-            ) : blogs.length === 0 ? (
-              <div className="py-16 text-center">
-                <FileText className="w-12 h-12 text-slate-600 mx-auto mb-4" />
-                <p className="text-slate-300 font-medium mb-1">No blogs found</p>
-                <p className="text-sm text-slate-500 mb-4">Start by creating your first blog post</p>
-                <button
-                  onClick={handleCreateBlog}
-                  className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-lg hover:from-emerald-500 hover:to-green-500 transition-all flex items-center gap-2 mx-auto shadow-lg"
-                >
-                  <Plus className="w-4 h-4" />
-                  Create Blog
-                </button>
-              </div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-slate-900/50 border-b border-slate-700/50">
-                      <th className="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        Blog
-                      </th>
-                      <th className="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        Category
-                      </th>
-                      <th className="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        Author
-                      </th>
-                      <th className="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        Date
-                      </th>
-                      <th className="px-6 py-4 text-right text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-700/30">
-                    {blogs.map((blog) => (
-                      <tr
-                        key={blog.id}
-                        className="hover:bg-slate-800/40 cursor-pointer transition-all duration-200 group"
-                      >
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-3">
-                            <div className="relative">
-                              {blog.image ? (
-                                <img
-                                  src={blog.image}
-                                  alt={blog.title}
-                                  className="w-12 h-12 rounded-xl object-cover border border-slate-700/50"
-                                />
-                              ) : (
-                                <div className="w-12 h-12 rounded-xl bg-slate-700/50 flex items-center justify-center">
-                                  <FileText className="w-5 h-5 text-slate-400" />
-                                </div>
-                              )}
-                            </div>
-                            <div className="max-w-sm">
-                              <div className="text-sm font-semibold text-white line-clamp-1">
-                                {blog.title}
-                              </div>
-                              <div className="text-xs text-slate-400 line-clamp-1 mt-0.5">
-                                {blog.excerpt}
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/30">
-                            <Tag className="w-3 h-3" />
-                            {blog.category}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-2">
-                            <User className="w-4 h-4 text-slate-500" />
-                            <span className="text-sm font-medium text-slate-200">
-                              {blog.author}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-1.5 text-sm text-slate-400">
-                            <Calendar className="w-4 h-4" />
-                            {new Date(blog.date).toLocaleDateString("en-US", {
-                              month: "short",
-                              day: "numeric",
-                              year: "numeric",
-                            })}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleEditBlog(blog);
-                              }}
-                              className="p-2 hover:bg-slate-700/50 rounded-lg transition-colors"
-                            >
-                              <Edit className="w-4 h-4 text-slate-300" />
-                            </button>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleDeleteBlog(blog.id);
-                              }}
-                              className="p-2 hover:bg-red-500/20 rounded-lg transition-colors"
-                            >
-                              <Trash2 className="w-4 h-4 text-red-400" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <BlogsView
+                posts={blogs.map((blog) => ({
+                  id: blog.id,
+                  slug: blog.id,
+                  category: blog.category,
+                  title: blog.title,
+                  excerpt: blog.excerpt,
+                  date: new Date(blog.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  }),
+                  readTime: "5 min read",
+                  img: blog.image || "",
+                  author: blog.author,
+                  body: blog.body,
+                }))}
+                categories={["All", ...blogStats.categories.map((c) => c.category)]}
+                isAdmin={true}
+                onEdit={(post) => {
+                  const blog = blogs.find((b) => b.id === post.id);
+                  if (blog) handleEditBlog(blog);
+                }}
+                onDelete={(post) => {
+                  handleDeleteBlog(post.id ?? post.slug);
+                }}
+                onCreate={handleCreateBlog}
+              />
             )}
           </div>
-        )}
+        ) : null}
 
         {/* Submission Detail Modal */}
         {isDetailModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setIsDetailModalOpen(false)}>
-            <div className="relative w-full max-w-3xl max-h-[90vh] bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full max-w-3xl max-h-[90vh] bg-linear-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
               {/* Modal Header */}
-              <div className="px-8 py-6 border-b border-slate-700/50 bg-gradient-to-r from-slate-800/80 to-blue-900/30">
+              <div className="px-8 py-6 border-b border-slate-700/50 bg-linear-to-r from-slate-800/80 to-blue-900/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-blue-500/20 rounded-xl border border-blue-500/30">
@@ -1075,9 +1008,9 @@ const AdminDashboard = () => {
         {/* Blog Detail/Edit Modal */}
         {isBlogDetailModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setIsBlogDetailModalOpen(false)}>
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full max-w-4xl max-h-[90vh] bg-linear-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
               {/* Modal Header */}
-              <div className="px-8 py-6 border-b border-slate-700/50 bg-gradient-to-r from-slate-800/80 to-emerald-900/30">
+              <div className="px-8 py-6 border-b border-slate-700/50 bg-linear-to-r from-slate-800/80 to-emerald-900/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-emerald-500/20 rounded-xl border border-emerald-500/30">
@@ -1181,7 +1114,7 @@ const AdminDashboard = () => {
                   <div className="flex gap-3 pt-6 border-t border-slate-700/50">
                     <button
                       type="submit"
-                      className="flex-1 px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-green-500 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 px-6 py-3 bg-linear-to-r from-emerald-600 to-green-600 text-white rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-green-500 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       Update Blog
                     </button>
@@ -1214,9 +1147,9 @@ const AdminDashboard = () => {
         {/* Create Blog Modal */}
         {isCreateBlogModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setIsCreateBlogModalOpen(false)}>
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full max-w-4xl max-h-[90vh] bg-linear-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
               {/* Modal Header */}
-              <div className="px-8 py-6 border-b border-slate-700/50 bg-gradient-to-r from-slate-800/80 to-emerald-900/30">
+              <div className="px-8 py-6 border-b border-slate-700/50 bg-linear-to-r from-slate-800/80 to-emerald-900/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-emerald-500/20 rounded-xl border border-emerald-500/30">
@@ -1318,7 +1251,7 @@ const AdminDashboard = () => {
                   <div className="flex gap-3 pt-6 border-t border-slate-700/50">
                     <button
                       type="submit"
-                      className="flex-1 px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-green-500 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 px-6 py-3 bg-linear-to-r from-emerald-600 to-green-600 text-white rounded-xl text-sm font-semibold hover:from-emerald-500 hover:to-green-500 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       Create Blog
                     </button>
@@ -1340,9 +1273,9 @@ const AdminDashboard = () => {
         {/* Delete Confirmation Modal */}
         {isDeleteModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setIsDeleteModalOpen(false)}>
-            <div className="relative w-full max-w-md bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full max-w-md bg-linear-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden" onClick={(e) => e.stopPropagation()}>
               {/* Modal Header */}
-              <div className="px-6 py-4 border-b border-slate-700/50 bg-gradient-to-r from-red-900/30 to-slate-900/30">
+              <div className="px-6 py-4 border-b border-slate-700/50 bg-linear-to-r from-red-900/30 to-slate-900/30">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-red-500/20 rounded-xl border border-red-500/30">
                     <Trash2 className="w-5 h-5 text-red-400" />

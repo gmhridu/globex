@@ -18,29 +18,29 @@ export async function POST(request: NextRequest) {
       recaptchaToken,
     } = await request.json();
 
-    // Verify reCAPTCHA
+    // Verify reCAPTCHA (optional — skipped when no token is provided)
     const recaptchaSecret = process.env.RECAPTCHA_SERVER_KEY;
-    if (!recaptchaSecret) {
+    if (recaptchaToken && recaptchaSecret) {
+      const recaptchaResponse = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`,
+        {
+          method: "POST",
+        }
+      );
+
+      const recaptchaResult = await recaptchaResponse.json();
+
+      if (!recaptchaResult.success) {
+        return NextResponse.json(
+          { error: "reCAPTCHA verification failed" },
+          { status: 400 }
+        );
+      }
+    } else if (recaptchaToken && !recaptchaSecret) {
       console.error("RECAPTCHA_SERVER_KEY is not set");
       return NextResponse.json(
         { error: "Server configuration error" },
         { status: 500 }
-      );
-    }
-
-    const recaptchaResponse = await fetch(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`,
-      {
-        method: "POST",
-      }
-    );
-
-    const recaptchaResult = await recaptchaResponse.json();
-
-    if (!recaptchaResult.success) {
-      return NextResponse.json(
-        { error: "reCAPTCHA verification failed" },
-        { status: 400 }
       );
     }
 
