@@ -42,14 +42,14 @@ const sectors = [
     desc: "Pet food, supplements, and veterinary consumables for EU and ME markets.",
   },
   {
-    icon: "🚬",
-    name: "Tobacco",
-    desc: "Compliant nicotine and tobacco product distribution in licensed territories.",
+    icon: "🏕️",
+    name: "Outdoor Recreation",
+    desc: "Camping, hiking, hunting, and adventure gear across European and Middle East retail channels.",
   },
   {
-    icon: "🛡️",
-    name: "Defence",
-    desc: "Dual-use and defence-adjacent supply chains into approved markets.",
+    icon: "🪴",
+    name: "Outdoor Living & Gardening",
+    desc: "Garden furniture, fire pits, outdoor kitchens, and leisure products into European and Middle Eastern retail and hospitality channels.",
   },
   {
     icon: "⛏️",
