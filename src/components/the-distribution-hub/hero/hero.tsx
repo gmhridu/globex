@@ -64,59 +64,36 @@ export function Hero() {
           </div>
 
           {/* Trust bar */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm">
-              <span className="text-2xl">🏆</span>
-              <div>
-                <p
-                  className="text-xs font-semibold text-[#e8a020] leading-tight"
-                  style={sans(600)}
-                >
-                  Business Consultancy of the Year
-                </p>
-                <p
-                  className="text-[0.65rem] text-muted-foreground mt-0.5"
-                  style={sans()}
-                >
-                  2026 Award Winner
-                </p>
+            <div className="grid grid-cols-2 gap-3 max-w-lg">
+              <div className="flex items-center gap-3 px-4 py-3 border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm">
+                <span className="text-xl shrink-0">🏆</span>
+                <div>
+                  <p className="text-[0.7rem] font-semibold text-[#e8a020] leading-tight" style={sans(600)}>Business Consultancy of the Year</p>
+                  <p className="text-[0.6rem] text-muted-foreground mt-0.5" style={sans()}>2026 Award Winner</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-3 border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm">
+                <span className="text-xl shrink-0">🥇</span>
+                <div>
+                  <p className="text-[0.7rem] font-semibold text-[#e8a020] leading-tight" style={sans(600)}>Intl. Manufacturing Growth Partner of the Year</p>
+                  <p className="text-[0.6rem] text-muted-foreground mt-0.5" style={sans()}>2026 Award Winner</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-3 border border-border bg-card/80 backdrop-blur-sm">
+                <span className="text-xl shrink-0">🌍</span>
+                <div>
+                  <p className="text-[0.7rem] font-semibold text-[#f0ede8] leading-tight" style={sans(600)}>Europe & Middle East</p>
+                  <p className="text-[0.6rem] text-muted-foreground mt-0.5" style={sans()}>Local Market Expertise</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-3 border border-border bg-card/80 backdrop-blur-sm">
+                <span className="text-xl shrink-0">✦</span>
+                <div>
+                  <p className="text-[0.7rem] font-semibold text-[#f0ede8] leading-tight" style={sans(600)}>Client References</p>
+                  <p className="text-[0.6rem] text-muted-foreground mt-0.5" style={sans()}>Available Upon Request</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-border bg-card/80 backdrop-blur-sm">
-              <span className="text-2xl">🌍</span>
-              <div>
-                <p
-                  className="text-xs font-semibold text-[#f0ede8] leading-tight"
-                  style={sans(600)}
-                >
-                  Europe & Middle East
-                </p>
-                <p
-                  className="text-[0.65rem] text-muted-foreground mt-0.5"
-                  style={sans()}
-                >
-                  Local Market Expertise
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-border bg-card/80 backdrop-blur-sm">
-              <span className="text-2xl">✦</span>
-              <div>
-                <p
-                  className="text-xs font-semibold text-[#f0ede8] leading-tight"
-                  style={sans(600)}
-                >
-                  Client References
-                </p>
-                <p
-                  className="text-[0.65rem] text-muted-foreground mt-0.5"
-                  style={sans()}
-                >
-                  Available Upon Request
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Right — quick stats */}
