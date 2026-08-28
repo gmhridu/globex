@@ -40,8 +40,50 @@ const openPositions = [
       "Interest in international trade and export markets",
     ],
   },
+  {
+    title: "Director of Client Strategy & Programme Delivery",
+    type: "Full-Time",
+    location: "Dartford, Kent (Hybrid)",
+    dept: "Leadership",
+    desc: "Own the end-to-end delivery of client programmes across our manufacturer portfolio. You'll set the strategic direction for each engagement, ensure programmes are running on time and on target, and act as the senior point of contact for key accounts. This is a leadership role that sits at the intersection of strategy, client management, and operational delivery.",
+    requirements: [
+      "8+ years in a senior client-facing or programme leadership role, ideally within trade, distribution, or international business development",
+      "Proven ability to manage complex, multi-market programmes simultaneously",
+      "Strong commercial instinct with experience influencing at board or C-suite level",
+      "Excellent communicator with the ability to translate strategy into clear, actionable delivery plans",
+      "Experience managing and developing a team of consultants or account managers",
+    ],
+  },
+  {
+    title: "Director of Commercial Operations",
+    type: "Full-Time",
+    location: "Dartford, Kent (Hybrid)",
+    dept: "Leadership",
+    desc: "Lead the commercial engine of Globex — overseeing business development, revenue operations, pipeline management, and go-to-market execution. You'll work directly with the founders to scale our client acquisition and ensure the commercial side of the business is structured for growth. This role requires someone who can operate at a strategic level while remaining hands-on in driving results.",
+    requirements: [
+      "10+ years in commercial leadership, business development, or revenue operations",
+      "Track record of building and scaling B2B commercial functions in a growth environment",
+      "Deep understanding of sales cycles, pipeline management, and commercial contract structures",
+      "Experience in international trade, manufacturing, or export services is a strong advantage",
+      "Highly analytical with the ability to build reporting frameworks and hold teams accountable to revenue targets",
+    ],
+  },
+  {
+    title: "Director of North African / Levant Distributor Partnerships",
+    type: "Full-Time",
+    location: "Dartford, Kent (Hybrid)",
+    dept: "Partnerships",
+    desc: "Build and lead Globex's distributor and channel partner network across North Africa and the Levant region, covering markets including Morocco, Egypt, Tunisia, Jordan, Lebanon, and the wider MENA corridor. You'll identify, qualify, and activate in-market distribution partners on behalf of our manufacturer clients, owning the relationship from first contact through to active trading. This is a pioneering role that will define how Globex operates across one of its highest-growth regions.",
+    requirements: [
+      "8+ years in distribution, channel sales, or trade development with direct experience across North African or Levant markets",
+      "Established network of regional distributors, importers, or buyers across two or more target markets",
+      "Deep understanding of regional compliance, import regulations, and commercial customs across the MENA corridor",
+      "Fluency in Arabic is a strong advantage; French beneficial for North African markets",
+      "Proven ability to structure and close multi-country distribution agreements and manage ongoing partner relationships",
+      "Comfortable operating independently in a fast-moving, high-growth environment",
+    ],
+  },
 ];
-
 export function OpenPostions() {
   const [openRole, setOpenRole] = useState<number | null>(null);
   const [form, setForm] = useState({
