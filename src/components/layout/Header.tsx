@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Private Label", href: "/private-label-hub" },
   { label: "For Buyers", href: "/certified-distributor" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Awards", href: "/awards" },
   { label: "Careers", href: "/careers" },
   { label: "Our Charity Partner", href: "/shooting-star" },
   { label: "Blog", href: "/blogs" },
@@ -22,6 +23,7 @@ const mobNavLinks = [
   { label: "Private Label", href: "/private-label-hub" },
   { label: "For Buyers", href: "/certified-distributor" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Awards", href: "/awards" },
   { label: "Careers", href: "/careers" },
   { label: "Our Charity Partner", href: "/shooting-star" },
   { label: "Blog", href: "/blogs" },
@@ -84,7 +86,7 @@ export default function Header() {
         <div className="flex items-center gap-6 ml-auto">
           <Link
             href="/contact"
-            className="hidden md:inline-block px-5 py-2 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors"
+            className="hidden md:inline-block px-5 py-2 bg-[#e8a020] text-[#0d0f14] text-[0.7rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors text-nowrap"
             style={sans(600)}
           >
             Contact Us

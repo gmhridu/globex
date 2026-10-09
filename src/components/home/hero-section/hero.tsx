@@ -74,8 +74,11 @@ export function Hero() {
 
           {/* Award + trust bar */}
           <div className="grid grid-cols-2 gap-3 max-w-lg">
-            <div className="flex items-center gap-3 px-4 py-3 border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm">
-              <span className="text-xl shrink-0">🏆</span>
+            <Link
+              href="/awards"
+              className="flex items-center gap-3 px-4 py-3 border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm hover:border-[#e8a020] hover:bg-[#e8a020]/5 transition-all group"
+            >
+              <span className="text-xl shrink-0 group-hover:scale-110 transition-transform">🏆</span>
               <div>
                 <p
                   className="text-[0.7rem] font-semibold text-[#e8a020] leading-tight"
@@ -87,12 +90,15 @@ export function Hero() {
                   className="text-[0.6rem] text-muted-foreground mt-0.5"
                   style={sans()}
                 >
-                  2026 Award Winner
+                  2026 Award Winner →
                 </p>
               </div>
-            </div>
-            <div className="flex items-center gap-3 px-4 py-3 border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm">
-              <span className="text-xl shrink-0">🥇</span>
+            </Link>
+            <Link
+              href="/awards"
+              className="flex items-center gap-3 px-4 py-3 border border-[#e8a020]/25 bg-card/80 backdrop-blur-sm hover:border-[#e8a020] hover:bg-[#e8a020]/5 transition-all group"
+            >
+              <span className="text-xl shrink-0 group-hover:scale-110 transition-transform">🥇</span>
               <div>
                 <p
                   className="text-[0.7rem] font-semibold text-[#e8a020] leading-tight"
@@ -104,10 +110,10 @@ export function Hero() {
                   className="text-[0.6rem] text-muted-foreground mt-0.5"
                   style={sans()}
                 >
-                  2026 Award Winner
+                  2026 Award Winner →
                 </p>
               </div>
-            </div>
+            </Link>
             <div className="flex items-center gap-3 px-4 py-3 border border-border bg-card/80 backdrop-blur-sm">
               <span className="text-xl shrink-0">🌍</span>
               <div>

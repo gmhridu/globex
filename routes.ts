@@ -11,7 +11,8 @@ export const publicRoutes: string[] = [
   "/careers",
   "/our-markets",
   "/industries",
-  "/tailored-solutions"
+  "/tailored-solutions",
+  "/awards"
 ];
 
 /**

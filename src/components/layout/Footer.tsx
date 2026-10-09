@@ -135,7 +135,15 @@ export default function Footer() {
                   Our Charity Partner
                 </Link>
               </li>
-
+              <li>
+                <Link
+                  href="/awards"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Awards
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/blogs"
