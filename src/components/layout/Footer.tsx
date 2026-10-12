@@ -135,7 +135,7 @@ export default function Footer() {
                   Our Charity Partner
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/awards"
                   className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
@@ -143,7 +143,7 @@ export default function Footer() {
                 >
                   Awards
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/blogs"
@@ -153,15 +153,15 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
-            <li>
-              <Link
-                href="/contact"
-                className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
-                style={sans()}
-              >
-                Contact Us
-              </Link>
-            </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-muted-foreground hover:text-[#e8a020] transition-colors"
+                  style={sans()}
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
