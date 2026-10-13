@@ -16,6 +16,7 @@ export interface AwardItem {
   description: string;
   badge?: string;
   year: string;
+  link: string;
   story: AwardStory;
 }
 
@@ -155,6 +156,7 @@ export const AWARDS_DATA: AwardItem[] = [
       "Awarded for consultancy that moves beyond recommendations to deliver focused commercial strategy and measurable execution.",
     year: "2026",
     badge: "Greater London Business Awards Winner",
+    link: "/business-awards-uk",
     story: {
       headline:
         "Consultancy Built on Direct Commercial Execution, Not Theoretical Strategy",
@@ -185,6 +187,7 @@ export const AWARDS_DATA: AwardItem[] = [
     description:
       "International recognition of our work building sustainable distributor, buyer, and private-label relationships for manufacturers.",
     year: "2026",
+    link: "/global-brands-award",
     badge: "Global Brand Awards Winner",
     story: {
       headline:

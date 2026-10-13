@@ -2,6 +2,7 @@
 
 import { AwardItem } from "@/constant/awards";
 import { sans, serif } from "@/lib/utils";
+import Link from "next/link";
 
 interface AwardCardProps {
   award: AwardItem;
@@ -43,15 +44,14 @@ export function AwardCard({ award, onReadStory }: AwardCardProps) {
 
           {/* Read Award Story Button */}
           {award.story && (
-            <button
-              type="button"
-              onClick={() => onReadStory(award)}
+            <Link
+              href={award.link}
               className="mt-6 inline-flex items-center gap-1.5 text-[0.65rem] uppercase tracking-widest text-[#e8a020] border-b border-[#e8a020]/40 pb-1.5 hover:text-[#f0b030] hover:border-[#f0b030] transition-all cursor-pointer"
               style={sans(600)}
               aria-label={`Read the award story for ${award.title}`}
             >
               Read the Award Story →
-            </button>
+            </Link>
           )}
         </div>
 
