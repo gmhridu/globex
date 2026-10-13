@@ -61,13 +61,6 @@ export function AwardsList() {
           ))}
         </div>
       </div>
-
-      {/* Award Story Modal */}
-      <AwardStoryModal
-        award={selectedAward}
-        isOpen={modalOpen}
-        onClose={handleCloseStory}
-      />
     </section>
   );
 }
