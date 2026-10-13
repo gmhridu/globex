@@ -1,37 +1,24 @@
+import { AWARD_IMAGES, AWARD_LINKS } from "@/constant/awards";
 import { sans, serif } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[86vh] flex items-end pt-32 pb-20 border-b border-[#2a2f3d] overflow-hidden">
-      {/* Background radial and glow accents */}
+    <section className="relative min-h-screen flex items-end pt-32 pb-16 md:pb-24 overflow-hidden">
+      {/* Background Dubai skyline image */}
+      <img
+        src={AWARD_IMAGES.dubaiHero}
+        alt="Dubai skyline with the Burj Khalifa at golden hour"
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-55"
+      />
+
+      {/* Atmospheric dark gradient overlays */}
       <div
-        className="absolute inset-0 opacity-80"
+        className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 78% 28%, rgba(232,160,32,0.16), transparent 28%), linear-gradient(135deg, #0d0f14 35%, #151820 100%)",
+            "linear-gradient(90deg, rgba(13,15,20,0.98) 0%, rgba(13,15,20,0.88) 44%, rgba(13,15,20,0.32) 76%, rgba(13,15,20,0.58) 100%), linear-gradient(0deg, rgba(13,15,20,0.92) 0%, transparent 50%)",
         }}
       />
-      {/* Concentric orbital rings echoing prestige & recognition */}
-      <div className="absolute top-28 right-[8%] w-64 h-64 md:w-96 md:h-96 rounded-full border border-[#e8a020]/20 pointer-events-none" />
-      <div className="absolute top-40 right-[12%] w-44 h-44 md:w-64 md:h-64 rounded-full border border-[#e8a020]/30 pointer-events-none" />
-      
-      {/* Gold Award Seal Badge */}
-      <div className="absolute top-56 right-[16%] w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#e8a020] shadow-[0_0_40px_rgba(232,160,32,0.35)] flex items-center justify-center z-10 transition-transform hover:scale-105 duration-300">
-        <div className="text-center text-[#0d0f14]">
-          <p
-            className="text-[0.55rem] uppercase tracking-[0.25em]"
-            style={sans(600)}
-          >
-            Awarded
-          </p>
-          <p
-            className="text-4xl md:text-5xl leading-none font-bold"
-            style={serif(800)}
-          >
-            2026
-          </p>
-        </div>
-      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-4xl">
@@ -39,33 +26,49 @@ export function Hero() {
             <span className="w-8 h-px bg-[#e8a020]" />
             <span
               className="text-[0.65rem] uppercase tracking-[0.24em] text-[#e8a020]"
-              style={sans(500)}
+              style={sans(600)}
             >
-              Independent Recognition
+              Global Brands Magazine · Global Brand Awards 2026
             </span>
           </div>
+
           <h1
-            className="text-[4.5rem] sm:text-[6.5rem] md:text-[9rem] uppercase leading-[0.78] mb-10"
+            className="text-[4rem] sm:text-[5.5rem] md:text-[7.5rem] uppercase leading-[0.82] mb-8 text-[#f0ede8]"
             style={serif(800)}
           >
-            International Growth.
+            International
             <br />
-            <span className="text-[#e8a020]">Award-Winning Expertise.</span>
+            Manufacturing Growth
+            <br />
+            <span className="text-[#e8a020]">Partner of the Year.</span>
           </h1>
-          <div className="grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-10 items-start max-w-2xl">
-            <p
-              className="text-6xl text-[#e8a020] leading-none"
-              style={serif(800)}
+
+          <p
+            className="text-base md:text-lg text-[#c4bfb8] leading-relaxed max-w-2xl mb-10"
+            style={sans(400)}
+          >
+            International recognition for building sustainable distributor,
+            buyer, and private-label relationships that help manufacturers grow
+            beyond their home markets.
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={AWARD_LINKS.officialWinnerPage}
+              target="_blank"
+              rel="noreferrer"
+              className="px-7 py-4 bg-[#e8a020] text-[#0d0f14] text-[0.65rem] uppercase tracking-widest hover:bg-[#f0b030] transition-colors inline-block"
+              style={sans(600)}
             >
-              02
-            </p>
-            <p
-              className="text-base text-[#c4bfb8] leading-relaxed"
-              style={sans(400)}
+              View Official Recognition ↗
+            </a>
+            <a
+              href="#event"
+              className="px-7 py-4 border border-white/20 text-[#f0ede8] text-[0.65rem] uppercase tracking-widest hover:border-[#e8a020] hover:text-[#e8a020] transition-colors inline-block"
+              style={sans(500)}
             >
-              Two 2026 awards recognising We Are Globex for business consultancy
-              and international manufacturing growth.
-            </p>
+              See the Event
+            </a>
           </div>
         </div>
       </div>
