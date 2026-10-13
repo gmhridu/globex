@@ -331,7 +331,7 @@ export default function GlobalBrandsAwardPage({
             <img
               src={groupPhoto}
               alt="Global Brand Awards winners gathered at the 2026 ceremony"
-              className="relative w-full aspect-3/2 object-cover"
+              className="relative w-full aspect-[3/2] object-cover"
             />
           </div>
           <div>
@@ -413,32 +413,6 @@ export default function GlobalBrandsAwardPage({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-            <figure className="md:col-span-8 relative overflow-hidden bg-[#0d0f14]">
-              <img
-                src={groupPhoto}
-                alt="Global Brand Awards 2026 winners"
-                className="w-full aspect-[16/10] object-cover"
-              />
-              <figcaption
-                className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-[#0d0f14] to-transparent text-[0.6rem] uppercase tracking-widest text-[#c4bfb8]"
-                style={body(500)}
-              >
-                Global Brand Awards 2026 · Winners
-              </figcaption>
-            </figure>
-            <figure className="md:col-span-4 relative overflow-hidden bg-[#0d0f14]">
-              <img
-                src={stagePhoto}
-                alt="We Are Globex accepting the award"
-                className="w-full h-full min-h-[28rem] object-cover"
-              />
-              <figcaption
-                className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-[#0d0f14] to-transparent text-[0.6rem] uppercase tracking-widest text-[#c4bfb8]"
-                style={body(500)}
-              >
-                We Are Globex · Award Presentation
-              </figcaption>
-            </figure>
             {eventPhotos.map((photo) => (
               <figure
                 key={photo.src}
