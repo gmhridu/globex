@@ -85,7 +85,10 @@ export function AwardStoryModal({
             </p>
             <ul className="space-y-2.5">
               {award.story.criteria.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs text-[#c4bfb8]">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs text-[#c4bfb8]"
+                >
                   <CheckCircle2 className="w-4 h-4 text-[#e8a020] shrink-0 mt-0.5" />
                   <span style={sans(400)}>{item}</span>
                 </li>
@@ -103,7 +106,10 @@ export function AwardStoryModal({
               >
                 Commercial Impact for Manufacturers
               </p>
-              <p className="text-xs text-[#f0ede8] leading-relaxed" style={sans(400)}>
+              <p
+                className="text-xs text-[#f0ede8] leading-relaxed"
+                style={sans(400)}
+              >
                 {award.story.commercialImpact}
               </p>
             </div>
