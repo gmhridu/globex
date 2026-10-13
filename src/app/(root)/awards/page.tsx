@@ -1,34 +1,40 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/awards/hero/hero";
-import { AwardsList } from "@/components/awards/awards-list/awards-list";
 import { StatsBand } from "@/components/awards/stats-band/stats-band";
+import { TheRecognition } from "@/components/awards/the-recognition/the-recognition";
+import { Criteria } from "@/components/awards/criteria/criteria";
+import { AboutOrganisation } from "@/components/awards/about-organisation/about-organisation";
+import { EventGallery } from "@/components/awards/event-gallery/event-gallery";
+import { EventFilms } from "@/components/awards/event-films/event-films";
 import { CtaBand } from "@/components/awards/cta-band/cta-band";
+import { AWARD_IMAGES } from "@/constant/awards";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://weareglobex.com";
 
 const description =
-  "Independent recognition for We Are Globex: Business Consultancy of the Year (Business Awards UK) and International Manufacturing Growth Partner of the Year (Global Brands Magazine). Discover our 2026 award-winning work.";
+  "International recognition for We Are Globex: International Manufacturing Growth Partner of the Year at the Global Brand Awards 2026 (Global Brands Magazine). Discover our award-winning work building sustainable distributor, buyer, and private-label relationships.";
 
 export const metadata: Metadata = {
-  title: "Awards & Recognition | 2026 Winner | We Are Globex",
+  title:
+    "International Manufacturing Growth Partner of the Year | Global Brand Awards 2026 | We Are Globex",
   description,
   keywords: [
     "We Are Globex awards",
-    "Business Consultancy of the Year 2026",
-    "Greater London Business Awards",
     "Global Brand Awards 2026",
-    "International Manufacturing Growth Partner",
+    "International Manufacturing Growth Partner of the Year",
+    "Global Brands Magazine winner",
     "manufacturing growth consultancy",
     "award-winning export partner",
+    "Dubai Global Brand Awards",
     "manufacturing distribution recognition",
-    "Business Awards UK winner",
-    "Global Brands Magazine winner",
+    "distributor acquisition Europe Middle East",
   ],
   alternates: {
     canonical: "/awards",
   },
   openGraph: {
-    title: "Awards & Recognition | 2026 Winner | We Are Globex",
+    title:
+      "International Manufacturing Growth Partner of the Year | Global Brand Awards 2026 | We Are Globex",
     description,
     url: `${SITE_URL}/awards`,
     siteName: "We Are Globex",
@@ -36,18 +42,19 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logos/Globex_Logo_Reversed.png",
+        url: AWARD_IMAGES.dubaiHero,
         width: 1200,
         height: 630,
-        alt: "We Are Globex 2026 Awards and Independent Recognition",
+        alt: "We Are Globex - International Manufacturing Growth Partner of the Year 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Awards & Recognition | 2026 Winner | We Are Globex",
+    title:
+      "International Manufacturing Growth Partner of the Year | Global Brand Awards 2026 | We Are Globex",
     description,
-    images: ["/logos/Globex_Logo_Reversed.png"],
+    images: [AWARD_IMAGES.dubaiHero],
     creator: "@weareglobex",
   },
   robots: {
@@ -67,10 +74,14 @@ export const metadata: Metadata = {
 
 export default function AwardsPage() {
   return (
-    <main>
+    <main className="min-h-screen bg-[#0d0f14] text-[#f0ede8] overflow-x-hidden">
       <Hero />
-      <AwardsList />
       <StatsBand />
+      <TheRecognition />
+      <Criteria />
+      <AboutOrganisation />
+      <EventGallery />
+      <EventFilms />
       <CtaBand />
     </main>
   );
